@@ -1,0 +1,2983 @@
+﻿<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cannan-Minning | Dragage, BTP, Petites Roches et Vente de Sable</title>
+
+<meta name="description" content="Dragage de sable, terrassement BTP, petites roches et vente de sable en vrac. Matériel professionnel, devis sous 24h. Cannan-Minning.">
+
+<meta name="theme-color" content="#16306E">
+
+<meta property="og:type" content="website">
+
+<meta property="og:locale" content="fr_FR">
+
+<meta property="og:site_name" content="Cannan-Minning">
+
+<meta property="og:title" content="Cannan-Minning | Dragage, BTP, Petites Roches et Vente de Sable">
+
+<meta property="og:description" content="Dragage de sable, terrassement BTP, petites roches et vente de sable en vrac. Devis sous 24h.">
+
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="img/logo-icon.png" type="image/png">
+
+<link rel="apple-touch-icon" href="img/logo-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+  --navy:#16306E;
+
+  --navy-d:#0F2352;
+
+  --navy-dd:#0A1A3D;
+
+  --azur:#0281C2;
+
+  --azur-d:#016A9F;
+
+  --azur-l:#4FB0E0;
+
+  --azur-tint:#E8F4FA;
+
+  --green:#66B245;
+
+  --sky:#EAF3F9;
+
+  --frost:#B3CEE6;
+
+  --ink:#152130;
+
+  --muted:#5A6B7C;
+
+  --line:#D8E2EC;
+
+  --line-s:#E9EFF5;
+
+  --lineD:rgba(255,255,255,.18);
+
+  --e:cubic-bezier(.16,1,.3,1);
+
+  --max:1200px;
+
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:135px;overflow-x:hidden;overflow-x:clip}
+
+ body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:clip;background:#fff}
+
+h1,h2,h3,h4,.f{font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-.03em;line-height:1.1;color:var(--navy)}
+
+a{text-decoration:none;color:inherit}
+
+img{display:block;max-width:100%}
+
+.w{width:100%;max-width:var(--max);margin:0 auto;padding:0 28px}
+
+
+
+/* eyebrow */
+
+.lb{display:inline-flex;align-items:center;gap:11px;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--azur)}
+
+.lb .ix{font-weight:800;letter-spacing:.08em}
+
+.lb::before{content:"";width:26px;height:1px;background:var(--frost)}
+
+.lb.inv{color:rgba(255,255,255,.7)}
+
+.lb.inv::before{background:var(--azur-l)}
+
+
+
+/* buttons  sobres */
+
+.b{display:inline-flex;align-items:center;gap:10px;font-family:'Archivo',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:-.005em;padding:14px 24px;border:1px solid transparent;cursor:pointer;transition:.25s var(--e);white-space:nowrap;background:none}
+
+.b-b{background:var(--azur);border-color:var(--azur);color:#fff}
+
+.b-b:hover{background:var(--azur-d);border-color:var(--azur-d);box-shadow:0 4px 14px rgba(2,129,194,.22)}
+
+.b-n{background:var(--navy);border-color:var(--navy);color:#fff}
+
+.b-n:hover{background:var(--navy-d);border-color:var(--navy-d);box-shadow:0 4px 14px rgba(22,48,110,.24)}
+
+.b-o{border-color:var(--line);color:var(--navy);background:#fff}
+
+.b-o:hover{border-color:var(--navy);background:var(--navy);color:#fff}
+
+.b-ow{border-color:var(--lineD);color:#fff;background:transparent}
+
+.b-ow:hover{border-color:#fff;background:#fff;color:var(--navy)}
+
+.b .t{transition:transform .25s var(--e)}
+
+.b:hover .t{transform:translateX(3px)}
+
+
+
+/* ============ TOPBAR (toujours visible, pousse le hero vers le bas) ============ */
+
+.tb{position:fixed;top:0;left:0;right:0;z-index:101;background:var(--navy-d);color:rgba(255,255,255,.62);font-size:12px}
+
+.tb-i{display:flex;align-items:center;justify-content:space-between;height:40px;gap:20px}
+
+.tb-l{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+
+.tb-l a,.tb-r{display:flex;align-items:center;gap:7px;transition:color .2s}
+
+.tb-l a:hover{color:#fff}
+
+.tb-r i{width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0}
+
+
+
+/* ============ HEADER (fixe, blanc, toujours visible) ============ */
+
+.hd{position:fixed;top:40px;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid var(--line);
+
+  transition:box-shadow .4s var(--e)}
+
+.hd.st{box-shadow:0 2px 14px rgba(10,26,61,.09)}
+
+.hd-i{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+
+.br{display:flex;align-items:center;gap:12px;flex-shrink:0}
+
+.br-m{width:44px;height:44px;display:grid;place-items:center;flex-shrink:0}
+
+.br-m img{width:100%;height:100%;object-fit:contain}
+
+.br-n{font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.04em;color:var(--navy);line-height:1.05}
+
+.br-n i{font-style:normal;color:var(--azur)}
+
+.br-s{font-size:8.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px}
+
+nav{display:flex;gap:2px}
+
+nav a{font-size:13.5px;font-weight:500;color:var(--ink);padding:9px 14px;position:relative;transition:color .2s}
+
+nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:1.5px;background:var(--azur);transform:scaleX(0);transform-origin:left;transition:transform .28s var(--e)}
+
+nav a:hover,nav a.on{color:var(--azur)}
+
+nav a:hover::after,nav a.on::after{transform:scaleX(1)}
+
+.hd-r{display:flex;align-items:center;gap:10px}
+
+.bk{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer;place-items:center}
+
+.bk i{display:block;width:20px;height:1.6px;background:var(--navy);position:relative;transition:.3s}
+
+.bk i::before,.bk i::after{content:"";position:absolute;left:0;width:20px;height:1.6px;background:var(--navy);transition:.3s}
+
+.bk i::before{top:-6px}.bk i::after{top:6px}
+
+.bk.x i{background:transparent}
+
+.bk.x i::before{top:0;transform:rotate(45deg)}
+
+.bk.x i::after{top:0;transform:rotate(-45deg)}
+
+.mn{display:none;background:#fff;border-top:1px solid var(--line);padding:8px 0 24px}
+
+.mn.on{display:block}
+
+.mn a{display:block;padding:15px 0;font-family:'Archivo',sans-serif;font-weight:700;font-size:18px;color:var(--navy);border-bottom:1px solid var(--line-s)}
+
+.mn .b{width:100%;margin-top:20px;justify-content:center}
+
+
+
+/* ============ HERO ============ */
+
+/* 1 seule section : image + overlay + texte par-dessus. */
+
+:root{--bandH:74px;--ctlH:64px;--hdH:115px}   /* 40px topbar + 75px navbar */
+
+.hero{position:relative;margin-top:var(--hdH);background:var(--navy-dd);
+
+  min-height:max(calc(100vh - var(--hdH)),660px);display:flex;flex-direction:column}
+
+.car{position:relative;flex:1 1 auto;overflow:hidden;background:var(--navy-dd);border:0;min-height:0}
+
+.car-t{position:absolute;inset:0;display:flex;transition:transform .55s var(--e);will-change:transform}
+
+.car-s{flex:0 0 100%;position:relative}
+
+.car-s img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+
+  object-position:center center;
+
+  image-rendering:auto;
+
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+
+  -webkit-transform:translateZ(0);transform:translateZ(0);
+
+  will-change:transform;
+
+  animation:kb 7s ease-out both;display:block}
+
+@keyframes kb{from{-webkit-transform:translateZ(0) scale(1.05);transform:translateZ(0) scale(1.05)}to{-webkit-transform:translateZ(0) scale(1);transform:translateZ(0) scale(1)}}
+
+
+
+/* Couche 1 : overlay par slide, entre l'image et le texte */
+
+.car-o{position:absolute;inset:0;z-index:1;pointer-events:none;
+
+  background:linear-gradient(90deg,rgba(10,26,61,.9) 0%,rgba(10,26,61,.72) 42%,rgba(10,26,61,.3) 72%,rgba(10,26,61,.5) 100%)}
+
+/* Couche 2 : overlay global, teinte le bas pour le bandeau et les controles */
+
+.car-ov{position:absolute;inset:0;z-index:2;pointer-events:none;
+
+  background:linear-gradient(0deg,rgba(8,20,48,.92) 0,var(--bandH) 100%,rgba(10,26,61,.4) 170px 100%,transparent 300px 100%)}
+
+
+
+/* Couche 3 : le texte Hero, ABSOLU, centre verticalement dans la zone libre
+
+   (au-dessus du bandeau + controles). Plus de decalage en dur. */
+
+.hero-in{position:absolute;inset:0 0 calc(var(--bandH) + var(--ctlH)) 0;z-index:4;display:flex;align-items:center;
+
+  padding:34px 0;pointer-events:none}
+
+.hero-in>.w{width:100%}
+
+.hero-c{pointer-events:auto;max-width:640px}
+
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--azur-l);background:rgba(2,129,194,.14);padding:7px 13px;border:1px solid rgba(120,200,240,.28);backdrop-filter:blur(4px)}
+
+.eyebrow b{font-weight:800;letter-spacing:.08em}
+
+.hero h1{font-size:clamp(2.1rem,4.4vw,3.5rem);letter-spacing:-.042em;margin:22px 0 0;line-height:1.05;color:#fff}
+
+.hero h1 s{text-decoration:none;color:var(--azur-l);display:block}
+
+.hero h1 u{text-decoration:none;border-bottom:3px solid rgba(102,178,69,.75);padding-bottom:2px}
+
+.hero-p{font-size:15.5px;line-height:1.75;color:rgba(255,255,255,.72);margin-top:24px;max-width:500px}
+
+.hero-a{display:flex;flex-wrap:wrap;gap:11px;margin-top:32px}
+
+.hero-s{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.16);margin-top:40px;padding-top:22px;max-width:620px}
+
+.hero-s>div{padding:0 16px}
+
+.hero-s>div:first-child{padding-left:0}
+
+.hero-s>div+div{border-left:1px solid rgba(255,255,255,.16)}
+
+.hero-s b{font-family:'Archivo',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;display:block;line-height:1.1;letter-spacing:-.03em}
+
+.hero-s b i{font-style:normal;color:var(--azur-l)}
+
+.hero-s span{font-size:11.5px;color:rgba(255,255,255,.55);display:block;margin-top:5px;line-height:1.4}
+
+
+
+/* CONTROLS */
+
+.car-ui{position:absolute;left:0;right:0;bottom:var(--bandH);z-index:7}
+
+.car-ui .w{display:flex;align-items:center;gap:18px;padding:14px 28px}
+
+.car-dots{display:flex;gap:5px;flex:1;max-width:340px}
+
+.car-dots button{height:3px;flex:1;background:rgba(255,255,255,.28);cursor:pointer;transition:background .25s,transform .25s var(--e);border:0;padding:0}
+
+.car-dots button:hover{background:rgba(255,255,255,.6);transform:scaleY(2)}
+
+.car-dots button.on{background:#fff}
+
+.car-dots button:focus-visible{outline:2px solid var(--azur-l);outline-offset:4px}
+
+.car-n{font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.6);white-space:nowrap}
+
+.car-ar{display:flex;gap:7px}
+
+.car-b{width:36px;height:36px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);backdrop-filter:blur(6px);display:grid;place-items:center;cursor:pointer;transition:.22s}
+
+.car-b:hover{background:#fff;border-color:#fff}
+
+.car-b:hover svg{stroke:var(--navy)}
+
+.car-b svg{width:14px;height:14px;stroke:#fff;transition:stroke .22s}
+
+.car-txt{position:absolute;right:28px;bottom:calc(var(--bandH) + var(--ctlH) + 4px);z-index:4;max-width:290px;text-align:right;pointer-events:none}
+
+.car-txt em{font-style:normal;display:block;font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--azur-l);margin-bottom:6px}
+
+.car-txt b{font-family:'Archivo',sans-serif;font-size:1.05rem;font-weight:600;letter-spacing:-.025em;line-height:1.22;color:#fff}
+
+.car-txt span{display:block;font-size:12.5px;color:rgba(255,255,255,.6);margin-top:4px;line-height:1.5}
+
+
+
+/* PROOF BAND (over carousel) - hauteur libre, --bandH mesure en JS */
+
+.band{position:absolute;left:0;right:0;bottom:0;z-index:6;background:rgba(8,20,48,.85);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.14);color:#fff}
+
+.band-g{display:grid;grid-template-columns:repeat(5,1fr)}
+
+.band-g>div{padding:0 20px;border-right:1px solid rgba(255,255,255,.12);display:flex;gap:11px;align-items:center;transition:background .25s;min-height:74px}
+
+.band-g>div:last-child{border:0}
+
+.band-g>div:hover{background:rgba(255,255,255,.06)}
+
+.band-g svg{stroke:var(--azur-l);flex-shrink:0}
+
+.band-g b{display:block;font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:600;line-height:1.25}
+
+.band-g span{font-size:11.5px;color:rgba(255,255,255,.58);line-height:1.3;display:block}
+
+
+
+/* ============ SECTION ============ */
+
+.sec{padding:74px 0}
+
+.sec.sky{background:var(--sky)}
+
+.sh{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:end;margin-bottom:46px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+
+.sh h2{font-size:clamp(1.5rem,2.6vw,2.15rem);margin:16px 0 0;letter-spacing:-.035em}
+
+.sh p{font-size:15px;line-height:1.75;color:var(--muted)}
+
+
+
+/* ============ SERVICES ============ */
+
+/* ---- PRESTATIONS : 4 métiers ---- */
+
+.svcs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+
+.svc{position:relative;background:#fff;border:1px solid var(--line);padding:30px 32px 26px;overflow:hidden;
+
+  box-shadow:0 1px 2px rgba(10,26,61,.05);transition:transform .3s var(--e),border-color .3s var(--e),box-shadow .3s var(--e)}
+
+/* lis?re azur qui se deploie par le haut au survol */
+
+.svc::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--azur);
+
+  transform:scaleX(0);transform-origin:left;transition:transform .38s var(--e)}
+
+.svc:hover{transform:translateY(-3px);border-color:#C2D6E8;box-shadow:0 14px 34px rgba(10,26,61,.1)}
+
+.svc:hover::before{transform:scaleX(1)}
+
+
+
+.svc-t{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px}
+
+.svc-ic{width:52px;height:52px;background:var(--azur-tint);display:grid;place-items:center;flex-shrink:0;
+
+  border-left:2px solid var(--azur);transition:.3s var(--e)}
+
+.svc-ic svg{width:24px;height:24px;stroke:var(--navy);transition:stroke .3s var(--e)}
+
+.svc:hover .svc-ic{background:var(--azur);border-left-color:var(--navy-dd)}
+
+.svc:hover .svc-ic svg{stroke:#fff}
+
+.svc-n{font-family:'Archivo',sans-serif;font-size:38px;font-weight:800;line-height:.82;letter-spacing:-.05em;
+
+  color:#E1EAF2;transition:color .3s var(--e)}
+
+.svc:hover .svc-n{color:var(--azur-tint)}
+
+
+
+.svc h3{font-size:1.28rem;letter-spacing:-.032em;line-height:1.18}
+
+.svc h3 em{font-style:normal;display:block;font-family:'Inter',sans-serif;font-size:9.5px;font-weight:600;
+
+  letter-spacing:.18em;text-transform:uppercase;color:var(--azur);margin-top:9px}
+
+.svc p{font-size:13.5px;line-height:1.72;color:var(--muted);margin-top:14px}
+
+
+
+.svc-f{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line-s)}
+
+.svc-f span{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+
+  background:var(--sky);padding:5px 10px}
+
+.svc-a{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--navy);letter-spacing:.01em;transition:color .25s}
+
+.svc-a svg{width:13px;height:13px;stroke:currentColor;transition:transform .25s var(--e)}
+
+.svc:hover .svc-a{color:var(--azur)}
+
+.svc:hover .svc-a svg{transform:translate(2px,-2px)}
+
+
+
+/* ============ MATERIALS TABLE ============ */
+
+.mt-g{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:start}
+
+.mt-l p{font-size:15px;line-height:1.75;color:var(--muted);margin-top:20px}
+
+.mt-note{display:flex;gap:12px;margin-top:26px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--green);padding:16px 18px}
+
+.mt-note svg{width:18px;height:18px;stroke:var(--green);flex-shrink:0;margin-top:1px}
+
+.mt-note p{font-size:13px;line-height:1.6;color:var(--muted);margin:0}
+
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}
+
+th{background:var(--navy);color:#fff;text-align:left;padding:13px 18px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-family:'Archivo',sans-serif}
+
+th:last-child{text-align:right}
+
+td{padding:14px 18px;border-bottom:1px solid var(--line-s);font-size:13.5px;color:var(--muted);line-height:1.55}
+
+td:first-child{font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;color:var(--navy);width:34%}
+
+td.g{text-align:right;font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:var(--azur);white-space:nowrap}
+
+td.g::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--green);margin-right:8px;vertical-align:middle}
+
+tbody tr{transition:background .2s}
+
+tbody tr:hover{background:var(--azur-tint)}
+
+tbody tr:last-child td{border-bottom:0}
+
+
+
+/* ============ GALLERY ============ */
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+.g{border:1px solid var(--line);background:#fff;transition:.25s var(--e);display:flex;flex-direction:column}
+
+.g:hover{border-color:var(--azur-l);box-shadow:0 4px 18px rgba(21,33,48,.08)}
+
+.g-img{overflow:hidden;border-bottom:1px solid var(--line-s)}
+
+.g-img img{width:100%;aspect-ratio:4/2.7;object-fit:cover;transition:transform .7s var(--e);filter:saturate(.88)}
+
+.g:hover .g-img img{transform:scale(1.05);filter:saturate(1)}
+
+.g-b{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
+
+.g-tag{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--azur);margin-bottom:8px}
+
+.g-b h3{font-size:1.02rem;letter-spacing:-.025em}
+
+.g-b p{font-size:13px;line-height:1.6;color:var(--muted);margin-top:8px;flex:1}
+
+.g-l{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--azur);margin-top:14px}
+
+.g-l svg{width:12px;height:12px;stroke:currentColor;transition:transform .25s var(--e)}
+
+.g:hover .g-l svg{transform:translateX(3px)}
+
+
+
+/* ============ FIGURES ============ */
+
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);background:#fff}
+
+.fig{padding:28px 24px;border-right:1px solid var(--line);border-top:3px solid transparent;transition:.25s var(--e)}
+
+.fig:last-child{border-right:0}
+
+.fig:hover{border-top-color:var(--azur)}
+
+.fig-ic{width:38px;height:38px;background:var(--sky);display:grid;place-items:center;margin-bottom:18px;transition:.25s}
+
+.fig-ic svg{width:19px;height:19px;stroke:var(--navy);transition:.25s}
+
+.fig:hover .fig-ic{background:var(--azur)}
+
+.fig:hover .fig-ic svg{stroke:#fff}
+
+.fig b{display:block;font-family:'Archivo',sans-serif;font-size:15px;font-weight:600;color:var(--navy);margin-bottom:9px;letter-spacing:-.02em}
+
+.fig p{font-size:13px;line-height:1.68;color:var(--muted)}
+
+
+
+/* ============ PROCESS ============ */
+
+.proc{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:#fff}
+
+.pc{padding:28px 24px;border-right:1px solid var(--line);transition:.25s var(--e)}
+
+.pc:last-child{border:0}
+
+.pc:hover{background:var(--sky)}
+
+.pc .n{font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--azur)}
+
+.pc b{display:block;font-family:'Archivo',sans-serif;font-size:15.5px;font-weight:600;color:var(--navy);margin:14px 0 8px;letter-spacing:-.02em}
+
+.pc p{font-size:13px;line-height:1.65;color:var(--muted)}
+
+
+
+/* ============ QUOTE ============ */
+
+.q-g{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+
+.q-g blockquote{font-family:'Archivo',sans-serif;font-size:1.2rem;font-weight:600;line-height:1.45;letter-spacing:-.025em;color:var(--navy)}
+
+.q-g blockquote span{font-family:'Inter',sans-serif;font-size:13.5px;font-weight:400;color:var(--muted);letter-spacing:0}
+
+.q-side{border-left:1px solid var(--line);padding-left:36px}
+
+.q-side .it{display:flex;gap:13px;padding:16px 0;border-bottom:1px solid var(--line)}
+
+.q-side .it:last-child{border:0;padding-bottom:0}
+
+.q-side .it svg{width:18px;height:18px;stroke:var(--green);flex-shrink:0;margin-top:2px}
+
+.q-side .it b{font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;color:var(--navy);display:block}
+
+.q-side .it span{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+
+
+/* ============ CTA ============ */
+
+.cta{background:var(--navy-d);color:#fff;position:relative;overflow:hidden}
+
+.cta-bg{position:absolute;inset:0;opacity:.16}
+
+.cta-bg img{width:100%;height:100%;object-fit:cover}
+
+.cta-i{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:52px;flex-wrap:wrap;padding:62px 0}
+
+.cta-i h2{color:#fff;font-size:clamp(1.55rem,2.7vw,2.3rem);letter-spacing:-.038em;max-width:600px}
+
+.cta-i h2 u{text-decoration:none;color:var(--azur-l)}
+
+.cta-i p{color:rgba(255,255,255,.6);font-size:15px;margin-top:16px;max-width:520px;line-height:1.7}
+
+.cta-b{display:flex;flex-direction:column;gap:10px;min-width:260px}
+
+
+
+/* ============ CONTACT ============ */
+
+/* ---- CONTACT : carte marine + carte formulaire ---- */
+
+.cg{display:grid;grid-template-columns:.86fr 1.14fr;gap:26px;align-items:stretch}
+
+
+
+/* carte marine */
+
+.ct-c{background:var(--navy-dd);color:#fff;padding:40px 36px 34px;position:relative;overflow:hidden;
+
+  display:flex;flex-direction:column;box-shadow:0 20px 48px rgba(10,26,61,.24)}
+
+.ct-c::before{content:"";position:absolute;inset:0;pointer-events:none;
+
+  background:radial-gradient(120% 90% at 100% 0,rgba(2,129,194,.34),transparent 58%),
+
+             radial-gradient(90% 70% at 0% 100%,rgba(102,178,69,.16),transparent 60%)}
+
+/* gros chiffre fantome, dans la continuity des cartes Prestations */
+
+.ct-ghost{position:absolute;right:-14px;bottom:-30px;font-family:'Archivo',sans-serif;font-size:170px;
+
+  font-weight:800;line-height:.8;letter-spacing:-.06em;color:rgba(255,255,255,.055);pointer-events:none}
+
+.ct-in{position:relative;z-index:2;display:flex;flex-direction:column;height:100%}
+
+
+
+.ct-top{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:.2em;
+
+  text-transform:uppercase;color:var(--azur-l)}
+
+.ct-top i{width:7px;height:7px;background:var(--vert);border-radius:50%;flex-shrink:0;
+
+  animation:pulse 2.4s ease-in-out infinite}
+
+.ct-lb{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+
+  color:rgba(255,255,255,.5);margin-top:30px}
+
+
+
+.ct-tel{display:inline-block;margin-top:11px;font-family:'Archivo',sans-serif;font-weight:800;
+
+  font-size:clamp(1.55rem,2.5vw,2rem);letter-spacing:-.038em;line-height:1.08;color:#fff;
+
+  text-decoration:none;transition:color .25s var(--e);width:fit-content}
+
+.ct-tel:hover{color:var(--azur-l)}
+
+.ct-sub{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.65;margin-top:12px;max-width:34ch}
+
+.ct-mail{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:14.5px;font-weight:500;
+
+  color:#fff;text-decoration:none;width:fit-content;border-bottom:1px solid rgba(255,255,255,.28);
+
+  padding-bottom:3px;transition:.25s var(--e)}
+
+.ct-mail svg{width:15px;height:15px;stroke:var(--azur-l);flex-shrink:0}
+
+.ct-mail:hover{color:var(--azur-l);border-bottom-color:var(--azur-l)}
+
+
+
+/* grille d infos : separates par des filets de 1px */
+
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.15);
+
+  border:1px solid rgba(255,255,255,.15);margin-top:28px}
+
+.ct-i{background:var(--navy-dd);padding:16px 16px 15px;transition:background .25s}
+
+.ct-i:hover{background:var(--navy-d)}
+
+.ct-i span{display:block;font-size:9.5px;font-weight:600;letter-spacing:.17em;text-transform:uppercase;
+
+  color:rgba(255,255,255,.5)}
+
+.ct-i b{display:block;font-family:'Archivo',sans-serif;font-size:14.5px;font-weight:600;
+
+  letter-spacing:-.02em;margin-top:8px;line-height:1.35}
+
+.ct-i small{display:block;font-size:12px;color:rgba(255,255,255,.55);margin-top:5px;line-height:1.45}
+
+
+
+.ct-foot{margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:11px;
+
+  font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.5}
+
+.ct-foot svg{width:16px;height:16px;stroke:var(--vert);flex-shrink:0}
+
+
+
+/* carte formulaire */
+
+.ct-f{background:#fff;border:1px solid var(--line);padding:40px 38px 34px;
+
+  box-shadow:0 12px 34px rgba(10,26,61,.08);display:flex;flex-direction:column}
+
+.ct-fh{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
+
+  padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:26px}
+
+.ct-fh h3{font-size:1.32rem;letter-spacing:-.033em;line-height:1.2}
+
+.ct-fh span{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+
+  color:var(--azur);white-space:nowrap;padding-bottom:3px}
+
+
+
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+.fd{margin-bottom:18px;position:relative}
+
+.fd label{display:block;font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;transition:color .22s}
+
+.fd label b{color:var(--azur);font-weight:700;margin-left:2px}
+
+.fd input,.fd select,.fd textarea{width:100%;padding:13px 14px;border:1px solid var(--line);background:#fff;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);border-radius:0;transition:.22s}
+
+.fd textarea{resize:vertical;min-height:100px}
+
+.fd input::placeholder,.fd textarea::placeholder{color:#9DAABA}
+
+.fd input:focus,.fd select:focus,.fd textarea:focus{outline:none;border-color:var(--azur);box-shadow:0 0 0 3px rgba(2,129,194,.1)}
+
+.fd select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%235A6B7C' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+
+/* le label prend la couleur azur des que le champ est focus ou rempli
+
+   (:has est necessaire car le label precede l'input dans le HTML) */
+
+.fd:has(input:focus) label,.fd:has(input:not(:placeholder-shown)) label,
+
+.fd:has(textarea:focus) label,.fd:has(textarea:not(:placeholder-shown)) label{color:var(--azur)}
+
+
+
+.ct-send{margin-top:6px}
+
+.ct-send .b{width:100%;justify-content:center;padding:16px 24px;font-size:14px}
+
+.fn{display:flex;align-items:center;justify-content:center;gap:8px;font-size:11.5px;color:var(--muted);margin-top:16px}
+
+.fn svg{width:13px;height:13px;stroke:var(--vert);flex-shrink:0}
+
+.fok{display:none;border:1px solid #B6E0C4;background:#EEF8F1;padding:13px 16px;font-size:13.5px;font-weight:500;color:#2C6B3A;margin-bottom:22px}
+
+/* messages d'erreur de validation */
+
+.ferr{display:block;font-size:11.5px;color:#B4321F;margin-top:6px;line-height:1.45;font-weight:500}
+
+.fd input[aria-invalid="true"],.fd select[aria-invalid="true"],.fd textarea[aria-invalid="true"]{border-color:#C0492F;background:#FEF7F5}
+
+
+
+
+
+/* ============ FOOTER ============ */
+
+.ft{background:var(--navy-dd);color:rgba(255,255,255,.55);padding:56px 0 22px}
+
+.ft-g{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.25fr;gap:44px;padding-bottom:42px;border-bottom:1px solid var(--lineD)}
+
+.ft p{font-size:13.5px;line-height:1.72;margin-top:20px;max-width:330px}
+
+.ft h4{color:#fff;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:22px;font-family:'Archivo',sans-serif}
+
+.ft ul{list-style:none;display:grid;gap:11px;font-size:13.5px}
+
+.ft a{transition:color .2s}
+
+.ft a:hover{color:#fff}
+
+.ft-b{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:12px;color:rgba(255,255,255,.32)}
+
+.sc{display:flex;gap:8px;margin-top:22px}
+
+.sc a{width:38px;height:38px;border:1px solid var(--lineD);display:grid;place-items:center;transition:.22s}
+
+.sc a:hover{border-color:var(--azur-l)}
+
+.sc a:hover svg{fill:var(--azur-l)}
+
+
+
+/* ============ FAB ============ */
+
+.fab{position:fixed;right:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:10px;background:var(--azur);color:#fff;padding:15px 24px;font-family:'Archivo',sans-serif;font-weight:600;font-size:13.5px;box-shadow:0 6px 22px rgba(2,129,194,.3);transform:translateY(160%);transition:.35s var(--e)}
+
+.fab.on{transform:none}
+
+.fab:hover{background:var(--navy);box-shadow:0 8px 26px rgba(22,48,110,.34)}
+
+
+
+/* reveal */
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--e),transform .7s var(--e)}
+
+.rv.in{opacity:1;transform:none}
+
+
+
+/* =========================================================
+
+   ANIMATIONS
+
+   ========================================================= */
+
+
+
+/* 1. Barre de progression du scroll */
+
+.sprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;background:var(--azur);
+
+  box-shadow:0 0 10px rgba(2,129,194,.5);transition:width .1s linear}
+
+
+
+/* 2. Reveal au scroll - variantes */
+
+.rv{opacity:0;transform:translateY(30px);
+
+  transition:opacity .8s var(--e),transform .8s var(--e),filter .8s var(--e);filter:blur(4px)}
+
+.rv.in{opacity:1;transform:none;filter:none}
+
+.rv-l{opacity:0;transform:translateX(-42px);filter:blur(4px)}
+
+.rv-r{opacity:0;transform:translateX(42px);filter:blur(4px)}
+
+.rv-z{opacity:0;transform:scale(.9);filter:blur(6px)}
+
+.rv-f{opacity:0;transform:none;filter:blur(6px)}
+
+.rv-l.in,.rv-r.in,.rv-z.in,.rv-f.in{opacity:1;transform:none;filter:none}
+
+
+
+/* 3. Le tiret du label de section se dessine */
+
+.lb::before{transform:scaleX(0);transform-origin:left;transition:transform .7s var(--e) .15s}
+
+.rv.in .lb::before,.lb.in::before{transform:scaleX(1)}
+
+
+
+/* 4. Point "en ligne" qui pulse */
+
+.tb-r i{animation:pulse 2.4s ease-in-out infinite}
+
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(102,178,69,.55);transform:scale(1)}
+
+  50%{box-shadow:0 0 0 7px rgba(102,178,69,0);transform:scale(1.15)}}
+
+
+
+/* 5. Reflet qui balaie les boutons azur */
+
+.b-b{position:relative;overflow:hidden}
+
+.b-b::after{content:"";position:absolute;top:0;left:-75%;width:45%;height:100%;
+
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+
+  transform:skewX(-18deg);transition:left .6s var(--e)}
+
+.b-b:hover::after{left:130%}
+
+
+
+/* 6. Titre du hero : revelation en cascade */
+
+.hero-in .eyebrow{animation:fUp .9s var(--e) .1s both}
+
+.hero h1{animation:fUp 1s var(--e) .22s both}
+
+.hero-p{animation:fUp 1s var(--e) .36s both}
+
+.hero-a{animation:fUp 1s var(--e) .5s both}
+
+@keyframes fUp{from{opacity:0;transform:translateY(26px);filter:blur(6px)}
+
+  to{opacity:1;transform:none;filter:none}}
+
+
+
+/* 7. Bandeau deroulant de mots-cles */
+
+.mq{background:var(--navy-dd);color:#fff;overflow:hidden;padding:14px 0;
+
+  border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+
+.mq-t{display:flex;width:max-content;animation:mqRun 38s linear infinite}
+
+.mq:hover .mq-t{animation-play-state:paused}
+
+.mq-t span{display:inline-flex;align-items:center;gap:12px;padding:0 26px;
+
+  font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.16em;
+
+  text-transform:uppercase;color:rgba(255,255,255,.72);white-space:nowrap}
+
+.mq-t span::after{content:"";width:5px;height:5px;background:var(--azur);transform:rotate(45deg);flex-shrink:0}
+
+.mq-t span:nth-child(even){color:var(--azur-l)}
+
+@keyframes mqRun{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+
+
+/* 8. Compteurs de chiffres */
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:#fff;margin-bottom:26px}
+
+.stat{padding:26px 24px;border-right:1px solid var(--line);position:relative;overflow:hidden;transition:.3s var(--e)}
+
+.stat:last-child{border-right:0}
+
+.stat::before{content:"";position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--azur);
+
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--e)}
+
+.stat:hover::before{transform:scaleX(1)}
+
+.stat b{font-family:'Archivo',sans-serif;font-size:2.1rem;font-weight:800;color:var(--navy);
+
+  display:block;line-height:1;letter-spacing:-.045em}
+
+.stat b i{font-style:normal;color:var(--azur)}
+
+.stat span{font-size:11.5px;color:var(--muted);display:block;margin-top:9px;line-height:1.4}
+
+
+
+/* 9. Ligne de progression de la methode */
+
+.proc{position:relative}
+
+.proc::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--line)}
+
+.proc::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--azur);
+
+  transition:width 1.4s var(--e) .2s}
+
+.proc.in::after{width:100%}
+
+.pc .n{position:relative;display:inline-block}
+
+.pc .n::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--azur);
+
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--e)}
+
+.pc:hover .n::after{transform:scaleX(1)}
+
+
+
+/* 10. Lignes du tableau : decalage en cascade */
+
+table tbody tr{opacity:0;transform:translateX(-14px);
+
+  transition:opacity .5s var(--e),transform .5s var(--e),background .25s}
+
+table tbody tr.in{opacity:1;transform:none}
+
+table tbody tr td:first-child{position:relative}
+
+table tbody tr:hover td:first-child::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;background:var(--azur)}
+
+
+
+/* 11. Galerie : levee + revelation de la legende */
+
+.g{transition:transform .35s var(--e),box-shadow .35s var(--e),border-color .35s var(--e)}
+
+.g:hover{transform:translateY(-5px);border-color:#C2D6E8;box-shadow:0 16px 36px rgba(10,26,61,.12)}
+
+.g-l{transition:transform .3s var(--e),color .3s var(--e)}
+
+.g:hover .g-l{transform:translateX(4px);color:var(--navy)}
+
+
+
+/* 12. Atouts : icone qui pivote leg?rement */
+
+.fig-ic{transition:transform .4s var(--e),background .3s}
+
+.fig:hover .fig-ic{transform:translateY(-3px) rotate(-4deg)}
+
+
+
+/* 13. Parallaxe des images de fond */
+
+.plx{transition:transform .25s linear;will-change:transform}
+
+.cta-bg img.plx{transform:scale(1.14)}
+
+
+
+/* 14. Temoignage : respiration douce */
+
+.q-g blockquote{animation:breathe 7s ease-in-out infinite}
+
+@keyframes breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+
+
+/* 15. Champ de formulaire : focus anime */
+
+input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
+
+  box-shadow:0 0 0 3px rgba(2,129,194,.13);animation:pop .4s var(--e)}
+
+@keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.015)}100%{transform:scale(1)}}
+
+
+
+/* 16. Message de succes : entree en scene */
+
+#ok{animation:okIn .5s var(--e) both}
+
+@keyframes okIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+
+
+/* 17. Survol du bouton flottant */
+
+.fab{transition:transform .35s var(--e),box-shadow .35s var(--e),background .3s}
+
+.fab:hover{background:var(--azur-d);box-shadow:0 10px 30px rgba(2,129,194,.45)}
+
+.fab:hover svg{transform:translateX(3px)}
+
+.fab svg{transition:transform .3s var(--e)}
+
+
+
+/* 18. Fleches du carrousel */
+
+.car-b:hover svg{transform:scale(1.15)}
+
+.car-b svg{transition:stroke .22s,transform .25s var(--e)}
+
+
+
+@media(max-width:1080px){
+
+  .mq-t span{font-size:11.5px;padding:0 20px}
+
+}
+
+@media(max-width:720px){
+
+  .stats{grid-template-columns:1fr 1fr}
+
+  .stat{padding:20px 18px}
+
+  .stat:nth-child(2n){border-right:0}
+
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+
+  .stat b{font-size:1.7rem}
+
+  .mq{padding:12px 0}
+
+  .q-g blockquote{animation:none}
+
+}
+
+/* =========================================================
+
+   CONTRASTE DES PETITS LIBELLES
+
+   Place en fin de feuille : ces selecteurs ont la meme specificite
+
+   que les regles qui les definissent, donc seul l'ordre compte.
+
+   --azur fait 4,27:1 sur blanc, insuffisant sous 10,5px.
+
+   --azur-d fait 5,89:1. .inv est exclu pour garder le libelle clair
+
+   sur les fonds sombres.
+
+   ========================================================= */
+
+.lb:not(.inv),.svc h3 em,.g-tag,.pc .n,.ct-fh span,.fd label b{color:var(--azur-d)}
+
+
+
+@media(prefers-reduced-motion:reduce){
+
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+
+    transition-duration:.01ms!important}
+
+  .rv,.rv-l,.rv-r,.rv-z,.rv-f,table tbody tr{opacity:1!important;transform:none!important;filter:none!important}
+
+}
+
+
+
+@media(max-width:1080px){
+
+  .cg{grid-template-columns:1fr;gap:20px}
+
+  .ct-c{padding:34px 30px 30px}
+
+  .ct-f{padding:34px 30px 30px}
+
+  .ct-send{margin-top:2px}
+
+  .w{padding:0 22px}
+
+  .sec{padding:62px 0}
+
+  .car-o{background:linear-gradient(90deg,rgba(10,26,61,.9) 0%,rgba(10,26,61,.78) 55%,rgba(10,26,61,.55) 100%)}
+
+  .sh{grid-template-columns:1fr;gap:18px;align-items:start}
+
+  .band-g{grid-template-columns:1fr 1fr}
+
+  .band-g>div{border-right:1px solid rgba(255,255,255,.12)}
+
+  .band-g>div:nth-child(2n){border-right:0}
+
+  .band-g>div:nth-child(-n+3){border-bottom:1px solid rgba(255,255,255,.12)}
+
+  .mt-g,.cg{grid-template-columns:1fr;gap:40px}
+
+  .q-g{grid-template-columns:1fr;gap:36px}
+
+  .q-side{border-left:0;border-top:1px solid var(--line);padding:28px 0 0}
+
+  .figs,.proc{grid-template-columns:1fr 1fr}
+
+  .fig:nth-child(2){border-right:0}
+
+  .fig:nth-child(-n+2){border-bottom:1px solid var(--line)}
+
+  .pc:nth-child(2){border-right:0}
+
+  .pc:nth-child(-n+2){border-bottom:1px solid var(--line)}
+
+  .gal{grid-template-columns:1fr 1fr}
+
+  .ft-g{grid-template-columns:1fr 1fr;gap:36px}
+
+  .cta-i{padding:52px 0}
+
+}
+
+@media(max-width:720px){
+
+  nav,.hd-r .b{display:none}
+
+  .bk{display:grid}
+
+  .tb-l a:not(:first-child),.tb-r{display:none}
+
+  .sec{padding:52px 0}
+
+  .ct-c{padding:28px 22px 24px}
+
+  .ct-f{padding:28px 22px 24px}
+
+  .ct-ghost{font-size:120px;right:-10px;bottom:-22px}
+
+  .ct-ghost,.ct-tel{font-size:1.5rem}
+
+  .ct-sub{font-size:13px}
+
+  .ct-grid{grid-template-columns:1fr}
+
+  .fr{grid-template-columns:1fr;gap:0}
+
+  .ct-fh{flex-direction:column;align-items:flex-start;gap:6px}
+
+  .ct-fh h3{font-size:1.18rem}
+
+  :root{--hdH:112px;--ctlH:52px;--bandH:148px}
+
+  .hero{display:flex;flex-direction:column;min-height:0}
+
+  .hero-in{position:relative;inset:auto;display:block;padding:18px 0 10px;order:1;align-items:stretch}
+
+  .hero-in>.w{padding:0 22px}
+
+  .car{order:2;height:250px;min-height:250px}
+
+  .car-o{background:linear-gradient(0deg,rgba(10,26,61,.95) 0,42% 100%,rgba(10,26,61,.55) 100%)}
+
+  .car-ov{background:linear-gradient(0deg,rgba(8,20,48,.9) 0,60px 100%,transparent 200px 100%)}
+
+  .band-g{grid-template-columns:1fr 1fr}
+
+  .band-g>div{padding:14px 18px;border-right:1px solid rgba(255,255,255,.12);min-height:0}
+
+  .band{position:relative;left:auto;right:auto;bottom:auto;order:5}
+
+  .car-ui{position:relative;left:auto;right:auto;bottom:auto;order:4;margin-top:0}
+
+  .car-ui .w{padding:8px 22px 10px;gap:12px;flex-wrap:wrap}
+
+  .car-txt{position:relative;left:auto;right:auto;bottom:auto;max-width:none;text-align:left;padding:0 22px;margin-top:8px;order:3;pointer-events:none}
+
+  .hero-c{max-width:100%}
+
+  .car-dots{max-width:none;order:2;width:100%}
+
+  .car-n{order:1}
+
+  .car-ar{order:3;margin-left:auto}
+
+  .hero h1{font-size:clamp(1.7rem,7vw,2.2rem);margin-top:18px}
+
+  .hero-p{max-width:100%;font-size:13.8px;line-height:1.6;margin-top:16px}
+
+  .hero-a{flex-direction:column;align-items:flex-start;gap:8px;margin-top:22px}
+
+  .hero-s{grid-template-columns:1fr 1fr;gap:14px 0;margin-top:22px;padding-top:18px}
+
+  .hero-s>div{padding:0 14px}
+
+  .hero-s>div:nth-child(3){border-left:0}
+
+  .hero-s>div:nth-child(-n+2){padding-bottom:18px}
+
+  .b{padding:13px 20px}
+
+  .svcs,.gal,.figs,.proc{grid-template-columns:1fr}
+
+  .fig{border-right:0;border-bottom:1px solid var(--line)}
+
+  .fig:last-child{border-bottom:0}
+
+  .pc{border-right:0;border-bottom:1px solid var(--line)!important}
+
+  .fr{grid-template-columns:1fr;gap:0}
+
+  form{padding:24px 20px}
+
+  .svc{padding:24px 24px 22px}
+
+  .svc-n{font-size:30px}
+
+  .svc-ic{width:46px;height:46px}
+
+  .svc-ic svg{width:21px;height:21px}
+
+  .ft-g{grid-template-columns:1fr;gap:32px}
+
+  .fab{padding:14px 18px}
+
+  .fab span{display:none}
+
+  .sh{margin-bottom:32px;padding-bottom:20px}
+
+  td:first-child{width:auto}
+
+}
+
+
+
+/* propos - styles */
+
+.list{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+
+.list li{position:relative;padding-left:20px;color:var(--muted);line-height:1.68}
+
+.list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--azur)}
+
+.blk{background:#fff;border:1px solid var(--line-s);border-radius:16px;padding:28px 30px;box-shadow:0 1px 0 rgba(16,40,80,.04);transition:transform .25s var(--e), box-shadow .25s var(--e)}
+
+.blk:hover{transform:translateY(-2px);box-shadow:0 10px 40px -20px rgba(10,26,61,.25)}
+
+.blk h3{font-family:'Archivo',sans-serif;font-size:18px;letter-spacing:-.03em;color:var(--navy);margin-bottom:6px}
+
+.blk p{color:var(--muted)}
+
+.apropos-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:40px}
+
+.apropos-grid .blk{grid-column:span 6}
+
+@media (max-width:980px){.apropos-grid .blk{grid-column:span 12}}
+
+#apropos .blk ul.list{margin-top:10px}
+
+
+
+#apropos .sh{align-items:flex-start}
+
+
+
+
+
+/* propos - amlioration */
+
+#apropos{background:linear-gradient(180deg,#fff 0%,var(--sky) 100%)}
+
+#apropos .sh h2{font-size:clamp(30px,4.5vw,44px)}
+
+.apropos-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;margin-top:40px}
+
+.apropos-hero .card{background:#fff;border:1px solid var(--line-s);border-radius:20px;padding:36px 38px;box-shadow:0 30px 80px -40px rgba(10,26,61,.35)}
+
+.apropos-hero p{color:var(--muted);font-size:16px;line-height:1.8}
+
+.apropos-hero .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line-s);background:#fff;color:var(--navy);box-shadow:0 1px 0 rgba(16,40,80,.04)}
+
+.badge.az{background:var(--azur-tint);border-color:rgba(2,129,194,.15);color:var(--azur-d)}
+
+.apropos-grid .blk{position:relative;overflow:hidden}
+
+.apropos-grid .blk::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 0% 0%,rgba(2,129,194,.05) 0%,rgba(255,255,255,0) 70%);pointer-events:none}
+
+.apropos-grid .blk h3{display:flex;align-items:center;gap:10px}
+
+.apropos-grid .blk h3::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line-s),rgba(255,255,255,0))}
+
+@media (max-width:980px){.apropos-hero{grid-template-columns:1fr}}
+
+
+
+</style>
+
+<noscript><style>.rv,.rv-l,.rv-r,.rv-z,.rv-f,table tbody tr{opacity:1!important;transform:none!important;filter:none!important}.sprog{display:none}
+
+/* propos - styles */
+
+.list{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+
+.list li{position:relative;padding-left:20px;color:var(--muted);line-height:1.68}
+
+.list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--azur)}
+
+.blk{background:#fff;border:1px solid var(--line-s);border-radius:16px;padding:28px 30px;box-shadow:0 1px 0 rgba(16,40,80,.04);transition:transform .25s var(--e), box-shadow .25s var(--e)}
+
+.blk:hover{transform:translateY(-2px);box-shadow:0 10px 40px -20px rgba(10,26,61,.25)}
+
+.blk h3{font-family:'Archivo',sans-serif;font-size:18px;letter-spacing:-.03em;color:var(--navy);margin-bottom:6px}
+
+.blk p{color:var(--muted)}
+
+.apropos-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:40px}
+
+.apropos-grid .blk{grid-column:span 6}
+
+@media (max-width:980px){.apropos-grid .blk{grid-column:span 12}}
+
+#apropos .blk ul.list{margin-top:10px}
+
+
+
+#apropos .sh{align-items:flex-start}
+
+
+
+
+
+/* propos - amlioration */
+
+#apropos{background:linear-gradient(180deg,#fff 0%,var(--sky) 100%)}
+
+#apropos .sh h2{font-size:clamp(30px,4.5vw,44px)}
+
+.apropos-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;margin-top:40px}
+
+.apropos-hero .card{background:#fff;border:1px solid var(--line-s);border-radius:20px;padding:36px 38px;box-shadow:0 30px 80px -40px rgba(10,26,61,.35)}
+
+.apropos-hero p{color:var(--muted);font-size:16px;line-height:1.8}
+
+.apropos-hero .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line-s);background:#fff;color:var(--navy);box-shadow:0 1px 0 rgba(16,40,80,.04)}
+
+.badge.az{background:var(--azur-tint);border-color:rgba(2,129,194,.15);color:var(--azur-d)}
+
+.apropos-grid .blk{position:relative;overflow:hidden}
+
+.apropos-grid .blk::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 0% 0%,rgba(2,129,194,.05) 0%,rgba(255,255,255,0) 70%);pointer-events:none}
+
+.apropos-grid .blk h3{display:flex;align-items:center;gap:10px}
+
+.apropos-grid .blk h3::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line-s),rgba(255,255,255,0))}
+
+@media (max-width:980px){.apropos-hero{grid-template-columns:1fr}}
+
+
+
+</style></noscript>
+
+</head>
+
+<body>
+
+
+
+<div class="sprog" id="sprog"></div>
+
+
+
+<!-- TOPBAR -->
+
+<div class="tb" id="tb">
+
+  <div class="w"><div class="tb-i">
+
+    <div class="tb-l">
+
+      <a href="tel:+2290197988688"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>229 01 97 98 86 88</a>
+
+      <a href="mailto:cricriguidibi@gmail.com"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2.5 6.5l9.5 7 9.5-7"/></svg>cricriguidibi@gmail.com</a>
+
+      <span style="display:flex;align-items:center;gap:7px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>Regions et d?partements limitrophes</span>
+
+    </div>
+
+    <span class="tb-r"><i></i>Lun – Sam · 07h00 – 18h00</span>
+
+  </div></div>
+
+</div>
+
+
+
+<!-- HEADER -->
+
+<header class="hd" id="hd">
+
+  <div class="w"><div class="hd-i">
+
+    <a href="#top" class="br">
+
+      <span class="br-m"><img src="img/logo-icon.png" alt="" width="44" height="44" decoding="async"></span>
+
+      <span><span class="br-n">CANNAN<i>-</i>MINING</span><span class="br-s">Dragage · BTP · Agrégats</span></span>
+
+    </a>
+
+    <nav>
+
+      <a href="#top" class="on">Accueil</a>
+
+      <a href="#services">Prestations</a>
+
+      <a href="#apropos">À propos</a>
+
+      <a href="#materiaux">Matériaux</a>
+
+      <a href="#realisations">Réalisations</a>
+
+      <a href="#methode">Méthode</a>
+
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+    <div class="hd-r">
+
+      <a href="#devis" class="b b-b">Devis gratuit</a>
+
+      <button class="bk" id="bk" aria-label="Menu"><i></i></button>
+
+    </div>
+
+  </div></div>
+
+  <div class="mn" id="mn"><div class="w">
+
+    <a href="#top">Accueil</a><a href="#services">Prestations</a>
+
+    <a href="#apropos">À propos</a><a href="#materiaux">Matériaux</a>
+
+    <a href="#realisations">Réalisations</a><a href="#methode">Méthode</a><a href="#contact">Contact</a>
+
+    <a href="#devis" class="b b-b">Demander un devis</a>
+
+  </div></div>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero" id="top">
+
+  <div class="car" id="car" aria-roledescription="carrousel" aria-label="Nos interventions">
+
+    <div class="car-t" id="carT">
+
+
+
+      <div class="car-s">
+
+        <img fetchpriority="high" decoding="async" src="img/hero-3.jpg" alt="Vue aérienne d'une carrière de sable et gravier">
+
+        <span class="car-o"></span>
+
+      </div>
+
+
+
+      <div class="car-s">
+
+        <img loading="lazy" decoding="async" src="img/hero-4.jpg" alt="Pelle jaune hydraulique sur terrain de sable">
+
+        <span class="car-o"></span>
+
+      </div>
+
+
+
+      <div class="car-s">
+
+        <img loading="lazy" decoding="async" src="img/hero-5.jpg" alt="Carrière de sable et matériel d'extraction">
+
+        <span class="car-o"></span>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
+
+  <span class="car-ov"></span>
+
+
+
+  <div class="hero-in"><div class="w">
+
+    <div class="hero-c">
+
+      <span class="eyebrow"><b>01</b> Terrassement et agrégats</span>
+
+      <h1>Le terrain, <s>on ne le reprend pas.</s><u>Dragage, BTP et vente de sable</u></h1>
+
+      <p class="hero-p">Matériel professionnel, matériaux contrôlés et équipes mobilisables. Nous réalisons vos chantiers de dragage, de terrassement et de fourniture d'agrégats, du décapage à la mise en place.</p>
+
+      <div class="hero-a">
+
+        <a href="#devis" class="b b-b">Obtenir un devis
+
+          <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+        </a>
+
+        <a href="#services" class="b b-o">Nos prestations</a>
+
+      </div>
+
+    </div>
+
+  </div></div>
+
+
+
+  <div class="car-txt" id="carTxt"></div>
+
+
+
+  <div class="car-ui">
+
+    <div class="w">
+
+      <div class="car-dots" id="carD"></div>
+
+      <span class="car-n" id="carN">01 / 03</span>
+
+      <div class="car-ar">
+
+        <button class="car-b" data-d="-1" aria-label="Image precedente"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+
+        <button class="car-b" data-d="1" aria-label="Image suivante"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="band">
+
+    <div class="w"><div class="band-g">
+
+      <div>
+
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+
+        <span><b>Mat&eacute;riel professionnel</b><span>Draglines, pelles, camions suivis</span></span>
+
+      </div>
+
+      <div>
+
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+
+        <span><b>Devis sous 24 heures</b><span>Chiffr&eacute;, ferme et d&eacute;taill&eacute;</span></span>
+
+      </div>
+
+      <div>
+
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
+
+        <span><b>Mat&eacute;riaux contr&ocirc;l&eacute;s</b><span>Tri&eacute;s, cribl&eacute;s, &eacute;chantillonn&eacute;s</span></span>
+
+      </div>
+
+      <div>
+
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+
+        <span><b>Zone d'intervention</b><span>Et d&eacute;partements limitrophes</span></span>
+
+      </div>
+
+      <div>
+
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+
+        <span><b>200+ chantiers</b><span>10 ans d'exp&eacute;rience terrain</span></span>
+
+      </div>
+
+    </div></div>
+
+  </div>
+
+</section>
+
+
+
+<!-- PRESTATIONS -->
+
+<section class="sec" id="services">
+
+  <div class="w">
+
+    <div class="sh rv">
+
+      <div>
+
+        <span class="lb"><span class="ix">02</span> Prestations</span>
+
+        <h2>Quatre métiers,<br>une seule entreprise</h2>
+
+      </div>
+
+      <p>Nous couvrons l'ensemble de la chaîne : extraction, terrassement, transport et mise en place. Un interlocuteur unique, un planning tenu, un seul prix ferme.</p>
+
+    </div>
+
+
+
+    <div class="svcs">
+
+      <article class="svc rv">
+
+        <div class="svc-t">
+
+          <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20"/><path d="M5 17V9h6v8"/><path d="M13 17l3-9 5 2-4 7"/><path d="M8 5.5c0-1 1.5-2.5 3-2.5s3 1.5 3 2.5"/></svg></span>
+
+          <span class="svc-n">01</span>
+
+        </div>
+
+        <h3>Dragage de sable<em>Extraction et curage</em></h3>
+
+        <p>Dragline et pelle hydraulique pour extraire, déplacer et stocker le sable, en dry comme en camion, avec curage de lits et de berges.</p>
+
+        <div class="svc-f">
+
+          <span>Sur devis</span>
+
+          <a href="#devis" class="svc-a">Demander un devis
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="svc rv">
+
+        <div class="svc-t">
+
+          <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20v-4h6v4"/><path d="M14 20V12h5v8"/><path d="M7.5 12l2-6h5l2 6"/></svg></span>
+
+          <span class="svc-n">02</span>
+
+        </div>
+
+        <h3>BTP et terrassement<em>Décapage et nivellement</em></h3>
+
+        <p>Préparation de plateforme, déblais, remblais, nivellement et compactage. La base fiable de vos ouvrages, routes et lotissements.</p>
+
+        <div class="svc-f">
+
+          <span>Sur devis</span>
+
+          <a href="#devis" class="svc-a">Demander un devis
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="svc rv">
+
+        <div class="svc-t">
+
+          <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-7 4 4 3-4 4 7z"/><path d="M4 21h16"/><path d="M9 11l2.5-3.5 3 2.5"/></svg></span>
+
+          <span class="svc-n">03</span>
+
+        </div>
+
+        <h3>Petites roches<em>Calibres et enrobés</em></h3>
+
+        <p>Petites roches, gravats et matériaux concassés en 10/20 et 20/40 pour enrobage, réfection de piste, blocage et fondation.</p>
+
+        <div class="svc-f">
+
+          <span>10/20 · 20/40</span>
+
+          <a href="#devis" class="svc-a">Demander un devis
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="svc rv">
+
+        <div class="svc-t">
+
+          <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-9 6 9"/><path d="M3 20h18"/><path d="M8.5 20c0-1.6 1.6-2.5 3.5-2.5s3.5.9 3.5 2.5"/><path d="M9 6.5h6"/></svg></span>
+
+          <span class="svc-n">04</span>
+
+        </div>
+
+        <h3>Vente de sable<em>Au m³, livré</em></h3>
+
+        <p>Sable de rivière, de carrière ou de remblai. Vente au volume avec bennes ou livraison directe, en un minimum de rotations.</p>
+
+        <div class="svc-f">
+
+          <span>0/4 · 0/6 · 0/20</span>
+
+          <a href="#devis" class="svc-a">Demander un devis
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="sec" id="apropos">
+
+  <div class="w">
+
+    <div class="sh rv">
+
+      <div>
+
+        <span class="lb"><span class="ix">02</span> À propos</span>
+
+        <h2>CANNAN-MINING</h2>
+
+      </div>
+
+    </div>
+
+    <div class="apropos-hero">
+
+      <div class="card">
+
+        <p>Cannan-Mining accompagne les chantiers de dragage, de terrassement et de fourniture de sable avec une organisation simple, fiable et orientée résultat. Nous intervenons pour la préparation de terrain, l’extraction, le curage, la mise en place de matériaux et la livraison sur site, avec un souci constant de qualité, de sécurité et de délais.</p>
+
+        <div class="badges">
+
+          <span class="badge az">Qualité et sécurité</span>
+
+          <span class="badge">Délais respectés</span>
+
+          <span class="badge">Terrain et matériaux</span>
+
+          <span class="badge">Équipe mobile</span>
+
+          <span class="badge">Matériel professionnel</span>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <h3 style="margin-bottom:12px;color:var(--navy);font-size:20px;letter-spacing:-.03em">Identité et activités</h3>
+
+        <ul class="list">
+
+          <li>Dragage de sable, terrassement, petites roches, fourniture de sable</li>
+
+          <li>Intervention sur chantiers BTP, VRD et ouvrages divers</li>
+
+          <li>Matériel professionnel et équipes de chantier</li>
+
+          <li>Zone d’intervention : départements limitrophes</li>
+
+          <li>Devis rapide sous 24 heures</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="apropos-grid">
+
+      <div class="blk">
+
+        <h3>Nos engagements</h3>
+
+        <ul class="list">
+
+          <li>Assurer une exécution fiable et conforme aux exigences du chantier</li>
+
+          <li>Livrer des matériaux propres, calibrés et adaptés à chaque usage</li>
+
+          <li>Proposer une réponse rapide avec un seul interlocuteur</li>
+
+          <li>Respecter les délais, la sécurité et les contraintes de terrain</li>
+
+        </ul>
+
+      </div>
+
+      <div class="blk">
+
+        <h3>Domaines d’intervention</h3>
+
+        <ul class="list">
+
+          <li>Terrassement et préparation de plateforme</li>
+
+          <li>Dragage de sable et curage de lits</li>
+
+          <li>Fourniture de sable et de petites roches</li>
+
+          <li>Travaux de remblai, nivellement et accès chantier</li>
+
+          <li>Chantiers publics, privés et industriels</li>
+
+        </ul>
+
+      </div>
+
+      <div class="blk">
+
+        <h3>Moyens humains et techniques</h3>
+
+        <p>Une équipe mobilisable et des engins adaptés aux missions les plus exigeantes. Nous organisons les interventions avec une logique de production claire, de sécurité et de disponibilité.</p>
+
+      </div>
+
+      <div class="blk">
+
+        <h3>Notre approche</h3>
+
+        <ul class="list">
+
+          <li>Analyse rapide du besoin, du site et des contraintes de chantier</li>
+
+          <li>Chiffrage précis et devis clair avant toute intervention</li>
+
+          <li>Exécution sur le terrain avec suivi et coordination continue</li>
+
+          <li>Livraison organisée pour ne pas ralentir votre planning</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- BANDEAU DEBOULANT -->
+
+<div class="mq" aria-hidden="true">
+
+  <div class="mq-t">
+
+    <span>Dragage de sable</span><span>Terrassement</span><span>Décapage</span><span>Curage</span>
+
+    <span>Petites roches</span><span>Vente de sable</span><span>Fourniture</span><span>Nivellement</span>
+
+    <span>Dragage de sable</span><span>Terrassement</span><span>Décapage</span><span>Curage</span>
+
+    <span>Petites roches</span><span>Vente de sable</span><span>Fourniture</span><span>Nivellement</span>
+
+  </div>
+
+</div>
+
+
+
+<!-- MATÉRIAUX -->
+
+<section class="sec sky" id="materiaux">
+
+  <div class="w">
+
+    <div class="sh rv">
+
+      <div>
+
+        <span class="lb"><span class="ix">03</span> Fournitures</span>
+
+        <h2>Les granulométries<br>disponibles</h2>
+
+      </div>
+
+      <p>Matériaux propres, calibrés et contrôlés avant départ. Les grades standards sont en stock, les mélanges spécifiques sont produits sur demande.</p>
+
+    </div>
+
+    <div class="mt-g">
+
+      <div class="mt-l rv">
+
+        <p>Chaque lot est échantillonné et validé avant mise en place ou livraison. Si votre appel d'offres impose une granulométrie particulière, nous l’adaptons.</p>
+
+        <div class="mt-note">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+
+          <p>Livraison en benne ou par camion-benne, multi-rotations possibles sur les gros volumes.</p>
+
+        </div>
+
+      </div>
+
+      <div class="rv">
+
+        <table>
+
+          <thead><tr><th scope="col">Matériau</th><th scope="col">Usage</th><th scope="col">Grade</th></tr></thead>
+
+          <tbody>
+
+            <tr><td>Sable de rivière</td><td>Enrobage, béton de propreté, remblai</td><td class="g">0/4 · 0/5</td></tr>
+
+            <tr><td>Sable de carrière</td><td>Dalle, chape, mortier, blocage</td><td class="g">0/4 · 0/6</td></tr>
+
+            <tr><td>Sable de remblai</td><td>Remblai de grande hauteur, assainissement</td><td class="g">0/20</td></tr>
+
+            <tr><td>Petite roche</td><td>Enrobage, réfection de piste, blocage</td><td class="g">10/20</td></tr>
+
+            <tr><td>Gravier concassé</td><td>Fondation, chaussée, drainage</td><td class="g">20/40</td></tr>
+
+            <tr><td>Tout-venant</td><td>Décapage, plateformes, remblais divers</td><td class="g">0/31,5</td></tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- RÉALISATIONS -->
+
+<section class="sec" id="realisations">
+
+  <div class="w">
+
+    <div class="sh rv">
+
+      <div>
+
+        <span class="lb"><span class="ix">04</span> Réalisations</span>
+
+        <h2>Des chantiers<br>que vous pouvez inspecter</h2>
+
+      </div>
+
+      <p>Quelques interventions récentes. Les volumes et références exacts vous sont communiqués sur demande, avec photos de chantier.</p>
+
+    </div>
+
+    <div class="gal">
+
+      <a href="#devis" class="g rv">
+
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/gal-1.jpg" alt="Carrière de sable et matériel d'extraction"></span>
+
+        <span class="g-b">
+
+          <span class="g-tag">Extraction</span>
+
+          <h3>Carrière et mise en stockpile</h3>
+
+          <p>Extraction de sable sur site, tri et stockage de 1 200 m³ pour un donneur d’ordre public.</p>
+
+          <span class="g-l">Voir le détail
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+          </span>
+
+        </span>
+
+      </a>
+
+      <a href="#devis" class="g rv">
+
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/gal-2.jpg" alt="Pelle jaune hydraulique sur terrain de sable"></span>
+
+        <span class="g-b">
+
+          <span class="g-tag">Dragage</span>
+
+          <h3>Curage et déplacement</h3>
+
+          <p>Curage de lit et transfert de 800 m³.</p>
+
+          <span class="g-l">Voir le détail
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+          </span>
+
+        </span>
+
+      </a>
+
+      <a href="#devis" class="g rv">
+
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/gal-3.jpg" alt="Vue aérienne de carrière de sable et gravier"></span>
+
+        <span class="g-b">
+
+          <span class="g-tag">Agrégats</span>
+
+          <h3>Fourniture de carrières</h3>
+
+          <p>Rotations continues, accès contraint.</p>
+
+          <span class="g-l">Voir le detail
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+          </span>
+
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ATOUTS -->
+
+<section class="sec sky" id="avantages">
+
+  <div class="w">
+
+    <div class="sh rv">
+
+      <div>
+
+        <span class="lb"><span class="ix">05</span> Atouts</span>
+
+        <h2>Ce qui nous distingue<br>sur le terrain</h2>
+
+      </div>
+
+      <p>Pas de sous-traitance en cascade : nos conducteurs, nos opérateurs et nos camions sont les nôtres. Un seul interlocuteur, une seule responsabilité.</p>
+
+    </div>
+
+
+
+    <div class="stats">
+
+      <div class="stat"><b data-count="10" data-suffix="+">0</b><span>Annees d'experience terrain</span></div>
+
+      <div class="stat"><b data-count="200" data-suffix="+">0</b><span>Chantiers livres</span></div>
+
+      <div class="stat"><b data-count="24" data-suffix="h">0</b><span>Delai moyen de devis</span></div>
+
+      <div class="stat"><b data-count="4" data-suffix="">0</b><span>Metiers reunis</span></div>
+
+    </div>
+
+
+
+    <div class="figs">
+
+      <div class="fig">
+
+        <div class="fig-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+
+        <b>Matériel professionnel</b>
+
+        <p>Draglines, pelles, chargeurs et camions suivis et contrôlés. Peu de pannes, donc peu d'arrêts de chantier.</p>
+
+      </div>
+
+      <div class="fig">
+
+        <div class="fig-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+
+        <b>Réactivité réelle</b>
+
+        <p>Équipe mobilisable rapidement, y compris pour les urgences et les imprévus qui décalent votre planning.</p>
+
+      </div>
+
+      <div class="fig">
+
+        <div class="fig-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg></div>
+
+        <b>Matériaux contrôlés</b>
+
+        <p>Chaque lot est trié, criblé et échantillonné avant mise en place ou livraison.</p>
+
+      </div>
+
+      <div class="fig">
+
+        <div class="fig-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V8l-6-5z"/><path d="M8 13h8M8 17h5"/></svg></div>
+
+        <b>Prix clair et ferme</b>
+
+        <p>Un devis détaillé au m³, sans frais cachés ni avenant surprise en cours de chantier.</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- MÉTHODE -->
+
+<section class="sec" id="methode">
+
+  <div class="w">
+
+    <div class="sh rv">
+
+      <div>
+
+        <span class="lb"><span class="ix">06</span> Méthode</span>
+
+        <h2>Quatre étapes,<br>zéro mauvaise surprise</h2>
+
+      </div>
+
+      <p>Un déroulé simple, du premier appel à la dernière rotation de camion. Vous savez où en est votre chantier à chaque étape.</p>
+
+    </div>
+
+    <div class="proc">
+
+      <div class="pc"><span class="n">ÉTAPE 01</span><b>Prise de contact</b><p>Vous nous transmettez votre besoin, vos volumes et la localisation exacte du chantier.</p></div>
+
+      <div class="pc"><span class="n">ÉTAPE 02</span><b>Visite et étude</b><p>Nous nous déplaçons pour évaluer l’accessibilité, la nature du sol et les contraintes.</p></div>
+
+      <div class="pc"><span class="n">ÉTAPE 03</span><b>Devis détaillé</b><p>Devis ferme sous 24 h incluant matériel, transport, main-d’œuvre et délais.</p></div>
+
+      <div class="pc"><span class="n">ÉTAPE 04</span><b>Exécution</b><p>Nous réalisons les travaux dans les délais convenus et vous livrons vos matériaux.</p></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- TÉMOIGNAGE -->
+
+<section class="sec sky" style="padding-top:0">
+
+  <div class="w">
+
+    <div class="q-g rv" style="background:#fff;border:1px solid var(--line);padding:38px 42px">
+
+      <blockquote>« Un prestataire qui livre le volume annoncé, dans le créneau annoncé. C'est ce qui nous a fait les rappeler sur trois chantiers consécutifs. »<span><br><br> Responsable travaux, entreprise de VRD</span></blockquote>
+
+      <div class="q-side">
+
+        <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg><div><b>Volume tenu</b><span>Le cubage correspond à la livraison.</span></div></div>
+
+        <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Planning respecté</b><span>Créneaux de livraison tenus.</span></div></div>
+
+        <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Chantier propre</b><span>Accès respectés, zone rétablie en fin d'intervention.</span></div></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <div class="cta-bg"><img class="plx" src="img/cta-bg.jpg" alt="Engins de terrassement sur chantier"></div>
+
+  <div class="w"><div class="cta-i">
+
+    <div>
+
+      <h2>Dites-nous ce qu'il faut <u>creuser.</u></h2>
+
+      <p>Un volume, une adresse, un délai. Nous revenons vers vous avec un devis chiffré sous 24 heures, sans engagement.</p>
+
+    </div>
+
+    <div class="cta-b">
+
+      <a href="#devis" class="b b-b" style="justify-content:center">Obtenir un devis gratuit
+
+        <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+      </a>
+
+      <a href="tel:+2290197988688" class="b b-ow" style="justify-content:center">Appeler l’équipe</a>
+
+    </div>
+
+  </div></div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section class="sec sky" id="contact">
+
+  <div class="w">
+
+    <div class="sh rv">
+
+      <div>
+
+        <span class="lb"><span class="ix">07</span> Contact et devis</span>
+
+        <h2>Parlons de<br>votre chantier</h2>
+
+      </div>
+
+      <p>Formulaire court, réponse rapide. Vous pouvez aussi nous appeler directement, nous répondons à toute heure ouvrée.</p>
+
+    </div>
+
+
+
+    <div class="cg">
+
+      <!-- Carte marine : appel et informations -->
+
+      <aside class="ct-c rv-l">
+
+        <div class="ct-ghost" aria-hidden="true">07</div>
+
+        <div class="ct-in">
+
+          <div class="ct-top"><i></i> Réponse rapide</div>
+
+
+
+          <div class="ct-lb">Téléphone</div>
+
+          <a class="ct-tel" href="tel:+2290197988688">229 01 97 98 86 88</a>
+
+          <p class="ct-sub">Un volume, une adresse, un délai. Nous chiffrons votre chantier sans engagement.</p>
+
+
+
+          <a class="ct-mail" href="mailto:cricriguidibi@gmail.com">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2.5 6.5l9.5 7 9.5-7"/></svg>
+
+            cricriguidibi@gmail.com
+
+          </a>
+
+
+
+          <div class="ct-grid">
+
+            <div class="ct-i">
+
+              <span>Zone d’intervention</span>
+
+              <b>Régions et départements limitrophes</b>
+
+              <small>Déplacements au-delà sur demande</small>
+
+            </div>
+
+            <div class="ct-i">
+
+              <span>Horaires</span>
+
+              <b>Lun – Sam · 07h00 – 18h00</b>
+
+              <small>Urgences chantier 24/7</small>
+
+            </div>
+
+            <div class="ct-i">
+
+              <span>Délai de devis</span>
+
+              <b>Sous 24 heures</b>
+
+              <small>Devis ferme et détaillé</small>
+
+            </div>
+
+            <div class="ct-i">
+
+              <span>Paiement</span>
+
+              <b>Sur présentation</b>
+
+              <small>Conditions en annexe du devis</small>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="ct-foot">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+
+            Un seul interlocuteur, de la première pelle à la livraison.
+
+          </div>
+
+        </div>
+
+      </aside>
+
+
+
+      <!-- Carte formulaire -->
+
+      <form id="devis" class="ct-f rv-r" novalidate>
+
+        <div class="ct-fh">
+
+          <h3>Décrivez votre besoin</h3>
+
+          <span>2 champs obligatoires · 1 minute</span>
+
+        </div>
+
+
+
+        <div class="fok" id="ok" role="status">Merci. Votre messagerie s'ouvre avec la demande pré-remplie : cliquez sur Envoyer pour nous la transmettre.</div>
+
+
+
+        <div class="fr">
+
+          <div class="fd"><label for="n">Nom et prénom <b>*</b></label><input id="n" type="text" placeholder="Votre nom" required></div>
+
+          <div class="fd"><label for="t">Téléphone <b>*</b></label><input id="t" type="tel" placeholder="229 01 97 98 86 88" required></div>
+
+        </div>
+
+        <div class="fr">
+
+          <div class="fd"><label for="e">Email</label><input id="e" type="email" placeholder="cricriguidibi@gmail.com"></div>
+
+          <div class="fd"><label for="l">Lieu du chantier</label><input id="l" type="text" placeholder="Ville, wilaya / département"></div>
+
+        </div>
+
+        <div class="fr">
+
+          <div class="fd"><label for="s">Prestation</label>
+
+            <select id="s"><option>Dragage de sable</option><option>BTP et terrassement</option><option>Petites roches</option><option>Vente de sable</option><option>Plusieurs prestations</option></select>
+
+          </div>
+
+          <div class="fd"><label for="v">Volume estimé</label><input id="v" type="text" placeholder="Ex. 300 m³"></div>
+
+        </div>
+
+        <div class="fd"><label for="m">Détails du chantier</label><textarea id="m" placeholder="Type de travaux, accès, contraintes, délai souhaité"></textarea></div>
+
+
+
+        <div class="ct-send">
+
+          <button type="submit" class="b b-b">Envoyer la demande de devis
+
+            <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+          </button>
+
+          <p class="fn">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+
+            Données confidentielles, jamais transmises à des tiers.
+
+          </p>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<footer class="ft">
+
+  <div class="w">
+
+    <div class="ft-g">
+
+      <div>
+
+        <a href="#top" class="br">
+
+          <span class="br-m"><img src="img/logo-icon.png" alt="" width="44" height="44" decoding="async"></span>
+
+          <span><span class="br-n">CANNAN<i>-</i>MINING</span><span class="br-s">Dragage · BTP · Agrégats</span></span>
+
+        </a>
+
+        <p>Entreprise de dragage, de terrassement et de fourniture d’agrégats. Nous intervenons sur les chantiers BTP, VRD, ZAC et industriels de votre région.</p>
+
+        <div class="sc">
+
+          <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.5l.5-3H13v-2c0-.6.4-1 1-1z"/></svg></a>
+
+          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M6.9 8.5H4V20h2.9V8.5zM5.4 7.2a1.7 1.7 0 110-3.4 1.7 1.7 0 010 3.4zM20 13.6c0-3-1.6-4.4-3.7-4.4-1.7 0-2.5.9-2.9 1.6V8.5H10.5V20h2.9v-6c0-1.6.3-3.1 2.3-3.1s1.9 1.8 1.9 3.2V20H20v-6.4z"/></svg></a>
+
+          <a href="#" aria-label="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
+
+        </div>
+
+      </div>
+
+      <div>
+
+        <h4>Navigation</h4>
+
+        <ul><li><a href="#top">Accueil</a></li><li><a href="#services">Prestations</a></li><li><a href="#apropos">À propos</a></li><li><a href="#materiaux">Matériaux</a></li><li><a href="#realisations">Réalisations</a></li><li><a href="#methode">Méthode</a></li><li><a href="#contact">Contact</a></li></ul>
+
+      </div>
+
+      <div>
+
+        <h4>Prestations</h4>
+
+        <ul><li><a href="#services">Dragage de sable</a></li><li><a href="#services">BTP et terrassement</a></li><li><a href="#services">Petites roches</a></li><li><a href="#services">Vente de sable</a></li></ul>
+
+      </div>
+
+      <div>
+
+        <h4>Nous joindre</h4>
+
+        <ul><li><a href="tel:+2290197988688">229 01 97 98 86 88</a></li><li><a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a></li><li>Lun–Sam · 07h00–18h00</li></ul>
+
+      </div>
+
+    </div>
+
+    <div class="ft-b">
+
+      <span>© <span id="yr"></span> Cannan-Minning · Tous droits réservés.</span>
+
+      <span>Mentions légales · Politique de confidentialité</span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<a href="#devis" class="fab" id="fab">
+
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-5.1A8.4 8.4 0 0112 3.1a8.4 8.4 0 019 8.4z"/></svg>
+
+  <span>Devis gratuit</span>
+
+</a>
+
+
+
+<script>
+
+const hd=document.getElementById('hd');
+
+const sc=()=>hd.classList.toggle('st',scrollY>40);
+
+sc();addEventListener('scroll',sc);
+
+
+
+/* Mesure la hauteur reelle du bandeau + header pour que le contenu du hero
+
+   ne passe jamais derri?re, a n'importe quel ecran. */
+
+const bd=document.querySelector('.band');
+
+const syncVars=()=>{
+
+  const b=Math.round(bd.getBoundingClientRect().height);
+
+  const t=Math.round(document.getElementById('tb').getBoundingClientRect().height);
+
+  const h=Math.round(hd.getBoundingClientRect().height);
+
+  document.documentElement.style.setProperty('--bandH',b+'px');
+
+  document.documentElement.style.setProperty('--hdH',(t+h)+'px');
+
+  /* Les ancres doivent s'arreter SOUS le header fixe, pas 20px plus haut
+
+     comme le faisait une valeur codee en dur. */
+
+  document.documentElement.style.scrollPaddingTop=(t+h+16)+'px';
+
+};
+
+syncVars();
+
+addEventListener('load',syncVars);
+
+addEventListener('resize',syncVars);
+
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(syncVars);
+
+
+
+const bk=document.getElementById('bk'),mn=document.getElementById('mn');
+
+bk.onclick=()=>{bk.classList.toggle('x');mn.classList.toggle('on')};
+
+mn.querySelectorAll('a').forEach(a=>a.onclick=()=>{bk.classList.remove('x');mn.classList.remove('on')});
+
+
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -60px'});
+
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+
+
+/* Cascade automatique : les enfants d'un meme bloc apparaissent l'un apres l'autre.
+
+   .band-g est volontairement exclu : le bandeau du hero vit dans le carrousel,
+
+   il ne doit pas dependre d'un observateur au scroll. */
+
+document.querySelectorAll('.svcs,.figs,.proc,.gal,.stats,.q-side,.cg,.fr').forEach(box=>{
+
+  [...box.children].forEach((el,i)=>{el.classList.add('rv');io.observe(el);el.style.transitionDelay=(i%6)*90+'ms'});
+
+});
+
+
+
+/* Compteurs de chiffres : incrementation quand le bloc entre dans l'ecran. */
+
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+
+  if(!e.isIntersecting)return;
+
+  cio.unobserve(e.target);
+
+  const el=e.target,to=+el.dataset.count,sfx=el.dataset.suffix||'',t0=performance.now(),dur=1500;
+
+  let done=false;
+
+  const set=v=>{if(!done){done=true;el.textContent=v+sfx}};
+
+  const step=t=>{
+
+    const p=Math.min((t-t0)/dur,1);
+
+    el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+sfx;
+
+    if(p<1)requestAnimationFrame(step);else set(to);
+
+  };
+
+  requestAnimationFrame(step);
+
+  /* Filet de sécurité : si rAF est bridée (onglet en arrière-plan),
+
+     on affiche quand même la valeur finale au lieu de rester bloquée. */
+
+  setTimeout(()=>set(to),dur+400);
+
+}),{threshold:.4});
+
+const cntEls=[...document.querySelectorAll('[data-count]')];
+
+cntEls.forEach(el=>cio.observe(el));
+
+/* Si un compteur est deja visible au chargement, on l'anime aussitot. */
+
+addEventListener('load',()=>{
+
+  cntEls.forEach(el=>{
+
+    const r=el.getBoundingClientRect();
+
+    if(r.top<innerHeight&&r.bottom>0)cio.unobserve(el),el.textContent=el.dataset.count+(el.dataset.suffix||'');
+
+  });
+
+});
+
+
+
+/* Barre de progression du scroll : initialisee des le chargement. */
+
+const sp=document.getElementById('sprog');
+
+const setProg=()=>{
+
+  const h=document.documentElement.scrollHeight-innerHeight;
+
+  sp.style.width=(h>0 ? Math.min(100, Math.max(0, scrollY)/h*100) : 0)+'%';
+
+};
+
+addEventListener('scroll',setProg,{passive:true});
+
+addEventListener('resize',setProg);
+
+addEventListener('load',setProg);
+
+setProg();
+
+
+
+/* Parallaxe douce des images de fond. */
+
+const plxEls=[...document.querySelectorAll('.plx')];
+
+addEventListener('scroll',()=>{
+
+  const y=scrollY;
+
+  plxEls.forEach(el=>{
+
+    const r=el.parentElement.getBoundingClientRect();
+
+    if(r.bottom<0||r.top>innerHeight)return;
+
+    const o=(r.top+r.height/2-innerHeight/2)/innerHeight;
+
+    el.style.transform=`scale(1.14) translateY(${-o*38}px)`;
+
+  });
+
+},{passive:true});
+
+
+
+/* Lignes du tableau des matériaux : entrée décalée. */
+
+const rio=new IntersectionObserver(es=>es.forEach(e=>{
+
+  if(!e.isIntersecting)return;
+
+  rio.unobserve(e.target);
+
+  [...e.target.querySelectorAll('tbody tr')].forEach((r,i)=>setTimeout(()=>r.classList.add('in'),i*70));
+
+}),{threshold:.15});
+
+document.querySelectorAll('table').forEach(t=>rio.observe(t));
+
+
+
+/* Filet de sécurité : si l'observateur n'a pas déclenché au bout de 3 s,
+
+   on révèle manuellement ce qui est déjà à l'écran (jamais ce qui est plus bas,
+
+   pour ne pas casser l'animation au scroll). */
+
+setTimeout(()=>{
+
+  document.querySelectorAll('.rv:not(.in)').forEach(e=>{
+
+    const r=e.getBoundingClientRect();
+
+    if(r.top<innerHeight*1.2&&r.bottom>-innerHeight*.2)e.classList.add('in');
+
+  });
+
+  document.querySelectorAll('table tbody tr:not(.in)').forEach(r=>{
+
+    const b=r.getBoundingClientRect();
+
+    if(b.top<innerHeight*1.2&&b.bottom>-innerHeight*.2)r.classList.add('in');
+
+  });
+
+},3000);
+
+
+
+const secs=[...document.querySelectorAll('section[id]')],links=[...document.querySelectorAll('nav a')];
+
+const hasLink=id=>links.some(l=>l.getAttribute('href')==='#'+id);
+
+addEventListener('scroll',()=>{
+
+  const y=scrollY+170;let c='';
+
+  secs.forEach(s=>{if(s.offsetTop<=y)c=s.id});
+
+  /* Sections sans lien de nav (Atouts, temoignage) : on garde la
+
+     derni?re section liee precedente pour que le menu reste toujours allume. */
+
+  if(!hasLink(c)){let prev='';secs.forEach(s=>{if(s.offsetTop<=y&&hasLink(s.id))prev=s.id});c=prev||c}
+
+  links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+c));
+
+});
+
+
+
+const fab=document.getElementById('fab');
+
+addEventListener('scroll',()=>fab.classList.toggle('on',scrollY>600));
+
+
+
+/* Validation du formulaire : sans elle, un envoi vide affichait quand meme
+
+   le message de succes. On controle puis on affiche les erreurs sous les champs. */
+
+const form=document.getElementById('devis'),okBox=document.getElementById('ok');
+
+const setErr=(el,msg)=>{
+
+  const fd=el.closest('.fd');
+
+  let e=fd.querySelector('.ferr');
+
+  if(msg){
+
+    if(!e){e=document.createElement('small');e.className='ferr';e.setAttribute('role','alert');fd.appendChild(e)}
+
+    e.textContent=msg;
+
+    el.setAttribute('aria-invalid','true');
+
+  }else{
+
+    if(e)e.remove();
+
+    el.removeAttribute('aria-invalid');
+
+  }
+
+};
+
+const checkField=el=>{
+
+  const v=el.value.trim();
+
+  if(el.hasAttribute('required')&&!v)return setErr(el,'Champ obligatoire');
+
+  if(el.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v))return setErr(el,'Email invalide');
+
+  if(el.type==='tel'&&v&&!/^[+0-9 ().\-]{6,}$/.test(v))return setErr(el,'Numero invalide');
+
+  setErr(el,'');
+
+  return true;
+
+};
+
+form.querySelectorAll('input,select,textarea').forEach(el=>{
+
+  el.addEventListener('blur',()=>checkField(el));
+
+  el.addEventListener('input',()=>{if(el.getAttribute('aria-invalid'))checkField(el)});
+
+});
+
+form.addEventListener('submit',e=>{
+
+  e.preventDefault();
+
+  const fields=[...form.querySelectorAll('input,select,textarea')];
+
+  let first=null;
+
+  fields.forEach(el=>{if(!checkField(el)&&!first)first=el});
+
+  if(first){okBox.style.display='none';first.focus();return}
+
+  /* Envoi reel : on ouvre le client mail du visiteur avec le recap des champs.
+
+     Seul moyen d'envoyer sans serveur ni service tiers (Formspree, etc.). */
+
+  const MAIL='cricriguidibi@gmail.com';
+
+  const val=id=>{const el=document.getElementById(id);return el?el.value.trim():''};
+
+  const L=[['Nom et prénom',val('n')],['Téléphone',val('t')],['Email',val('e')],['Lieu du chantier',val('l')],['Prestation',val('s')],['Volume estimé',val('v')],['Détails du chantier',val('m')]];
+
+  const corps=L.filter(([,v])=>v).map(([k,v])=>k+' : '+v).join('\n');
+
+  const lien=document.createElement('a');
+
+  lien.href='mailto:'+MAIL+'?subject='+encodeURIComponent('Demande de devis - Cannan-Minning')+'&body='+encodeURIComponent(corps);
+
+  document.body.appendChild(lien);lien.click();lien.remove();
+
+  okBox.style.display='block';
+
+  form.reset();
+
+  fields.forEach(el=>setErr(el,''));
+
+});
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+
+
+/* Liens de remplissage (reseaux sociaux) : href="#" faisait remonter
+
+   toute la page en haut. On les neutralise proprement. */
+
+document.querySelectorAll('a[href="#"]').forEach(a=>{
+
+  a.setAttribute('aria-disabled','true');
+
+  a.addEventListener('click',ev=>ev.preventDefault());
+
+});
+
+
+
+const ct=document.getElementById('carT'),cs=[...ct.children],cd=document.getElementById('carD'),cn=document.getElementById('carN');
+
+const LBL=[['Carrières et agrégats','Fourniture et rotation continue','Gestion des flux en accès contraint'],
+
+          ['Curage','Curage de lits et de berges','Transfert de volumes et reprofilage'],
+
+          ['Vente de sable et petites roches','Matériaux triés et calibrés','0/4 · 0/6 · 0/20 · 10/20 · 20/40']];
+
+let ci=0,tm=null;
+
+const pad=n=>String(n).padStart(2,'0');
+
+const tx=document.getElementById('carTxt');
+
+const go=i=>{ci=(i+cs.length)%cs.length;ct.style.transform=`translateX(-${ci*100}%)`;
+
+  [...cd.children].forEach((d,k)=>{d.classList.toggle('on',k===ci);d.setAttribute('aria-current', k===ci ? 'true' : 'false');});
+
+  cn.textContent=pad(ci+1)+' / '+pad(cs.length);
+
+  const l=LBL[ci];if(l)tx.innerHTML=`<em>${l[0]}</em><b>${l[1]}</b><span>${l[2]}</span>`;
+
+  cs.forEach((s,k)=>{const g=s.querySelector('img');g.style.animation='none';if(k===ci){void g.offsetWidth;g.style.animation=''}});};
+
+const play=()=>{tm=setInterval(()=>go(ci+1),5200)};
+
+/* Pastilles : vrais <button> pour etre atteignables au clavier et au lecteur d'ecran. */
+
+cs.forEach((_,i)=>{
+
+  const d=document.createElement('button');
+
+  d.type='button';
+
+  d.setAttribute('aria-label','Aller a la diapositive '+(i+1));
+
+  d.onclick=()=>{go(i);reset()};
+
+  cd.appendChild(d);
+
+});
+
+const reset=()=>{clearInterval(tm);play()};
+
+document.querySelectorAll('.car-b').forEach(b=>b.onclick=()=>{go(ci+ +b.dataset.d);reset()});
+
+const car=document.getElementById('car');
+
+car.addEventListener('mouseenter',()=>clearInterval(tm));
+
+car.addEventListener('mouseleave',play);
+
+let sx=0,dx=0;
+
+car.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;dx=0;clearInterval(tm)},{passive:true});
+
+car.addEventListener('touchmove',e=>{dx=e.touches[0].clientX-sx},{passive:true});
+
+car.addEventListener('touchend',()=>{if(Math.abs(dx)>50)go(ci + (dx < 0 ? -1 : 1));play();});
+
+go(0);play();
+
+</script>
+
+</body>
+
+</html>
+
+
