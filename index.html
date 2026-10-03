@@ -1176,7 +1176,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
 
   .hero-in>.w{padding:0 22px}
 
-  .car{order:2;height:250px;min-height:250px}
+  .car{position:absolute;inset:0;order:0;min-height:100%;flex:none}
 
   .car-o{background:linear-gradient(0deg,rgba(10,26,61,.95) 0,42% 100%,rgba(10,26,61,.55) 100%)}
 
@@ -1238,7 +1238,11 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
 
   .svc-ic svg{width:21px;height:21px}
 
-  .ft-g{grid-template-columns:1fr;gap:32px}
+  .ft-g{display:flex;flex-wrap:wrap;gap:32px}
+
+  .ft-g>div{flex:1 1 calc(50% - 16px);min-width:0}
+
+  .ft-g>div:first-child,.ft-g>div:last-child{flex-basis:100%}
 
   .fab{padding:14px 18px}
 
@@ -2979,5 +2983,3 @@ go(0);play();
 </body>
 
 </html>
-
-
