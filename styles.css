@@ -218,7 +218,7 @@ img{display:block;max-width:100%}
 /* ============ HEADER (transparent sur le hero, blanc au defilement) ============ */
 
 .hd{position:fixed;top:40px;left:0;right:0;z-index:100;isolation:isolate;
-  background:transparent;border-bottom:1px solid rgba(255,255,255,.14);
+  background:transparent;border-bottom:0;
   transition:background .35s var(--e),border-color .35s var(--e),box-shadow .4s var(--e)}
 
 .hd.st{background:#fff;border-color:var(--line);box-shadow:0 2px 14px rgba(10,26,61,.09)}
@@ -1805,3 +1805,11 @@ body.media-showcase-visible .wa,body.media-showcase-visible .fab{visibility:hidd
   .media-showcase__frame{border-radius:13px;aspect-ratio:4/3}
 }
 @media(prefers-reduced-motion:reduce){.impact-hero .b span,.media-showcase .b span{transition:none}}
+
+@media(min-width:1101px){
+  html{zoom:1.1}
+}
+@media(min-width:1101px) and (max-width:1210px){
+  nav,.hd-r .b{display:none}
+  .bk{display:grid}
+}
