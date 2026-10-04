@@ -90,6 +90,66 @@ img{display:block;max-width:100%}
 
 .w{width:100%;max-width:var(--max);margin:0 auto;padding:0 28px}
 
+.intro-loader{position:fixed;inset:0;z-index:300;display:grid;place-items:center;
+  overflow:hidden;background:#fff;opacity:1;visibility:visible;
+  transition:opacity .45s var(--e),visibility .45s}
+
+.intro-loader[hidden]{display:none}
+
+.intro-loader.is-done{opacity:0;visibility:hidden;pointer-events:none}
+
+.intro-loader__content{width:min(100% - 40px,300px);display:flex;flex-direction:column;
+  align-items:center;text-align:center}
+
+.intro-loader__mark{position:relative;width:min(280px,70vw);aspect-ratio:840/790;margin-bottom:24px}
+
+.intro-loader__mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+  opacity:0;animation:introLogoFill .35s 1.5s var(--e) forwards}
+
+.intro-loader__draw{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+
+.intro-loader__draw path{fill:none;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1;stroke-dashoffset:1;animation:introLogoDraw 1.05s var(--e) forwards}
+
+.intro-loader__draw .draw-sky{stroke:#a9cce5;animation-delay:.02s}
+
+.intro-loader__draw .draw-green{stroke:#63ae45;animation-delay:.16s}
+
+.intro-loader__draw .draw-blue{stroke:#0789c5;animation-delay:.3s}
+
+.intro-loader__draw .draw-ground{stroke:#0789c5;animation-delay:.44s}
+
+.intro-loader__shine{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+
+.intro-loader__shine::after{content:"";position:absolute;inset:-35% auto -35% -45%;width:24%;
+  transform:skewX(-22deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.82),transparent);
+  mix-blend-mode:screen;animation:introLogoShine .7s 2.05s ease-out both}
+
+.intro-loader__caption{font-size:10px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:#526579;opacity:0;animation:introCaption .35s 1.75s ease forwards}
+
+.intro-loader__track{width:min(220px,68vw);height:3px;margin-top:17px;
+  overflow:hidden;background:#dbe4ec}
+
+.intro-loader__track span{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--azur),var(--green));
+  animation:introProgress 3s linear forwards}
+
+@keyframes introLogoDraw{to{stroke-dashoffset:0}}
+@keyframes introLogoFill{to{opacity:1}}
+@keyframes introLogoShine{0%{left:-45%}100%{left:130%}}
+@keyframes introCaption{to{opacity:1}}
+@keyframes introProgress{to{transform:scaleX(1)}}
+
+@media(prefers-reduced-motion:reduce){
+  .intro-loader__draw path,.intro-loader__mark img,.intro-loader__shine::after,
+  .intro-loader__caption,.intro-loader__track span{animation:none!important}
+  .intro-loader__draw{display:none}
+  .intro-loader__mark img,.intro-loader__caption{opacity:1}
+  .intro-loader__track span{transform:none}
+  .intro-loader{transition:none}
+}
+
 
 
 /* eyebrow */
@@ -148,13 +208,15 @@ img{display:block;max-width:100%}
 
 
 
-/* ============ HEADER (fixe, blanc, toujours visible) ============ */
+/* ============ HEADER (transparent sur le hero, blanc au defilement) ============ */
 
-.hd{position:fixed;top:40px;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid var(--line);
+.hd{position:fixed;top:40px;left:0;right:0;z-index:100;isolation:isolate;
+  background:transparent;border-bottom:1px solid rgba(255,255,255,.14);
+  transition:background .35s var(--e),border-color .35s var(--e),box-shadow .4s var(--e)}
 
-  transition:box-shadow .4s var(--e)}
+.hd.st{background:#fff;border-color:var(--line);box-shadow:0 2px 14px rgba(10,26,61,.09)}
 
-.hd.st{box-shadow:0 2px 14px rgba(10,26,61,.09)}
+.hd>.w,.hd>.mn{position:relative;z-index:2}
 
 .hd-i{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
 
@@ -170,6 +232,12 @@ img{display:block;max-width:100%}
 
 .br-s{font-size:8.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px}
 
+.hd:not(.st) .br-n,.hd:not(.st) nav a{color:#fff}
+
+.hd:not(.st) .br-s{color:rgba(255,255,255,.76)}
+
+.hd:not(.st) .br-n i{color:var(--azur-l)}
+
 nav{display:flex;gap:2px}
 
 nav a{font-size:13.5px;font-weight:500;color:var(--ink);padding:9px 14px;position:relative;transition:color .2s}
@@ -177,6 +245,8 @@ nav a{font-size:13.5px;font-weight:500;color:var(--ink);padding:9px 14px;positio
 nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:1.5px;background:var(--azur);transform:scaleX(0);transform-origin:left;transition:transform .28s var(--e)}
 
 nav a:hover,nav a.on{color:var(--azur)}
+
+.hd:not(.st) nav a:hover,.hd:not(.st) nav a.on{color:var(--azur-l)}
 
 nav a:hover::after,nav a.on::after{transform:scaleX(1)}
 
@@ -187,6 +257,10 @@ nav a:hover::after,nav a.on::after{transform:scaleX(1)}
 .bk i{display:block;width:20px;height:1.6px;background:var(--navy);position:relative;transition:.3s}
 
 .bk i::before,.bk i::after{content:"";position:absolute;left:0;width:20px;height:1.6px;background:var(--navy);transition:.3s}
+
+.hd:not(.st) .bk{border-color:rgba(255,255,255,.48);background:rgba(255,255,255,.1)}
+
+.hd:not(.st) .bk i,.hd:not(.st) .bk i::before,.hd:not(.st) .bk i::after{background:#fff}
 
 .bk i::before{top:-6px}.bk i::after{top:6px}
 
@@ -216,7 +290,20 @@ nav a:hover::after,nav a.on::after{transform:scaleX(1)}
 
   min-height:max(calc(100vh - var(--hdH)),660px);display:flex;flex-direction:column}
 
-.car{position:relative;flex:1 1 auto;overflow:hidden;background:var(--navy-dd);border:0;min-height:0}
+.hero-video{position:absolute;top:calc(-1 * var(--hdH));left:0;z-index:0;width:100%;
+  height:calc(100% + var(--hdH));object-fit:cover;object-position:center 55%;pointer-events:none}
+
+.hero-video-shade{position:absolute;top:calc(-1 * var(--hdH));left:0;z-index:1;width:100%;
+  height:calc(100% + var(--hdH));pointer-events:none;
+  background:linear-gradient(90deg,rgba(10,26,61,.72) 0%,rgba(10,26,61,.48) 48%,rgba(10,26,61,.22) 100%)}
+
+.car{position:relative;z-index:2;flex:1 1 auto;overflow:hidden;background:var(--navy-dd);border:0;min-height:0}
+
+.hero.has-video .car-ui,.hero.has-video .car-txt{display:none}
+
+.hero.has-video .car{background:transparent}
+
+.hero.has-video .car-t{visibility:hidden}
 
 .car-t{position:absolute;inset:0;display:flex;transition:transform .55s var(--e);will-change:transform}
 
@@ -748,7 +835,15 @@ tbody tr:last-child td{border-bottom:0}
 
 /* ============ FOOTER ============ */
 
-.ft{background:var(--navy-dd);color:rgba(255,255,255,.55);padding:56px 0 22px}
+.ft{position:relative;isolation:isolate;overflow:hidden;background:var(--navy-dd);color:rgba(255,255,255,.55);padding:56px 0 22px}
+
+.ft-video{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;
+  object-position:center 52%;pointer-events:none}
+
+.ft::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(10,26,61,.84),rgba(10,26,61,.68) 55%,rgba(10,26,61,.8))}
+
+.ft>.w{position:relative;z-index:2}
 
 .ft-g{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.25fr;gap:44px;padding-bottom:42px;border-bottom:1px solid var(--lineD)}
 
@@ -1149,6 +1244,14 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
 
 }
 
+@media(min-width:721px) and (max-width:1100px){
+
+  nav,.hd-r .b{display:none}
+
+  .bk{display:grid}
+
+}
+
 @media(max-width:720px){
 
   nav,.hd-r .b{display:none}
@@ -1342,6 +1445,152 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
 
 @media (max-width:980px){.apropos-hero{grid-template-columns:1fr}}
 
+/* Presentation editoriale propre a Cannan-Minning */
+#apropos .apropos-hero{
+  grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  gap:0;
+  align-items:stretch;
+  margin-top:30px;
+  box-shadow:0 26px 60px rgba(10,26,61,.12)
+}
+
+#apropos .apropos-hero .card{
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  padding:clamp(30px,4vw,58px)
+}
+
+#apropos .apropos-hero .card:first-child{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border-left:4px solid var(--azur);
+  background:#fff
+}
+
+#apropos .apropos-hero .card:last-child{
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:410px;
+  overflow:hidden;
+  color:#fff;
+  background:linear-gradient(115deg,rgba(10,26,61,.94),rgba(10,26,61,.64)),url('img/hero-4.jpg') center/cover
+}
+
+#apropos .apropos-hero .card:last-child h3{
+  color:#fff!important;
+  font-size:clamp(22px,2.4vw,30px)!important;
+  margin-bottom:12px!important
+}
+
+#apropos .apropos-hero .card:last-child .list li{color:rgba(255,255,255,.82)}
+
+#apropos .apropos-hero .card:last-child .list li::before{background:var(--green)}
+
+#avantages{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:var(--navy-dd);
+  color:#fff
+}
+
+#avantages::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(10,26,61,.88),rgba(10,26,61,.72) 55%,rgba(10,26,61,.8))
+}
+
+#avantages .atouts-video{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 55%;
+  pointer-events:none
+}
+
+#avantages>.w{position:relative;z-index:2}
+
+#avantages .sh{border-color:rgba(255,255,255,.18)}
+
+#avantages .sh h2{color:#fff}
+
+#avantages .sh p{color:rgba(255,255,255,.68)}
+
+#avantages .stats{
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.035)
+}
+
+#avantages .stat{border-color:rgba(255,255,255,.16)}
+
+#avantages .stat b{color:#fff}
+
+#avantages .stat b i{color:var(--azur-l)}
+
+#avantages .stat span{color:rgba(255,255,255,.62)}
+
+#avantages .figs{gap:12px;border:0;background:transparent}
+
+#avantages .fig{
+  border:1px solid rgba(255,255,255,.16);
+  border-top:3px solid transparent;
+  background:rgba(255,255,255,.035)
+}
+
+#avantages .fig:hover{border-top-color:var(--green);background:rgba(255,255,255,.07)}
+
+#avantages .fig-ic{background:rgba(79,176,224,.13)}
+
+#avantages .fig-ic svg{stroke:var(--azur-l)}
+
+#avantages .fig b{color:#fff}
+
+#avantages .fig p{color:rgba(255,255,255,.64)}
+
+#realisations .gal{grid-template-columns:1.2fr 1fr 1fr;gap:20px}
+
+#realisations .g{border:0;box-shadow:0 12px 32px rgba(10,26,61,.08)}
+
+#realisations .g-img img{aspect-ratio:4/2.8}
+
+#realisations .g:first-child .g-img img{aspect-ratio:4/3.25}
+
+#realisations .g-b{padding:22px 22px 24px}
+
+@media(max-width:980px){
+  #apropos .apropos-hero{grid-template-columns:1fr}
+  #apropos .apropos-hero .card:last-child{min-height:360px}
+  #realisations .gal{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:720px){
+  #apropos .apropos-hero .card{padding:28px 24px}
+  #apropos .apropos-hero .card:last-child{min-height:0}
+  #avantages .figs{gap:0}
+  #avantages .fig{border-right:0;border-bottom:1px solid rgba(255,255,255,.16)}
+  #avantages .fig:last-child{border-bottom:0}
+  #realisations .gal{grid-template-columns:1fr}
+  #realisations .g-img img,#realisations .g:first-child .g-img img{aspect-ratio:4/2.7}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-video{display:none}
+  .hd:not(.st){background:var(--navy-dd)}
+  .hero.has-video .car{background:var(--navy-dd)}
+  .hero.has-video .car-t{visibility:visible}
+  .hero.has-video .car-ui,.hero.has-video .car-txt{display:block}
+}
 
 
 </style>
@@ -1415,6 +1664,52 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
 </head>
 
 <body>
+
+
+
+<div class="intro-loader" id="introLoader" role="status" aria-label="Chargement de Cannan-Minning" hidden>
+
+  <div class="intro-loader__content">
+
+    <div class="intro-loader__mark">
+      <img src="img/logo-full.png" alt="" width="840" height="790">
+      <svg class="intro-loader__draw" viewBox="0 0 840 790" aria-hidden="true">
+        <path class="draw-sky" pathLength="1" stroke-width="9" d="M410 24v54l-72 60v166m72-226 70 66v49l-70 56V78"/>
+        <path class="draw-green" pathLength="1" stroke-width="10" d="m472 222 72 72v211l-71 38-81-28V297l80-75Z"/>
+        <path class="draw-blue" pathLength="1" stroke-width="10" d="m359 300 84 61v218l-84 41-72-39V380l72-80Z"/>
+        <path class="draw-ground" pathLength="1" stroke-width="8" d="M204 542c54-48 107-63 155-70m82 2c58 7 108 29 157 68"/>
+        <path class="draw-blue" pathLength="1" stroke-width="8" d="m264 392-25 23v77l-19 10v-43h-13v51m339-117 24 24v77l19 10v-43h13v50"/>
+      </svg>
+      <span class="intro-loader__shine" aria-hidden="true"></span>
+    </div>
+
+    <span class="intro-loader__caption">Dragage · BTP · Agrégats</span>
+
+    <span class="intro-loader__track" aria-hidden="true"><span></span></span>
+
+  </div>
+
+</div>
+
+<script>
+(()=>{
+  const loader=document.getElementById('introLoader');
+  const started=performance.now();
+  const minDisplay=3000;
+  let finished=false;
+  const finish=()=>{
+    if(finished)return;
+    finished=true;
+    setTimeout(()=>{
+      loader.classList.add('is-done');
+      setTimeout(()=>loader.remove(),600);
+    },Math.max(0,minDisplay-(performance.now()-started)));
+  };
+  loader.hidden=false;
+  addEventListener('load',finish,{once:true});
+  if(document.readyState==='complete')finish();
+})();
+</script>
 
 
 
@@ -1506,7 +1801,14 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
 
 <!-- HERO -->
 
-<section class="hero" id="top">
+<section class="hero has-video" id="top">
+
+  <!-- Pexels: "Excavator Loading Dump Truck in Open-Pit Mine" (35650013), Pexels License -->
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="img/hero-truck-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="img/hero-truck-1080p.mp4" type="video/mp4">
+  </video>
+
+  <span class="hero-video-shade" aria-hidden="true"></span>
 
   <div class="car" id="car" aria-roledescription="carrousel" aria-label="Nos interventions">
 
@@ -1547,8 +1849,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
     </div>
 
   </div>
-
-
 
   <span class="car-ov"></span>
 
@@ -1848,7 +2148,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
 
       <div class="card">
 
-        <h3 style="margin-bottom:12px;color:var(--navy);font-size:20px;letter-spacing:-.03em">Identité et activités</h3>
+        <h3>Identité et activités</h3>
 
         <ul class="list">
 
@@ -2131,6 +2431,11 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
 <!-- ATOUTS -->
 
 <section class="sec sky" id="avantages">
+
+  <!-- Pexels: "Truck Driving on Dirt Road" (4474926), Pexels License -->
+  <video class="atouts-video" autoplay muted loop playsinline preload="metadata" poster="img/advantages-truck-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="img/advantages-truck-720p.mp4" type="video/mp4">
+  </video>
 
   <div class="w">
 
@@ -2507,6 +2812,11 @@ input:focus,textarea:focus,select:focus{border-color:var(--azur)!important;
 
 
 <footer class="ft">
+
+  <!-- Pexels: "Heavy Construction Site with Excavator and Dump Truck" (35649973), Pexels License -->
+  <video class="ft-video" autoplay muted loop playsinline preload="metadata" poster="img/footer-action-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="img/footer-action-1080p.mp4" type="video/mp4">
+  </video>
 
   <div class="w">
 
@@ -3010,6 +3320,8 @@ car.addEventListener('touchend',()=>{if(Math.abs(dx)>50)go(ci + (dx < 0 ? -1 : 1
 go(0);play();
 
 </script>
+
+
 
 </body>
 
