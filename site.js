@@ -1,10 +1,15 @@
 const hd=document.getElementById('hd');
 
 const wa=document.querySelector('.wa');
+const impactHero=document.querySelector('.impact-hero');
 const sc=()=>{
   const atTop=scrollY<=40&&document.body.dataset.page==='home';
+  const atImpactTop=scrollY<=40&&!!impactHero;
   if(hd)hd.classList.toggle('st',scrollY>40);
-  if(wa)wa.classList.toggle('hero-low',atTop);
+  if(wa){
+    wa.classList.toggle('hero-low',atTop);
+    wa.classList.toggle('impact-low',atImpactTop);
+  }
 };
 
 sc();addEventListener('scroll',sc);
@@ -223,6 +228,13 @@ const fab=document.getElementById('fab');
 
 addEventListener('scroll',()=>fab.classList.toggle('on',scrollY>600));
 
+const mediaShowcase=document.querySelector('.media-showcase');
+if(mediaShowcase){
+  const showcaseObserver=new IntersectionObserver(([entry])=>{
+    document.body.classList.toggle('media-showcase-visible',entry.isIntersecting);
+  },{threshold:.05});
+  showcaseObserver.observe(mediaShowcase);
+}
 
 
 /* Validation du formulaire : sans elle, un envoi vide affichait quand meme
