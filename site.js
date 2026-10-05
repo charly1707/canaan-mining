@@ -413,3 +413,18 @@ car.addEventListener('touchend',()=>{if(Math.abs(dx)>50)go(ci + (dx < 0 ? -1 : 1
 
 go(0);play();
 }
+
+
+/* Video du hero : image de couverture seule si l'utilisateur limite les animations
+   ou les donnees ; sinon on relance la lecture si l'autoplay a ete retarde. */
+(()=>{
+  const v=document.querySelector('.hero-video');
+  if(!v)return;
+  const c=navigator.connection||{};
+  const still=matchMedia('(prefers-reduced-motion: reduce)').matches||c.saveData||/(^|-)2g$/.test(c.effectiveType||'');
+  if(still){v.removeAttribute('autoplay');v.pause();v.preload='none';return;}
+  const go=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>{})};
+  go();
+  v.addEventListener('canplay',go,{once:true});
+  document.addEventListener('visibilitychange',()=>{document.hidden?v.pause():go()});
+})();
