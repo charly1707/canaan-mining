@@ -1806,10 +1806,10 @@ body.media-showcase-visible .wa,body.media-showcase-visible .fab{visibility:hidd
 }
 @media(prefers-reduced-motion:reduce){.impact-hero .b span,.media-showcase .b span{transition:none}}
 
-@media(min-width:1101px){
-  html{zoom:1.1}
+@media(min-width:721px) and (hover:hover) and (pointer:fine){
+  html{zoom:1.2}
 }
-@media(min-width:1101px) and (max-width:1210px){
+@media(min-width:1101px) and (max-width:1360px) and (hover:hover) and (pointer:fine){
   nav,.hd-r .b{display:none}
   .bk{display:grid}
 }
