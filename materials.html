@@ -8,6 +8,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<script>
+const navigationEntry=performance.getEntriesByType('navigation')[0];
+if('scrollRestoration' in history)history.scrollRestoration=navigationEntry&&navigationEntry.type==='reload'?'manual':'auto';
+if(navigationEntry&&navigationEntry.type==='reload'){
+  if(location.hash)history.replaceState(history.state,'',location.pathname+location.search);
+  window.addEventListener('pageshow',()=>window.scrollTo({top:0,left:0,behavior:'instant'}),{once:true});
+  window.addEventListener('pagehide',()=>history.scrollRestoration='auto',{once:true});
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+}
+</script>
+
 <title>Sable et granulats disponibles | Cannan-Minning</title>
 
 <meta name="description" content="Consultez les mat&eacute;riaux, granulom&eacute;tries et usages disponibles aupr&egrave;s de Cannan-Minning.">
@@ -36,7 +47,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=20261005-15">
+<link rel="stylesheet" href="styles.css?v=20261006-52">
 
 <noscript><style>.rv,.rv-l,.rv-r,.rv-z,.rv-f,table tbody tr{opacity:1!important;transform:none!important;filter:none!important}.sprog{display:none}
 
@@ -146,12 +157,10 @@
 
     <nav>
       <a href="index.html" data-page="home">Accueil</a>
-      <a href="services.html" data-page="services">Prestations</a>
-      <a href="about.html" data-page="about">&Agrave; propos</a>
+      <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
+      <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
       <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-      <a href="projects.html" data-page="projects">R&eacute;alisations</a>
-      <a href="dispositif.html#dispositif" data-page="advantages">Dispositif</a>
-      
+      <a href="about.html" data-page="about">&Agrave; propos</a>
       <a href="contact.html" data-page="contact">Contact</a>
     </nav>
 
@@ -167,12 +176,10 @@
 
   <div class="mn" id="mn"><div class="w">
     <a href="index.html" data-page="home">Accueil</a>
-    <a href="services.html" data-page="services">Prestations</a>
-    <a href="about.html" data-page="about">&Agrave; propos</a>
+    <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
+    <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
     <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-    <a href="projects.html" data-page="projects">R&eacute;alisations</a>
-    <a href="dispositif.html#dispositif" data-page="advantages">Dispositif</a>
-    
+    <a href="about.html" data-page="about">&Agrave; propos</a>
     <a href="contact.html" data-page="contact">Contact</a>
     <a href="contact.html#devis" class="b b-b">Demander un devis</a>
   </div></div>
@@ -193,140 +200,85 @@
 
   <div class="w">
 
-    <div class="sh rv">
+    <div class="material-cards">
+      <article class="material-card rv">
+        <img src="img/hero-3.jpg" alt="Sable disponible pour les travaux de construction" loading="lazy" decoding="async">
+        <div class="material-card__body">
+          <span class="material-card__index">01</span>
+          <h3>Sable</h3>
+          <ul class="material-card__features"><li>Construction</li><li>Aménagement</li><li>Remblai public</li></ul>
+          <a class="svc-a" href="contact.html#devis">En savoir plus <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
 
-      <div>
+      <article class="material-card rv">
+        <img src="img/gal-1.jpg" alt="Agrégats et granulats disponibles pour les chantiers" loading="lazy" decoding="async">
+        <div class="material-card__body">
+          <span class="material-card__index">02</span>
+          <h3>Agrégats</h3>
+          <ul class="material-card__features"><li>Granulats</li><li>Graviers</li><li>Matériaux calibrés</li></ul>
+          <a class="svc-a" href="contact.html#devis">En savoir plus <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
 
-        <span class="lb"><span class="ix">03</span> Fournitures</span>
-
-        <h2>Les granulométries<br>disponibles</h2>
-
-      </div>
-
-      <p>Matériaux propres, calibrés et contrôlés avant départ. Les grades standards sont en stock, les mélanges spécifiques sont produits sur demande.</p>
-
+      <article class="material-card rv">
+        <img src="img/services-excavation-poster.jpg" alt="Engin préparant des matériaux pour un chantier" loading="lazy" decoding="async">
+        <div class="material-card__body">
+          <span class="material-card__index">03</span>
+          <h3>Approvisionnement</h3>
+          <ul class="material-card__features"><li>Offres maîtrisées</li><li>Livraison sur site</li><li>Suivi des volumes</li></ul>
+          <a class="svc-a" href="contact.html#devis">Demander un devis <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
     </div>
 
-    <div class="mt-g">
-
-      <div class="mt-l rv">
-
-        <p>Chaque lot est échantillonné et validé avant mise en place ou livraison. Si votre appel d'offres impose une granulométrie particulière, nous l’adaptons.</p>
-
-        <div class="mt-note">
-
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-
-          <p>Livraison en benne ou par camion-benne, multi-rotations possibles sur les gros volumes.</p>
-
-        </div>
-
+    <div class="materials-action content-cta">
+      <div>
+        <span class="materials-action__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16h13V7H3zM16 10h3l2 3v3h-5z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
+        <div><b>Besoin d’un volume important&nbsp;?</b><span>Nous trouvons la meilleure solution d’approvisionnement pour votre chantier.</span></div>
       </div>
-
-      <div class="rv">
-
-        <table>
-
-          <thead><tr><th scope="col">Matériau</th><th scope="col">Usage</th><th scope="col">Grade</th></tr></thead>
-
-          <tbody>
-
-            <tr><td>Sable de rivière</td><td>Enrobage, béton de propreté, remblai</td><td class="g">0/4 · 0/5</td></tr>
-
-            <tr><td>Sable de carrière</td><td>Dalle, chape, mortier, blocage</td><td class="g">0/4 · 0/6</td></tr>
-
-            <tr><td>Sable de remblai</td><td>Remblai de grande hauteur, assainissement</td><td class="g">0/20</td></tr>
-
-            <tr><td>Petite roche</td><td>Enrobage, réfection de piste, blocage</td><td class="g">10/20</td></tr>
-
-            <tr><td>Gravier concassé</td><td>Fondation, chaussée, drainage</td><td class="g">20/40</td></tr>
-
-            <tr><td>Tout-venant</td><td>Décapage, plateformes, remblais divers</td><td class="g">0/31,5</td></tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
+      <a class="b b-ow" href="contact.html#devis">Échanger sur mon chantier <span aria-hidden="true">→</span></a>
     </div>
 
   </div>
 
 </section>
 </main>
-<footer class="ft">
-
-  <!-- Pexels: "Heavy Construction Site with Excavator and Dump Truck" (35649973), Pexels License -->
-  <img class="ft-video" src="img/footer-action-poster.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-
-  <div class="w">
-
-    <div class="ft-g">
-
-      <div>
-
-        <a href="index.html#top" class="br">
-
-          <span class="br-m"><img src="img/logo-icon.png" alt="" width="44" height="44" decoding="async"></span>
-
-          <span><span class="br-n">CANNAN<i>-</i>MINING</span><span class="br-s">Dragage · BTP · Agrégats</span></span>
-
+<footer class="ft" id="site-footer">
+  <div class="ft-main">
+    <div class="w ft-compact">
+      <section class="ft-compact-brand" aria-label="Cannan-Minning">
+        <a href="index.html#top" class="ft-brand__logo">
+          <span class="br-m"><img src="img/logo-icon.png" alt="" width="64" height="64" decoding="async"></span>
+          <span><strong>CANNAN-MINING</strong><small>DRAGAGE <i>&middot;</i> BTP <i>&middot;</i> AGR&Eacute;GATS</small></span>
         </a>
-
-        <p>Entreprise de dragage, de terrassement et de fourniture d’agrégats. Nous intervenons sur les chantiers BTP, VRD, ZAC et industriels de votre région.</p>
-
-        <div class="sc">
-
-          <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.5l.5-3H13v-2c0-.6.4-1 1-1z"/></svg></a>
-
-          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M6.9 8.5H4V20h2.9V8.5zM5.4 7.2a1.7 1.7 0 110-3.4 1.7 1.7 0 010 3.4zM20 13.6c0-3-1.6-4.4-3.7-4.4-1.7 0-2.5.9-2.9 1.6V8.5H10.5V20h2.9v-6c0-1.6.3-3.1 2.3-3.1s1.9 1.8 1.9 3.2V20H20v-6.4z"/></svg></a>
-
-          <a href="https://wa.me/2290197988688" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-
+        <p>Des solutions adapt&eacute;es &agrave; vos chantiers de dragage, de BTP et d'approvisionnement en mat&eacute;riaux.</p>
+      </section>
+      <nav class="ft-compact-nav" aria-label="Navigation de pied de page">
+        <h3>Explorer</h3>
+        <div class="ft-compact-links">
+          <a href="index.html">Accueil</a>
+          <a href="services.html">Nos m&eacute;tiers</a>
+          <a href="dispositif.html#dispositif">Notre expertise</a>
+          <a href="materials.html">Mat&eacute;riaux</a>
+          <a href="about.html">&Agrave; propos</a>
         </div>
-
-      </div>
-
-      <div>
-
-        <h4>Navigation</h4>
-
-        <ul><li><a href="index.html">Accueil</a></li><li><a href="services.html">Prestations</a></li><li><a href="about.html">À propos</a></li><li><a href="materials.html">Matériaux</a></li><li><a href="projects.html">Réalisations</a></li><li><a href="dispositif.html#dispositif">Dispositif</a></li><li><a href="contact.html">Contact</a></li></ul>
-
-      </div>
-
-      <div>
-
-        <h4>Prestations</h4>
-
-        <ul><li><a href="services.html">Dragage de sable</a></li><li><a href="services.html">BTP et terrassement</a></li><li><a href="services.html">Petites roches</a></li><li><a href="services.html">Vente de sable</a></li></ul>
-
-      </div>
-
-      <div>
-
-        <h4>Nous joindre</h4>
-
-        <ul><li><a href="tel:+2290197988688">229 01 97 98 86 88</a></li><li><a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a></li><li>Lun–Sam · 07h00–18h00</li></ul>
-
-      </div>
-
+      </nav>
+      <section class="ft-compact-contact">
+        <h3>Parlons de votre projet</h3>
+        <a href="tel:+2290197988688">+229 01 97 98 86 88</a>
+        <a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a>
+        <a class="ft-compact-cta" href="contact.html#devis">Demander un devis <span aria-hidden="true">&rarr;</span></a>
+      </section>
     </div>
-
-    <div class="ft-b">
-
-      <span>© <span id="yr"></span> Cannan-Minning · Tous droits réservés.</span>
-
-      <span>Mentions légales · Politique de confidentialité</span>
-
-    </div>
-
   </div>
-
+  <div class="ft-bottom"><div class="w ft-bottom__inner">
+    <span>&copy; <span id="yr"></span> CANNAN-MINING. Tous droits r&eacute;serv&eacute;s.</span>
+    <a class="ft-top" href="#top"><span aria-hidden="true">&uarr;</span> Retour en haut</a>
+  </div></div>
 </footer>
 <a href="contact.html#devis" class="fab" id="fab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-5.1A8.4 8.4 0 0112 3.1a8.4 8.4 0 019 8.4z"/></svg><span>Devis gratuit</span></a>
 <a class="wa" href="https://wa.me/2290197988688?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20vos%20services." target="_blank" rel="noopener noreferrer" aria-label="Discuter directement avec Cannan-Minning sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-.9-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-<script src="site.js"></script>
+<script src="site.js?v=20261006-07"></script>
 </body>
 </html>

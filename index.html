@@ -8,6 +8,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<script>
+const navigationEntry=performance.getEntriesByType('navigation')[0];
+if('scrollRestoration' in history)history.scrollRestoration=navigationEntry&&navigationEntry.type==='reload'?'manual':'auto';
+if(navigationEntry&&navigationEntry.type==='reload'){
+  if(location.hash)history.replaceState(history.state,'',location.pathname+location.search);
+  window.addEventListener('pageshow',()=>window.scrollTo({top:0,left:0,behavior:'instant'}),{once:true});
+  window.addEventListener('pagehide',()=>history.scrollRestoration='auto',{once:true});
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+}
+</script>
+
 <title>Cannan-Minning | Dragage, BTP et agr&eacute;gats</title>
 
 <meta name="description" content="Dragage, terrassement BTP et fourniture de sable et agr&eacute;gats. Des &eacute;quipes et du mat&eacute;riel mobilisables pour vos chantiers.">
@@ -36,7 +47,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Jost:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=20261005-15">
+<link rel="stylesheet" href="styles.css?v=20261006-52">
 
 <noscript><style>.rv,.rv-l,.rv-r,.rv-z,.rv-f,table tbody tr{opacity:1!important;transform:none!important;filter:none!important}.sprog{display:none}
 
@@ -189,12 +200,10 @@
 
     <nav>
       <a href="index.html" data-page="home">Accueil</a>
-      <a href="services.html" data-page="services">Prestations</a>
-      <a href="about.html" data-page="about">&Agrave; propos</a>
+      <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
+      <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
       <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-      <a href="projects.html" data-page="projects">R&eacute;alisations</a>
-      <a href="dispositif.html#dispositif" data-page="advantages">Dispositif</a>
-      
+      <a href="about.html" data-page="about">&Agrave; propos</a>
       <a href="contact.html" data-page="contact">Contact</a>
     </nav>
 
@@ -210,17 +219,16 @@
 
   <div class="mn" id="mn"><div class="w">
     <a href="index.html" data-page="home">Accueil</a>
-    <a href="services.html" data-page="services">Prestations</a>
-    <a href="about.html" data-page="about">&Agrave; propos</a>
+    <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
+    <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
     <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-    <a href="projects.html" data-page="projects">R&eacute;alisations</a>
-    <a href="dispositif.html#dispositif" data-page="advantages">Dispositif</a>
-    
+    <a href="about.html" data-page="about">&Agrave; propos</a>
     <a href="contact.html" data-page="contact">Contact</a>
     <a href="contact.html#devis" class="b b-b">Demander un devis</a>
   </div></div>
 
 </header>
+<main id="main-content">
 <section class="hero has-video" id="top">
 
   <div class="hero-media" aria-hidden="true">
@@ -382,22 +390,18 @@
   </div>
 
 </section>
-<section class="media-showcase" aria-labelledby="showcase-title">
-  <div class="w media-showcase__grid">
-    <div class="media-showcase__copy">
-      <span class="lb"><span class="ix">01</span> En mouvement</span>
-      <h2 id="showcase-title">La puissance des engins.<br>La précision du terrain.</h2>
-      <p>De l’extraction au transport, chaque mouvement compte. Découvrez l’énergie d’un chantier en pleine activité et la coordination qui fait avancer les travaux.</p>
-      <span class="media-showcase__note">Séquence d’illustration · Engins et chantier</span>
-      <a class="b b-n" href="services.html">Découvrir nos prestations <span aria-hidden="true">→</span></a>
+<section class="home-intro" aria-labelledby="home-intro-title">
+  <div class="w home-intro__grid">
+    <div class="home-intro__copy">
+      <span class="lb"><span class="ix">01</span> Cannan-Minning</span>
+      <h2 id="home-intro-title">Du terrain à la réalisation</h2>
+      <p>Nous accompagnons vos chantiers avec des moyens adaptés et une organisation claire. Du dragage à l’approvisionnement, chaque intervention est préparée selon le terrain, les volumes et vos délais.</p>
+      <a class="b b-n" href="dispositif.html#dispositif">Découvrir notre expertise <span aria-hidden="true">→</span></a>
     </div>
-    <div class="media-showcase__frame">
-      <!-- Pexels: "Truck Driving on Dirt Road" (4474926), Pexels License -->
-      <video controls playsinline preload="none" poster="img/advantages-truck-poster.jpg" aria-label="Vidéo d'illustration d'un camion circulant sur une piste de chantier">
-        <source src="img/advantages-truck-720p.mp4" type="video/mp4">
-        Votre navigateur ne prend pas en charge la lecture vidéo.
-      </video>
-      <span class="media-showcase__badge"><i></i> Au cœur de l’action</span>
+    <div class="home-intro__media">
+      <video src="img/services-site-work.mp4" autoplay muted loop playsinline controls preload="metadata" poster="img/services-site-poster.jpg" aria-label="Engin de chantier en intervention sur le terrain"></video>
+      <span class="home-intro__video-status" role="status" hidden>La lecture automatique est indisponible. Appuyez sur Lecture.</span>
+      <span class="home-intro__badge"><b>100+</b><span>chantiers accompagnés</span></span>
     </div>
   </div>
 </section>
@@ -405,112 +409,124 @@
   <div class="w">
     <div class="sh">
       <div>
-        <span class="lb"><span class="ix">01</span> Cannan-Minning</span>
-        <h2>Un chantier &agrave; pr&eacute;parer ?</h2>
+        <span class="lb"><span class="ix">02</span> Nos métiers</span>
+        <h2>Des solutions pour chaque étape du chantier</h2>
       </div>
-      <p>D&eacute;couvrez nos services, nos mat&eacute;riaux et nos r&eacute;alisations, puis &eacute;changeons sur votre besoin.</p>
+      <p>Du dragage à l’approvisionnement, nous adaptons nos prestations aux contraintes du terrain et au calendrier des travaux.</p>
     </div>
     <div class="svcs home-links">
-      <a class="svc" href="services.html">
-        <div class="svc-t"><span class="svc-ic"><span>01</span></span><span class="svc-n">01</span></div>
-        <h3>Nos prestations<em>Dragage &middot; BTP &middot; agr&eacute;gats</em></h3>
-        <p>Choisissez le service adapt&eacute; &agrave; votre chantier.</p>
-        <span class="svc-a">D&eacute;couvrir nos prestations &rarr;</span>
-      </a>
-      <a class="svc" href="materials.html">
-        <div class="svc-t"><span class="svc-ic"><span>02</span></span><span class="svc-n">02</span></div>
-        <h3>Nos mat&eacute;riaux<em>Sable &middot; roches &middot; granulats</em></h3>
-        <p>Consultez les calibres et leurs usages.</p>
-        <span class="svc-a">Voir les mat&eacute;riaux &rarr;</span>
-      </a>
-      <a class="svc" href="projects.html">
-        <div class="svc-t"><span class="svc-ic"><span>03</span></span><span class="svc-n">03</span></div>
-        <h3>Nos r&eacute;alisations<em>Chantiers et livraisons</em></h3>
-        <p>D&eacute;couvrez des exemples d&rsquo;interventions.</p>
-        <span class="svc-a">Voir les chantiers &rarr;</span>
-      </a>
-      <a class="svc" href="contact.html#devis">
-        <div class="svc-t"><span class="svc-ic"><span>04</span></span><span class="svc-n">04</span></div>
-        <h3>Demander un devis<em>R&eacute;ponse sous 24 heures</em></h3>
-        <p>D&eacute;crivez votre besoin &agrave; notre &eacute;quipe.</p>
-        <span class="svc-a">Parlons de votre projet &rarr;</span>
-      </a>
+      <article class="home-service">
+        <div class="home-service__carousel" data-home-carousel aria-roledescription="carrousel" aria-label="Photos de dragage">
+          <div class="home-service__slides">
+            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="1 sur 3"><img src="img/gal-1.jpg" alt="Installation d’extraction et de traitement de sable" loading="lazy" decoding="async"></div>
+            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 3" hidden><img src="img/gal-3.jpg" alt="Vue aérienne d’un site d’extraction" loading="lazy" decoding="async"></div>
+            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 3" hidden><img src="img/services-site-poster.jpg" alt="Engin en intervention sur un site de dragage" loading="lazy" decoding="async"></div>
+          </div>
+          <button class="home-service__arrow home-service__arrow--previous" type="button" aria-label="Photo précédente">‹</button>
+          <button class="home-service__arrow home-service__arrow--next" type="button" aria-label="Photo suivante">›</button>
+          <div class="home-service__pagination" aria-label="Choisir une photo">
+            <button type="button" aria-label="Afficher la photo 1" aria-current="true"></button>
+            <button type="button" aria-label="Afficher la photo 2" aria-current="false"></button>
+            <button type="button" aria-label="Afficher la photo 3" aria-current="false"></button>
+          </div>
+        </div>
+        <h3>Dragage</h3>
+        <p>Des interventions organisées selon les contraintes du site et les volumes à traiter.</p>
+        <a class="svc-a" href="services.html">En savoir plus <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="home-service">
+        <div class="home-service__carousel" data-home-carousel aria-roledescription="carrousel" aria-label="Photos de BTP et terrassement">
+          <div class="home-service__slides">
+            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="1 sur 3"><img src="img/gal-2.jpg" alt="Pelle mécanique préparant un terrain de chantier" loading="lazy" decoding="async"></div>
+            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 3" hidden><img src="img/hero-truck-poster.jpg" alt="Pelle mécanique et camion sur un chantier" loading="lazy" decoding="async"></div>
+            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 3" hidden><img src="img/services-excavation-poster.jpg" alt="Pelle mécanique chargeant des matériaux" loading="lazy" decoding="async"></div>
+          </div>
+          <button class="home-service__arrow home-service__arrow--previous" type="button" aria-label="Photo précédente">‹</button>
+          <button class="home-service__arrow home-service__arrow--next" type="button" aria-label="Photo suivante">›</button>
+          <div class="home-service__pagination" aria-label="Choisir une photo">
+            <button type="button" aria-label="Afficher la photo 1" aria-current="true"></button>
+            <button type="button" aria-label="Afficher la photo 2" aria-current="false"></button>
+            <button type="button" aria-label="Afficher la photo 3" aria-current="false"></button>
+          </div>
+        </div>
+        <h3>BTP &amp; terrassement</h3>
+        <p>Préparation de plateformes, nivellement et terrassement pour vos ouvrages.</p>
+        <a class="svc-a" href="services.html">En savoir plus <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="home-service">
+        <div class="home-service__carousel" data-home-carousel aria-roledescription="carrousel" aria-label="Photos de sable et agrégats">
+          <div class="home-service__slides">
+            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="1 sur 3"><img src="img/gal-3.jpg" alt="Stocks de sable et d’agrégats vus du ciel" loading="lazy" decoding="async"></div>
+            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 3" hidden><img src="img/hero-3.jpg" alt="Matériaux préparés dans une carrière" loading="lazy" decoding="async"></div>
+            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 3" hidden><img src="img/gal-1.jpg" alt="Installation de traitement de matériaux" loading="lazy" decoding="async"></div>
+          </div>
+          <button class="home-service__arrow home-service__arrow--previous" type="button" aria-label="Photo précédente">‹</button>
+          <button class="home-service__arrow home-service__arrow--next" type="button" aria-label="Photo suivante">›</button>
+          <div class="home-service__pagination" aria-label="Choisir une photo">
+            <button type="button" aria-label="Afficher la photo 1" aria-current="true"></button>
+            <button type="button" aria-label="Afficher la photo 2" aria-current="false"></button>
+            <button type="button" aria-label="Afficher la photo 3" aria-current="false"></button>
+          </div>
+        </div>
+        <h3>Sable &amp; agrégats</h3>
+        <p>Fourniture et livraison de matériaux adaptés à la nature de vos travaux.</p>
+        <a class="svc-a" href="materials.html">En savoir plus <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+    <div class="home-contact-strip home-cta">
+      <div>
+        <span class="home-cta__eyebrow">Une équipe, des moyens, une même ambition.</span>
+        <b>Faisons avancer vos projets, ensemble.</b>
+      </div>
+      <a class="b b-ow" href="about.html">Découvrir notre approche <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
-<footer class="ft">
-
-  <!-- Pexels: "Heavy Construction Site with Excavator and Dump Truck" (35649973), Pexels License -->
-  <img class="ft-video" src="img/footer-action-poster.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-
+<section class="home-stats" aria-label="Domaines d’intervention de Cannan-Minning">
   <div class="w">
-
-    <div class="ft-g">
-
-      <div>
-
-        <a href="index.html#top" class="br">
-
-          <span class="br-m"><img src="img/logo-icon.png" alt="" width="44" height="44" decoding="async"></span>
-
-          <span><span class="br-n">CANNAN<i>-</i>MINING</span><span class="br-s">Dragage · BTP · Agrégats</span></span>
-
-        </a>
-
-        <p>Entreprise de dragage, de terrassement et de fourniture d’agrégats. Nous intervenons sur les chantiers BTP, VRD, ZAC et industriels de votre région.</p>
-
-        <div class="sc">
-
-          <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.5l.5-3H13v-2c0-.6.4-1 1-1z"/></svg></a>
-
-          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M6.9 8.5H4V20h2.9V8.5zM5.4 7.2a1.7 1.7 0 110-3.4 1.7 1.7 0 010 3.4zM20 13.6c0-3-1.6-4.4-3.7-4.4-1.7 0-2.5.9-2.9 1.6V8.5H10.5V20h2.9v-6c0-1.6.3-3.1 2.3-3.1s1.9 1.8 1.9 3.2V20H20v-6.4z"/></svg></a>
-
-          <a href="https://wa.me/2290197988688" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-
-        </div>
-
-      </div>
-
-      <div>
-
-        <h4>Navigation</h4>
-
-        <ul><li><a href="index.html">Accueil</a></li><li><a href="services.html">Prestations</a></li><li><a href="about.html">À propos</a></li><li><a href="materials.html">Matériaux</a></li><li><a href="projects.html">Réalisations</a></li><li><a href="dispositif.html#dispositif">Dispositif</a></li><li><a href="contact.html">Contact</a></li></ul>
-
-      </div>
-
-      <div>
-
-        <h4>Prestations</h4>
-
-        <ul><li><a href="services.html">Dragage de sable</a></li><li><a href="services.html">BTP et terrassement</a></li><li><a href="services.html">Petites roches</a></li><li><a href="services.html">Vente de sable</a></li></ul>
-
-      </div>
-
-      <div>
-
-        <h4>Nous joindre</h4>
-
-        <ul><li><a href="tel:+2290197988688">229 01 97 98 86 88</a></li><li><a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a></li><li>Lun–Sam · 07h00–18h00</li></ul>
-
-      </div>
-
-    </div>
-
-    <div class="ft-b">
-
-      <span>© <span id="yr"></span> Cannan-Minning · Tous droits réservés.</span>
-
-      <span>Mentions légales · Politique de confidentialité</span>
-
-    </div>
-
+    <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M5 17V9h6v8m2 0 3-9 5 2-4 7"/></svg></span><b>Dragage</b><small>Curage et extraction</small></div>
+    <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20v-1.5A5.5 5.5 0 0 1 8 13h1a5.5 5.5 0 0 1 5.5 5.5V20M15 14h1a4 4 0 0 1 4 4v2"/></svg></span><b>BTP</b><small>Terrassement et aménagement</small></div>
+    <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9l8-5 8 5v10H4Z"/><path d="M8 19v-5h8v5"/></svg></span><b>Matériaux</b><small>Sable et agrégats</small></div>
+    <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b>Suivi</b><small>Organisation des interventions</small></div>
   </div>
-
+</section>
+</main>
+<footer class="ft" id="site-footer">
+  <div class="ft-main">
+    <div class="w ft-compact">
+      <section class="ft-compact-brand" aria-label="Cannan-Minning">
+        <a href="index.html#top" class="ft-brand__logo">
+          <span class="br-m"><img src="img/logo-icon.png" alt="" width="64" height="64" decoding="async"></span>
+          <span><strong>CANNAN-MINING</strong><small>DRAGAGE <i>&middot;</i> BTP <i>&middot;</i> AGR&Eacute;GATS</small></span>
+        </a>
+        <p>Des solutions adapt&eacute;es &agrave; vos chantiers de dragage, de BTP et d'approvisionnement en mat&eacute;riaux.</p>
+      </section>
+      <nav class="ft-compact-nav" aria-label="Navigation de pied de page">
+        <h3>Explorer</h3>
+        <div class="ft-compact-links">
+          <a href="index.html">Accueil</a>
+          <a href="services.html">Nos m&eacute;tiers</a>
+          <a href="dispositif.html#dispositif">Notre expertise</a>
+          <a href="materials.html">Mat&eacute;riaux</a>
+          <a href="about.html">&Agrave; propos</a>
+        </div>
+      </nav>
+      <section class="ft-compact-contact">
+        <h3>Parlons de votre projet</h3>
+        <a href="tel:+2290197988688">+229 01 97 98 86 88</a>
+        <a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a>
+        <a class="ft-compact-cta" href="contact.html#devis">Demander un devis <span aria-hidden="true">&rarr;</span></a>
+      </section>
+    </div>
+  </div>
+  <div class="ft-bottom"><div class="w ft-bottom__inner">
+    <span>&copy; <span id="yr"></span> CANNAN-MINING. Tous droits r&eacute;serv&eacute;s.</span>
+    <a class="ft-top" href="#top"><span aria-hidden="true">&uarr;</span> Retour en haut</a>
+  </div></div>
 </footer>
 <a href="contact.html#devis" class="fab" id="fab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-5.1A8.4 8.4 0 0112 3.1a8.4 8.4 0 019 8.4z"/></svg><span>Devis gratuit</span></a>
 <a class="wa" href="https://wa.me/2290197988688?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20vos%20services." target="_blank" rel="noopener noreferrer" aria-label="Discuter directement avec Cannan-Minning sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-.9-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-<script src="site.js"></script>
+<script src="site.js?v=20261006-07"></script>
 <dialog class="vid-dlg" id="vidDlg" aria-label="Vidéo de présentation">
   <button type="button" class="vid-dlg__x" id="vidX" aria-label="Fermer la vidéo">&times;</button>
   <video id="vidPlayer" controls playsinline preload="none" poster="img/hero-truck-poster.jpg"></video>

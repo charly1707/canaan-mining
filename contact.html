@@ -8,6 +8,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<script>
+const navigationEntry=performance.getEntriesByType('navigation')[0];
+if('scrollRestoration' in history)history.scrollRestoration=navigationEntry&&navigationEntry.type==='reload'?'manual':'auto';
+if(navigationEntry&&navigationEntry.type==='reload'){
+  if(location.hash)history.replaceState(history.state,'',location.pathname+location.search);
+  window.addEventListener('pageshow',()=>window.scrollTo({top:0,left:0,behavior:'instant'}),{once:true});
+  window.addEventListener('pagehide',()=>history.scrollRestoration='auto',{once:true});
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+}
+</script>
+
 <title>Contact et devis | Cannan-Minning</title>
 
 <meta name="description" content="Contactez Cannan-Minning et demandez un devis pour vos travaux de dragage, terrassement ou fourniture de mat&eacute;riaux.">
@@ -36,7 +47,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=20261005-15">
+<link rel="stylesheet" href="styles.css?v=20261006-52">
 
 <noscript><style>.rv,.rv-l,.rv-r,.rv-z,.rv-f,table tbody tr{opacity:1!important;transform:none!important;filter:none!important}.sprog{display:none}
 
@@ -146,12 +157,10 @@
 
     <nav>
       <a href="index.html" data-page="home">Accueil</a>
-      <a href="services.html" data-page="services">Prestations</a>
-      <a href="about.html" data-page="about">&Agrave; propos</a>
+      <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
+      <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
       <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-      <a href="projects.html" data-page="projects">R&eacute;alisations</a>
-      <a href="dispositif.html#dispositif" data-page="advantages">Dispositif</a>
-      
+      <a href="about.html" data-page="about">&Agrave; propos</a>
       <a href="contact.html" data-page="contact">Contact</a>
     </nav>
 
@@ -167,12 +176,10 @@
 
   <div class="mn" id="mn"><div class="w">
     <a href="index.html" data-page="home">Accueil</a>
-    <a href="services.html" data-page="services">Prestations</a>
-    <a href="about.html" data-page="about">&Agrave; propos</a>
+    <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
+    <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
     <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-    <a href="projects.html" data-page="projects">R&eacute;alisations</a>
-    <a href="dispositif.html#dispositif" data-page="advantages">Dispositif</a>
-    
+    <a href="about.html" data-page="about">&Agrave; propos</a>
     <a href="contact.html" data-page="contact">Contact</a>
     <a href="contact.html#devis" class="b b-b">Demander un devis</a>
   </div></div>
@@ -184,8 +191,8 @@
   <div class="impact-hero__shade"></div>
   <div class="w impact-hero__content">
     <span class="impact-hero__eyebrow">Parlons de votre chantier</span>
-    <h1>Un volume, un lieu,<br>un délai : on avance.</h1>
-    <p>Donnez-nous les premières informations : notre équipe vous aidera à préciser le besoin et le devis.</p>
+    <h1>Parlons de votre<br>prochain chantier.</h1>
+    <p>Partagez votre besoin en dragage, terrassement ou approvisionnement. Nous préciserons ensemble les informations utiles à votre demande.</p>
     <a class="b b-b" href="#devis">Demander un devis gratuit <span aria-hidden="true">→</span></a>
   </div>
 </section>
@@ -193,21 +200,11 @@
 
   <div class="w">
 
-    <div class="sh rv">
-
-      <div>
-
-        <span class="lb"><span class="ix">07</span> Contact et devis</span>
-
-        <h2>Parlons de<br>votre chantier</h2>
-
-      </div>
-
-      <p>Formulaire court, réponse rapide. Vous pouvez aussi nous appeler directement, nous répondons à toute heure ouvrée.</p>
-
+    <div class="contact-intro rv">
+      <span class="lb"><span class="ix">01</span> Contact &amp; devis</span>
+      <h2>Décrivez votre projet, nous vous répondrons avec les prochaines étapes.</h2>
+      <p>Un premier échange permet de préciser le lieu, les accès, les volumes et le calendrier envisagé.</p>
     </div>
-
-
 
     <div class="cg">
 
@@ -219,15 +216,13 @@
 
         <div class="ct-in">
 
-          <div class="ct-top"><i></i> Réponse rapide</div>
+          <div class="ct-top"><i></i> Équipe à votre écoute</div>
 
 
 
-          <div class="ct-lb">Téléphone</div>
-
-          <a class="ct-tel" href="tel:+2290197988688">229 01 97 98 86 88</a>
-
-          <p class="ct-sub">Un volume, une adresse, un délai. Nous chiffrons votre chantier sans engagement.</p>
+          <div class="ct-lb">Appelez-nous directement</div>
+          <a class="ct-tel" href="tel:+2290197988688">+229 01 97 98 86 88</a>
+          <p class="ct-sub">Pour parler de vos travaux, de vos volumes ou d’une livraison de matériaux.</p>
 
 
 
@@ -245,11 +240,9 @@
 
             <div class="ct-i">
 
-              <span>Zone d’intervention</span>
-
-              <b>Régions et départements limitrophes</b>
-
-              <small>Déplacements au-delà sur demande</small>
+              <span>Domaines d’intervention</span>
+              <b>Dragage, BTP &amp; agrégats</b>
+              <small>Précisez le lieu et le type de chantier dans votre demande.</small>
 
             </div>
 
@@ -257,32 +250,17 @@
 
               <span>Horaires</span>
 
-              <b>Lun – Sam · 07h00 – 18h00</b>
+              <b>Lundi au samedi</b>
 
-              <small>Urgences chantier 24/7</small>
-
-            </div>
-
-            <div class="ct-i">
-
-              <span>Délai de devis</span>
-
-              <b>Sous 24 heures</b>
-
-              <small>Devis ferme et détaillé</small>
+              <small>07h00 – 18h00 · heure locale</small>
 
             </div>
 
-            <div class="ct-i">
+          </div>
 
-              <span>Paiement</span>
-
-              <b>Sur présentation</b>
-
-              <small>Conditions en annexe du devis</small>
-
-            </div>
-
+          <div class="contact-zone">
+            <span class="contact-zone__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span><b>Où se trouve votre chantier&nbsp;?</b><small>Indiquez la commune ou la zone du projet pour nous aider à évaluer l’intervention.</small></span>
           </div>
 
 
@@ -291,7 +269,7 @@
 
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
 
-            Un seul interlocuteur, de la première pelle à la livraison.
+            Précisons ensemble les accès, les volumes et les délais.
 
           </div>
 
@@ -307,31 +285,30 @@
 
         <div class="ct-fh">
 
-          <h3>Décrivez votre besoin</h3>
+          <h3>Préparer votre demande de devis</h3>
 
-          <span>2 champs obligatoires · 1 minute</span>
+          <span>Les champs marqués * sont obligatoires</span>
 
         </div>
 
 
 
-        <div class="fok" id="ok" role="status">Merci. Votre messagerie s'ouvre avec la demande pré-remplie : cliquez sur Envoyer pour nous la transmettre.</div>
+        <div class="fok" id="ok" role="status">Votre messagerie va s’ouvrir avec votre demande préremplie. Vérifiez le message puis envoyez-le pour nous le transmettre.</div>
 
 
 
         <div class="fr">
 
-          <div class="fd"><label for="n">Nom et prénom <b>*</b></label><input id="n" type="text" placeholder="Votre nom" required></div>
+          <div class="fd"><label for="n">Nom et prénom <b>*</b></label><input id="n" name="name" type="text" placeholder="Votre nom" autocomplete="name" required></div>
 
-          <div class="fd"><label for="t">Téléphone <b>*</b></label><input id="t" type="tel" placeholder="229 01 97 98 86 88" required></div>
+          <div class="fd"><label for="t">Téléphone <b>*</b></label><input id="t" name="telephone" type="tel" placeholder="+229 01 97 98 86 88" autocomplete="tel" required></div>
 
         </div>
 
         <div class="fr">
 
-          <div class="fd"><label for="e">Email</label><input id="e" type="email" placeholder="cricriguidibi@gmail.com"></div>
-
-          <div class="fd"><label for="l">Lieu du chantier</label><input id="l" type="text" placeholder="Ville, wilaya / département"></div>
+          <div class="fd"><label for="e">E-mail <b>*</b></label><input id="e" name="email" type="email" placeholder="vous@exemple.com" autocomplete="email" required></div>
+          <div class="fd"><label for="l">Lieu du chantier <b>*</b></label><input id="l" name="location" type="text" placeholder="Commune, zone ou région" required></div>
 
         </div>
 
@@ -339,21 +316,21 @@
 
           <div class="fd"><label for="s">Prestation</label>
 
-            <select id="s"><option>Dragage de sable</option><option>BTP et terrassement</option><option>Petites roches</option><option>Vente de sable</option><option>Plusieurs prestations</option></select>
+            <select id="s" name="service"><option value="">Sélectionnez une prestation</option><option>Dragage et curage</option><option>BTP et terrassement</option><option>Fourniture de sable et agrégats</option><option>Plusieurs prestations</option></select>
 
           </div>
 
-          <div class="fd"><label for="v">Volume estimé</label><input id="v" type="text" placeholder="Ex. 300 m³"></div>
+          <div class="fd"><label for="v">Volume estimé</label><input id="v" name="volume" type="text" placeholder="Ex. 300 m³"></div>
 
         </div>
 
-        <div class="fd"><label for="m">Détails du chantier</label><textarea id="m" placeholder="Type de travaux, accès, contraintes, délai souhaité"></textarea></div>
+        <div class="fd"><label for="m">Détails du chantier</label><textarea id="m" name="details" placeholder="Travaux prévus, état des accès, contraintes et délai souhaité"></textarea></div>
 
 
 
         <div class="ct-send">
 
-          <button type="submit" class="b b-b">Envoyer la demande de devis
+          <button type="submit" class="b b-b">Préparer ma demande
 
             <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 
@@ -363,7 +340,7 @@
 
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
 
-            Données confidentielles, jamais transmises à des tiers.
+            Votre demande est préparée dans votre messagerie avant envoi.
 
           </p>
 
@@ -373,82 +350,51 @@
 
     </div>
 
+    <div class="contact-bottom-cta content-cta">
+      <div><b>Un projet en vue&nbsp;?</b><span>Nous sommes à votre écoute.</span></div>
+      <a class="b b-b" href="tel:+2290197988688">Obtenir un devis <span aria-hidden="true">→</span></a>
+      <a class="b b-ow" href="services.html">Nos prestations <span aria-hidden="true">→</span></a>
+    </div>
+
   </div>
 
 </section>
 </main>
-<footer class="ft">
-
-  <!-- Pexels: "Heavy Construction Site with Excavator and Dump Truck" (35649973), Pexels License -->
-  <img class="ft-video" src="img/footer-action-poster.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-
-  <div class="w">
-
-    <div class="ft-g">
-
-      <div>
-
-        <a href="index.html#top" class="br">
-
-          <span class="br-m"><img src="img/logo-icon.png" alt="" width="44" height="44" decoding="async"></span>
-
-          <span><span class="br-n">CANNAN<i>-</i>MINING</span><span class="br-s">Dragage · BTP · Agrégats</span></span>
-
+<footer class="ft" id="site-footer">
+  <div class="ft-main">
+    <div class="w ft-compact">
+      <section class="ft-compact-brand" aria-label="Cannan-Minning">
+        <a href="index.html#top" class="ft-brand__logo">
+          <span class="br-m"><img src="img/logo-icon.png" alt="" width="64" height="64" decoding="async"></span>
+          <span><strong>CANNAN-MINING</strong><small>DRAGAGE <i>&middot;</i> BTP <i>&middot;</i> AGR&Eacute;GATS</small></span>
         </a>
-
-        <p>Entreprise de dragage, de terrassement et de fourniture d’agrégats. Nous intervenons sur les chantiers BTP, VRD, ZAC et industriels de votre région.</p>
-
-        <div class="sc">
-
-          <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.5l.5-3H13v-2c0-.6.4-1 1-1z"/></svg></a>
-
-          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M6.9 8.5H4V20h2.9V8.5zM5.4 7.2a1.7 1.7 0 110-3.4 1.7 1.7 0 010 3.4zM20 13.6c0-3-1.6-4.4-3.7-4.4-1.7 0-2.5.9-2.9 1.6V8.5H10.5V20h2.9v-6c0-1.6.3-3.1 2.3-3.1s1.9 1.8 1.9 3.2V20H20v-6.4z"/></svg></a>
-
-          <a href="https://wa.me/2290197988688" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-
+        <p>Des solutions adapt&eacute;es &agrave; vos chantiers de dragage, de BTP et d'approvisionnement en mat&eacute;riaux.</p>
+      </section>
+      <nav class="ft-compact-nav" aria-label="Navigation de pied de page">
+        <h3>Explorer</h3>
+        <div class="ft-compact-links">
+          <a href="index.html">Accueil</a>
+          <a href="services.html">Nos m&eacute;tiers</a>
+          <a href="dispositif.html#dispositif">Notre expertise</a>
+          <a href="materials.html">Mat&eacute;riaux</a>
+          <a href="about.html">&Agrave; propos</a>
         </div>
-
-      </div>
-
-      <div>
-
-        <h4>Navigation</h4>
-
-        <ul><li><a href="index.html">Accueil</a></li><li><a href="services.html">Prestations</a></li><li><a href="about.html">À propos</a></li><li><a href="materials.html">Matériaux</a></li><li><a href="projects.html">Réalisations</a></li><li><a href="dispositif.html#dispositif">Dispositif</a></li><li><a href="contact.html">Contact</a></li></ul>
-
-      </div>
-
-      <div>
-
-        <h4>Prestations</h4>
-
-        <ul><li><a href="services.html">Dragage de sable</a></li><li><a href="services.html">BTP et terrassement</a></li><li><a href="services.html">Petites roches</a></li><li><a href="services.html">Vente de sable</a></li></ul>
-
-      </div>
-
-      <div>
-
-        <h4>Nous joindre</h4>
-
-        <ul><li><a href="tel:+2290197988688">229 01 97 98 86 88</a></li><li><a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a></li><li>Lun–Sam · 07h00–18h00</li></ul>
-
-      </div>
-
+      </nav>
+      <section class="ft-compact-contact">
+        <h3>Parlons de votre projet</h3>
+        <a href="tel:+2290197988688">+229 01 97 98 86 88</a>
+        <a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a>
+        <a class="ft-compact-cta" href="contact.html#devis">Demander un devis <span aria-hidden="true">&rarr;</span></a>
+      </section>
     </div>
-
-    <div class="ft-b">
-
-      <span>© <span id="yr"></span> Cannan-Minning · Tous droits réservés.</span>
-
-      <span>Mentions légales · Politique de confidentialité</span>
-
-    </div>
-
   </div>
-
+  <div class="ft-bottom"><div class="w ft-bottom__inner">
+    <span>&copy; <span id="yr"></span> CANNAN-MINING. Tous droits r&eacute;serv&eacute;s.</span>
+    <a class="ft-top" href="#top"><span aria-hidden="true">&uarr;</span> Retour en haut</a>
+  </div></div>
 </footer>
 <a href="contact.html#devis" class="fab" id="fab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-5.1A8.4 8.4 0 0112 3.1a8.4 8.4 0 019 8.4z"/></svg><span>Devis gratuit</span></a>
 <a class="wa" href="https://wa.me/2290197988688?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20vos%20services." target="_blank" rel="noopener noreferrer" aria-label="Discuter directement avec Cannan-Minning sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-.9-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-<script src="site.js"></script>
+<script src="site.js?v=20261006-07"></script>
 </body>
 </html>

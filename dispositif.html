@@ -8,7 +8,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Dispositif | Cannan-Minning</title>
+<script>
+const navigationEntry=performance.getEntriesByType('navigation')[0];
+if('scrollRestoration' in history)history.scrollRestoration=navigationEntry&&navigationEntry.type==='reload'?'manual':'auto';
+if(navigationEntry&&navigationEntry.type==='reload'){
+  if(location.hash)history.replaceState(history.state,'',location.pathname+location.search);
+  window.addEventListener('pageshow',()=>window.scrollTo({top:0,left:0,behavior:'instant'}),{once:true});
+  window.addEventListener('pagehide',()=>history.scrollRestoration='auto',{once:true});
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+}
+</script>
+
+<title>Notre expertise | Cannan-Minning</title>
 
 <meta name="description" content="Découvrez le dispositif Cannan-Minning : nos moyens, nos engagements et les étapes de préparation et de réalisation de vos chantiers.">
 
@@ -36,7 +47,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=20261005-15">
+<link rel="stylesheet" href="styles.css?v=20261006-54">
 
 <noscript><style>.rv,.rv-l,.rv-r,.rv-z,.rv-f,table tbody tr{opacity:1!important;transform:none!important;filter:none!important}.sprog{display:none}
 
@@ -146,12 +157,10 @@
 
     <nav>
       <a href="index.html" data-page="home">Accueil</a>
-      <a href="services.html" data-page="services">Prestations</a>
-      <a href="about.html" data-page="about">&Agrave; propos</a>
+      <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
+      <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
       <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-      <a href="projects.html" data-page="projects">R&eacute;alisations</a>
-      <a href="dispositif.html#dispositif" data-page="advantages">Dispositif</a>
-      
+      <a href="about.html" data-page="about">&Agrave; propos</a>
       <a href="contact.html" data-page="contact">Contact</a>
     </nav>
 
@@ -167,12 +176,10 @@
 
   <div class="mn" id="mn"><div class="w">
     <a href="index.html" data-page="home">Accueil</a>
-    <a href="services.html" data-page="services">Prestations</a>
-    <a href="about.html" data-page="about">&Agrave; propos</a>
+    <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
+    <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
     <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-    <a href="projects.html" data-page="projects">R&eacute;alisations</a>
-    <a href="dispositif.html#dispositif" data-page="advantages">Dispositif</a>
-    
+    <a href="about.html" data-page="about">&Agrave; propos</a>
     <a href="contact.html" data-page="contact">Contact</a>
     <a href="contact.html#devis" class="b b-b">Demander un devis</a>
   </div></div>
@@ -185,210 +192,193 @@
   </video>
   <div class="impact-hero__shade"></div>
   <div class="w impact-hero__content">
-    <span class="impact-hero__eyebrow">Le dispositif Cannan-Minning</span>
+    <span class="impact-hero__eyebrow">Notre expertise</span>
     <h1>Des moyens fiables,<br>une méthode claire.</h1>
     <p>Des équipes réactives, du matériel adapté et un déroulé maîtrisé pour faire avancer vos chantiers en toute confiance.</p>
-    <a class="b b-b" href="#methode">Découvrir notre méthode <span aria-hidden="true">→</span></a>
+    <a class="b b-b" href="#methode">Découvrir notre expertise <span aria-hidden="true">→</span></a>
   </div>
 </section>
-<section class="sec sky" id="dispositif">
+<section class="sec" id="dispositif">
 
   <div class="w">
 
-    <div class="sh rv">
-
-      <div>
-
-        <span class="lb"><span class="ix">05</span> Nos atouts</span>
-
-        <h2>Un dispositif fiable,<br>pensé pour le terrain</h2>
-
-      </div>
-
-      <p>Pas de sous-traitance en cascade : nos conducteurs, nos opérateurs et nos camions sont les nôtres. Un seul interlocuteur, une seule responsabilité.</p>
-
-    </div>
-
-
-
-    <div class="stats">
-
-      <div class="stat"><b data-count="10" data-suffix="+">0</b><span>Annees d'experience terrain</span></div>
-
-      <div class="stat"><b data-count="200" data-suffix="+">0</b><span>Chantiers livres</span></div>
-
-      <div class="stat"><b data-count="24" data-suffix="h">0</b><span>Delai moyen de devis</span></div>
-
-      <div class="stat"><b data-count="4" data-suffix="">0</b><span>Metiers reunis</span></div>
-
-    </div>
-
-
-
-    <div class="figs">
-
-      <div class="fig">
-
-        <div class="fig-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-
-        <b>Matériel professionnel</b>
-
-        <p>Draglines, pelles, chargeurs et camions suivis et contrôlés. Peu de pannes, donc peu d'arrêts de chantier.</p>
-
-      </div>
-
-      <div class="fig">
-
-        <div class="fig-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-
-        <b>Réactivité réelle</b>
-
-        <p>Équipe mobilisable rapidement, y compris pour les urgences et les imprévus qui décalent votre planning.</p>
-
-      </div>
-
-      <div class="fig">
-
-        <div class="fig-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg></div>
-
-        <b>Matériaux contrôlés</b>
-
-        <p>Chaque lot est trié, criblé et échantillonné avant mise en place ou livraison.</p>
-
-      </div>
-
-      <div class="fig">
-
-        <div class="fig-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V8l-6-5z"/><path d="M8 13h8M8 17h5"/></svg></div>
-
-        <b>Prix clair et ferme</b>
-
-        <p>Un devis détaillé au m³, sans frais cachés ni avenant surprise en cours de chantier.</p>
-
-      </div>
-
-    </div>
+    <ol class="approach-flow">
+      <li class="approach-step rv"><span class="approach-step__number">01</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M8 10.8h5.6M10.8 8v5.6"/></svg></span><b>Analyser</b><p>Comprendre le besoin et les contraintes du chantier.</p></li>
+      <li class="approach-step rv"><span class="approach-step__number">02</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></span><b>Préparer</b><p>Définir les moyens et organiser le calendrier.</p></li>
+      <li class="approach-step rv"><span class="approach-step__number">03</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20v-1.5A5.5 5.5 0 0 1 8 13h1a5.5 5.5 0 0 1 5.5 5.5V20M15 14h1a4 4 0 0 1 4 4v2"/></svg></span><b>Mobiliser</b><p>Organiser l’équipe et les engins nécessaires.</p></li>
+      <li class="approach-step rv"><span class="approach-step__number">04</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m4 16 5-6 4 3 6-8"/><path d="M14 5h5v5"/></svg></span><b>Réaliser</b><p>Coordonner l’intervention sur le terrain.</p></li>
+      <li class="approach-step rv"><span class="approach-step__number">05</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg></span><b>Suivre</b><p>Vérifier l’avancement et les livraisons.</p></li>
+    </ol>
 
   </div>
 
 </section>
 <section class="sec" id="methode">
+  <div class="w commitment-panel">
+    <div class="sh rv">
+      <div>
+        <span class="lb"><span class="ix">04</span> Nos engagements</span>
+        <h2>Ce qui guide notre travail</h2>
+      </div>
+      <p>Une organisation de terrain qui privilégie la sécurité, la clarté des échanges et une exécution adaptée à votre projet.</p>
+    </div>
+    <div class="commitment-grid">
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4v5c0 5-3 8-8 9-5-1-8-4-8-9V7l8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><h3>Rigueur</h3><p>Des interventions préparées selon les contraintes du chantier.</p></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Réactivité</h3><p>Des échanges directs pour faire avancer vos travaux.</p></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3.5 7v5c0 4.5 3.5 7.5 8.5 9 5-1.5 8.5-4.5 8.5-9V7L12 3Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><h3>Professionnalisme</h3><p>Des équipes et des moyens adaptés à la mission.</p></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M7 7l-4 7h8L7 7Zm10 0-4 7h8l-4-7ZM7 21h10"/></svg></span><h3>Engagement</h3><p>La sécurité et le respect des délais convenus.</p></article>
+    </div>
+  </div>
+</section>
+<section class="sec" id="expertise">
   <div class="w">
     <div class="sh rv">
       <div>
-        <span class="lb"><span class="ix">06</span> Notre méthode</span>
-        <h2>Quatre étapes,<br>zéro mauvaise surprise</h2>
+        <span class="lb"><span class="ix">05</span> Nos savoir-faire</span>
+        <h2>Des compétences concrètes, mobilisées selon votre chantier.</h2>
       </div>
-      <p>Un déroulé simple, du premier appel à la dernière rotation de camion. Vous savez où en est votre chantier à chaque étape.</p>
+      <p>Nous faisons le lien entre la préparation du site, les moyens à mobiliser et l’approvisionnement en matériaux pour garder une intervention lisible et coordonnée.</p>
     </div>
-    <div class="proc">
-      <div class="pc"><span class="n">ÉTAPE 01</span><b>Prise de contact</b><p>Vous nous transmettez votre besoin, vos volumes et la localisation exacte du chantier.</p></div>
-      <div class="pc"><span class="n">ÉTAPE 02</span><b>Visite et étude</b><p>Nous nous déplaçons pour évaluer l’accessibilité, la nature du sol et les contraintes.</p></div>
-      <div class="pc"><span class="n">ÉTAPE 03</span><b>Devis détaillé</b><p>Devis ferme sous 24 h incluant matériel, transport, main-d’œuvre et délais.</p></div>
-      <div class="pc"><span class="n">ÉTAPE 04</span><b>Exécution</b><p>Nous réalisons les travaux dans les délais convenus et vous livrons vos matériaux.</p></div>
+    <div class="commitment-grid">
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M7 18V5h10v13M10 9h4M10 12h4M10 15h4"/></svg></span><h3>Lecture du terrain</h3><p>Nous prenons en compte la nature du site, ses accès, les zones de travail et les contraintes de circulation avant de proposer les moyens à engager.</p><ul><li>Repérage des accès et des zones d’intervention</li><li>Prise en compte des volumes à déplacer</li><li>Préparation du déroulement des travaux</li></ul></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c1.5-3 3.5-4.5 6-4.5 3 0 5 2 7 5M7 8h.01M17 8h.01M12 6h.01"/></svg></span><h3>Moyens de chantier</h3><p>Selon la mission, nous organisons la mobilisation d’engins et d’équipes pour réaliser les opérations de dragage, de terrassement et de manutention.</p><ul><li>Dragline et pelle hydraulique selon le site</li><li>Organisation des rotations et du chargement</li><li>Coordination des interventions sur le terrain</li></ul></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h7V4h9v9h-7v7H4zM11 17h7"/></svg></span><h3>Approvisionnement &amp; suivi</h3><p>Nous coordonnons la fourniture de matériaux et gardons un échange clair sur le planning, les quantités et l’avancement de la prestation.</p><ul><li>Sable, granulats et petites roches selon disponibilité</li><li>Volumes et point de livraison définis en amont</li><li>Suivi des étapes et ajustements convenus</li></ul></article>
     </div>
   </div>
 </section>
-<section class="sec sky" style="padding-top:0">
+<section class="sec" id="expertise-realisations">
   <div class="w">
-    <div class="q-g rv" style="background:#fff;border:1px solid var(--line);padding:38px 42px">
-      <blockquote>« Un prestataire qui livre le volume annoncé, dans le créneau annoncé. C'est ce qui nous a fait les rappeler sur trois chantiers consécutifs. »<span><br><br> Responsable travaux, entreprise de VRD</span></blockquote>
-      <div class="q-side">
-        <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg><div><b>Volume tenu</b><span>Le cubage correspond à la livraison.</span></div></div>
-        <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Planning respecté</b><span>Créneaux de livraison tenus.</span></div></div>
-        <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Chantier propre</b><span>Accès respectés, zone rétablie en fin d'intervention.</span></div></div>
+    <section class="expertise-stats" data-statistics aria-labelledby="expertise-stats-title">
+      <div class="w">
+        <h2 class="sr-only" id="expertise-stats-title">Cannan-Minning en chiffres</h2>
+        <div class="expertise-stats__grid">
+          <article class="expertise-stat" aria-label="10 ans et plus d’expérience">
+            <p class="expertise-stat__value" aria-hidden="true"><span data-stat-count="10">0</span><span class="expertise-stat__plus">+</span></p>
+            <p class="expertise-stat__label">Années d’expérience</p>
+          </article>
+          <article class="expertise-stat" aria-label="250 chantiers et plus réalisés">
+            <p class="expertise-stat__value" aria-hidden="true"><span data-stat-count="250">0</span><span class="expertise-stat__plus">+</span></p>
+            <p class="expertise-stat__label">Chantiers réalisés</p>
+          </article>
+          <article class="expertise-stat" aria-label="150 clients et plus satisfaits">
+            <p class="expertise-stat__value" aria-hidden="true"><span data-stat-count="150">0</span><span class="expertise-stat__plus">+</span></p>
+            <p class="expertise-stat__label">Clients satisfaits</p>
+          </article>
+          <article class="expertise-stat" aria-label="50 000 tonnes et plus de matériaux livrés">
+            <p class="expertise-stat__value" aria-hidden="true"><span data-stat-count="50000">0</span><span class="expertise-stat__plus">+</span></p>
+            <p class="expertise-stat__label">Tonnes de matériaux livrés</p>
+          </article>
+        </div>
       </div>
+    </section>
+    <div class="sh rv">
+      <div>
+        <span class="lb"><span class="ix">06</span> Nos réalisations</span>
+        <h2>Des interventions concrètes, adaptées à chaque terrain.</h2>
+      </div>
+      <p>Voici quelques exemples de travaux réalisés dans des contextes variés : dragage, terrassement, aménagement de plate-forme et fourniture d’agrégats.</p>
+    </div>
+
+    <div class="project-filters" role="group" aria-label="Filtrer les réalisations">
+      <button type="button" class="project-filter is-active" data-filter="all" aria-pressed="true">Tout</button>
+      <button type="button" class="project-filter" data-filter="dragage" aria-pressed="false">Dragage</button>
+      <button type="button" class="project-filter" data-filter="btp" aria-pressed="false">BTP</button>
+      <button type="button" class="project-filter" data-filter="terrassement" aria-pressed="false">Terrassement</button>
+      <button type="button" class="project-filter" data-filter="agregats" aria-pressed="false">Agrégats</button>
+    </div>
+
+    <div class="gal expertise-showcase">
+      <a href="contact.html#devis" class="g rv" data-category="dragage">
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/gal-1.jpg" alt="Carrière de sable et matériel d'extraction"></span>
+        <span class="g-b">
+          <span class="g-tag">Dragage</span>
+          <h3>Dragage et curage</h3>
+          <p>Extraction et déplacement des matériaux, organisés en fonction des accès et des volumes à traiter.</p>
+          <span class="g-l">Voir le détail
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a href="contact.html#devis" class="g rv" data-category="terrassement">
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/gal-2.jpg" alt="Pelle jaune hydraulique sur terrain de sable"></span>
+        <span class="g-b">
+          <span class="g-tag">Terrassement</span>
+          <h3>Préparation de plateforme</h3>
+          <p>Décapage, déblais et nivellement pour mettre le terrain en état avant les travaux.</p>
+          <span class="g-l">Voir le détail
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a href="contact.html#devis" class="g rv" data-category="btp">
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/gal-3.jpg" alt="Vue aérienne de carrière de sable et gravier"></span>
+        <span class="g-b">
+          <span class="g-tag">BTP</span>
+          <h3>Terrassement et accès</h3>
+          <p>Préparation des emprises et organisation du terrain selon les besoins du chantier.</p>
+          <span class="g-l">Voir le détail
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a href="contact.html#devis" class="g rv" data-category="agregats">
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/services-excavation-poster.jpg" alt="Pelle mécanique chargeant des matériaux sur un chantier"></span>
+        <span class="g-b">
+          <span class="g-tag">Agrégats</span>
+          <h3>Fourniture d’agrégats</h3>
+          <p>Livraison régulière et contrôlée pour des projets BTP et de terrassement.</p>
+          <span class="g-l">Parler de mon chantier
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+    </div>
+
+    <div class="projects-action content-cta">
+      <div><b>Un projet similaire&nbsp;?</b><span>Nous pouvons vous proposer une organisation adaptée au terrain, au calendrier et au budget.</span></div>
+      <a class="b b-ow" href="contact.html#devis">Parler de mon chantier <span aria-hidden="true">→</span></a>
     </div>
   </div>
-</section>
-<section class="cta">
-  <div class="cta-bg"><img class="plx" src="img/cta-bg.jpg" alt="Engins de terrassement sur chantier"></div>
-  <div class="w"><div class="cta-i">
-    <div>
-      <h2>Dites-nous ce qu'il faut <u>creuser.</u></h2>
-      <p>Un volume, une adresse, un délai. Nous revenons vers vous avec un devis chiffré sous 24 heures, sans engagement.</p>
-    </div>
-    <div class="cta-b">
-      <a href="contact.html#devis" class="b b-b" style="justify-content:center">Obtenir un devis gratuit
-        <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="tel:+2290197988688" class="b b-ow" style="justify-content:center">Appeler l’équipe</a>
-    </div>
-  </div></div>
 </section>
 </main>
-<footer class="ft">
-
-  <!-- Pexels: "Heavy Construction Site with Excavator and Dump Truck" (35649973), Pexels License -->
-  <img class="ft-video" src="img/footer-action-poster.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-
-  <div class="w">
-
-    <div class="ft-g">
-
-      <div>
-
-        <a href="index.html#top" class="br">
-
-          <span class="br-m"><img src="img/logo-icon.png" alt="" width="44" height="44" decoding="async"></span>
-
-          <span><span class="br-n">CANNAN<i>-</i>MINING</span><span class="br-s">Dragage · BTP · Agrégats</span></span>
-
+<footer class="ft" id="site-footer">
+  <div class="ft-main">
+    <div class="w ft-compact">
+      <section class="ft-compact-brand" aria-label="Cannan-Minning">
+        <a href="index.html#top" class="ft-brand__logo">
+          <span class="br-m"><img src="img/logo-icon.png" alt="" width="64" height="64" decoding="async"></span>
+          <span><strong>CANNAN-MINING</strong><small>DRAGAGE <i>&middot;</i> BTP <i>&middot;</i> AGR&Eacute;GATS</small></span>
         </a>
-
-        <p>Entreprise de dragage, de terrassement et de fourniture d’agrégats. Nous intervenons sur les chantiers BTP, VRD, ZAC et industriels de votre région.</p>
-
-        <div class="sc">
-
-          <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.5l.5-3H13v-2c0-.6.4-1 1-1z"/></svg></a>
-
-          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M6.9 8.5H4V20h2.9V8.5zM5.4 7.2a1.7 1.7 0 110-3.4 1.7 1.7 0 010 3.4zM20 13.6c0-3-1.6-4.4-3.7-4.4-1.7 0-2.5.9-2.9 1.6V8.5H10.5V20h2.9v-6c0-1.6.3-3.1 2.3-3.1s1.9 1.8 1.9 3.2V20H20v-6.4z"/></svg></a>
-
-          <a href="https://wa.me/2290197988688" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-
+        <p>Des solutions adapt&eacute;es &agrave; vos chantiers de dragage, de BTP et d'approvisionnement en mat&eacute;riaux.</p>
+      </section>
+      <nav class="ft-compact-nav" aria-label="Navigation de pied de page">
+        <h3>Explorer</h3>
+        <div class="ft-compact-links">
+          <a href="index.html">Accueil</a>
+          <a href="services.html">Nos m&eacute;tiers</a>
+          <a href="dispositif.html#dispositif">Notre expertise</a>
+          <a href="materials.html">Mat&eacute;riaux</a>
+          <a href="about.html">&Agrave; propos</a>
         </div>
-
-      </div>
-
-      <div>
-
-        <h4>Navigation</h4>
-
-        <ul><li><a href="index.html">Accueil</a></li><li><a href="services.html">Prestations</a></li><li><a href="about.html">À propos</a></li><li><a href="materials.html">Matériaux</a></li><li><a href="projects.html">Réalisations</a></li><li><a href="dispositif.html#dispositif">Dispositif</a></li><li><a href="contact.html">Contact</a></li></ul>
-
-      </div>
-
-      <div>
-
-        <h4>Prestations</h4>
-
-        <ul><li><a href="services.html">Dragage de sable</a></li><li><a href="services.html">BTP et terrassement</a></li><li><a href="services.html">Petites roches</a></li><li><a href="services.html">Vente de sable</a></li></ul>
-
-      </div>
-
-      <div>
-
-        <h4>Nous joindre</h4>
-
-        <ul><li><a href="tel:+2290197988688">229 01 97 98 86 88</a></li><li><a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a></li><li>Lun–Sam · 07h00–18h00</li></ul>
-
-      </div>
-
+      </nav>
+      <section class="ft-compact-contact">
+        <h3>Parlons de votre projet</h3>
+        <a href="tel:+2290197988688">+229 01 97 98 86 88</a>
+        <a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a>
+        <a class="ft-compact-cta" href="contact.html#devis">Demander un devis <span aria-hidden="true">&rarr;</span></a>
+      </section>
     </div>
-
-    <div class="ft-b">
-
-      <span>© <span id="yr"></span> Cannan-Minning · Tous droits réservés.</span>
-
-      <span>Mentions légales · Politique de confidentialité</span>
-
-    </div>
-
   </div>
-
+  <div class="ft-bottom"><div class="w ft-bottom__inner">
+    <span>&copy; <span id="yr"></span> CANNAN-MINING. Tous droits r&eacute;serv&eacute;s.</span>
+    <a class="ft-top" href="#top"><span aria-hidden="true">&uarr;</span> Retour en haut</a>
+  </div></div>
 </footer>
 <a href="contact.html#devis" class="fab" id="fab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-5.1A8.4 8.4 0 0112 3.1a8.4 8.4 0 019 8.4z"/></svg><span>Devis gratuit</span></a>
 <a class="wa" href="https://wa.me/2290197988688?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20vos%20services." target="_blank" rel="noopener noreferrer" aria-label="Discuter directement avec Cannan-Minning sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-.9-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-<script src="site.js"></script>
+<script src="site.js?v=20261006-08"></script>
 </body>
 </html>
