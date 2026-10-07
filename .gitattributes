@@ -1,3 +1,4 @@
 img/about-hero-uhd.mp4 filter=lfs diff=lfs merge=lfs -text
 img/advantages-hero.mp4 filter=lfs diff=lfs merge=lfs -text
 img/services-dredging.mp4 filter=lfs diff=lfs merge=lfs -text
+img/hero-4k.mp4 filter=lfs diff=lfs merge=lfs -text
