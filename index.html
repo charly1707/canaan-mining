@@ -21,7 +21,7 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
 <title>Cannan-Minning | Dragage, BTP et agr&eacute;gats</title>
 
-<meta name="description" content="Dragage, terrassement BTP et fourniture de sable et agr&eacute;gats. Des &eacute;quipes et du mat&eacute;riel mobilisables pour vos chantiers.">
+<meta name="description" content="Dragage, terrassement BTP et fourniture de sable et agr&eacute;gats. D&eacute;couvrez en une seule page nos prestations, notre expertise, nos mat&eacute;riaux et demandez votre devis.">
 
 <meta name="theme-color" content="#16306E">
 
@@ -33,7 +33,7 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
 <meta property="og:title" content="Cannan-Minning | Dragage, BTP et agr&eacute;gats">
 
-<meta property="og:description" content="Dragage, terrassement BTP et fourniture de sable et agr&eacute;gats. Des &eacute;quipes et du mat&eacute;riel mobilisables pour vos chantiers.">
+<meta property="og:description" content="Dragage, terrassement BTP et fourniture de sable et agr&eacute;gats. Toutes nos prestations r&eacute;unies en une page.">
 
 <meta name="twitter:card" content="summary_large_image">
 
@@ -47,7 +47,375 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Jost:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=20261006-52">
+<link rel="stylesheet" href="styles.css?v=20261007-1">
+
+<style>
+/* One-page : état actif de la navigation visible à toutes les largeurs */
+.hd nav a.on{background:rgba(2,129,194,.08);color:var(--azur-d)}
+.mn a.on{color:var(--azur-d)}
+.hero,.sec[id]{scroll-margin-top:130px}
+
+/* ===== COUCHE EFFETS — rendu percutant ===== */
+
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:#0a1a3d}
+::-webkit-scrollbar-thumb{background:linear-gradient(#0281c2,#39c8ff);border:2px solid #0a1a3d;border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:#59d3ff}
+::selection{background:#0281c2;color:#fff}
+
+/* Header collant : liseré lumineux animé */
+.hd.st::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none;background:linear-gradient(90deg,transparent 4%,#0281c2 32%,#39c8ff 50%,#0281c2 68%,transparent 96%);animation:hdPulse 3.4s ease-in-out infinite}
+@keyframes hdPulse{50%{opacity:.5}}
+
+/* Hero : titre en dégradé animé, trait lumineux, accent sur l'index */
+@keyframes shineTxt{to{background-position:-200% 0}}
+@keyframes drawLine{to{transform:scaleX(1)}}
+@keyframes eyeGlow{0%,100%{text-shadow:none}50%{text-shadow:0 0 18px rgba(245,197,24,.95)}}
+@media(min-width:721px){
+  .hero h1 s{background:linear-gradient(95deg,#22c3f0 0%,#8ef0ff 45%,#2a8cff 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-shadow:none;animation:shineTxt 6.5s linear infinite;filter:drop-shadow(0 0 28px rgba(34,175,255,.35))}
+  .hero h1 u{position:relative;display:inline-block;padding-bottom:.16em}
+  .hero h1 u::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;border-radius:3px;background:linear-gradient(90deg,#f5c518,#ffc94d 50%,#f5c518);box-shadow:0 0 20px rgba(245,197,24,.55);transform:scaleX(0);transform-origin:left;animation:drawLine .9s .55s var(--e) forwards}
+}
+.hero-in .eyebrow b{animation:eyeGlow 2.6s ease-in-out infinite}
+
+/* Labels de section : filet lumineux + numéro en dégradé */
+.lb::before{height:2px;background:linear-gradient(90deg,var(--azur),#39c8ff);box-shadow:0 0 10px rgba(57,200,255,.65)}
+.lb .ix{background:linear-gradient(135deg,#0281c2,#39c8ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Numéros fantômes géants en fond de section */
+.sec[data-ghost]{position:relative;isolation:isolate;overflow:hidden}
+.sec[data-ghost]::after{content:attr(data-ghost);position:absolute;top:4px;right:2.5%;z-index:-1;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(110px,16vw,235px);line-height:1;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px rgba(2,129,194,.15);pointer-events:none;user-select:none}
+#methode[data-ghost]::after{-webkit-text-stroke-color:rgba(140,215,255,.16)}
+
+/* Navigation latérale de progression synchronisée */
+.sdots{position:fixed;top:50%;right:20px;z-index:85;display:flex;flex-direction:column;gap:13px;transform:translateY(-50%);opacity:0;visibility:hidden;transition:opacity .45s var(--e),visibility .45s var(--e)}
+.sdots.show{opacity:1;visibility:visible}
+.sdots a{position:relative;display:flex;align-items:center;justify-content:flex-end;width:32px;height:12px}
+.sdots i{width:9px;height:9px;border-radius:50%;background:#9fb6c8;box-shadow:0 0 0 4px rgba(10,40,80,.10);transition:transform .3s var(--e),background .3s,box-shadow .3s}
+.sdots a:hover i{background:#5b7f96;transform:scale(1.2)}
+.sdots a.on i{background:#0281c2;transform:scale(1.45);animation:dotPulse 2.4s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 5px rgba(2,129,194,.16),0 0 14px rgba(2,129,194,.55)}50%{box-shadow:0 0 0 9px rgba(2,129,194,.08),0 0 28px rgba(2,129,194,.95)}}
+.sdots a::after{content:attr(data-label);position:absolute;right:25px;top:50%;padding:6px 11px;border-radius:6px;background:#08203c;color:#fff;font-family:'Inter',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateY(-50%) translateX(8px);pointer-events:none;transition:opacity .28s var(--e),transform .28s var(--e);box-shadow:0 10px 26px rgba(8,32,60,.35)}
+.sdots a:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:1100px){.sdots{display:none}}
+
+/* Services : zoom image au survol + halo azur */
+.page-services .service-row{overflow:hidden;transition:transform .35s var(--e),box-shadow .35s var(--e),border-color .35s var(--e)}
+.page-services .service-row:hover{transform:translateY(-5px);border-color:rgba(2,129,194,.5);box-shadow:0 28px 48px -28px rgba(2,129,194,.65)}
+.page-services .service-row__image{transition:transform .6s var(--e),filter .6s var(--e);filter:saturate(.95)}
+.page-services .service-row:hover .service-row__image{transform:scale(1.07);filter:saturate(1.2) contrast(1.03)}
+.page-services .service-row .svc-n{transition:transform .35s var(--e),background .35s var(--e),color .35s var(--e),border-color .35s var(--e)}
+.page-services .service-row:hover .svc-n{transform:rotate(-8deg) scale(1.12);background:var(--azur);border-color:var(--azur);color:#fff}
+
+/* Matériaux : lévitation + zoom de la photo */
+.material-card{transition:transform .35s var(--e),box-shadow .35s var(--e),border-color .35s var(--e)}
+.material-card:hover{transform:translateY(-6px);border-color:rgba(2,129,194,.5);box-shadow:0 28px 46px -26px rgba(2,129,194,.6)}
+.material-card img{transition:transform .55s var(--e)}
+.material-card:hover img{transform:scale(1.07)}
+
+/* Engagements, méthode, savoir-faire */
+.commitment-card{transition:transform .35s var(--e),box-shadow .35s var(--e),border-color .35s var(--e)}
+.commitment-card:hover{transform:translateY(-5px);border-color:rgba(57,200,255,.55);box-shadow:0 24px 44px -26px rgba(2,129,194,.6)}
+.approach-step{transition:background .3s var(--e)}
+.approach-step:hover{background:linear-gradient(180deg,rgba(2,129,194,.08),rgba(2,129,194,0))}
+.page-advantages .approach-step__number{transition:transform .3s var(--e),box-shadow .3s var(--e)}
+.approach-step:hover .approach-step__number{transform:translateY(-3px);box-shadow:0 10px 22px rgba(2,129,194,.5)}
+
+/* Chiffres clés : icônes qui s'animent au survol */
+.home-stat>span{transition:transform .35s var(--e),background .35s,box-shadow .35s}
+.home-stat:hover>span{transform:translateY(-3px) scale(1.12);background:rgba(112,199,238,.15);box-shadow:0 0 26px rgba(57,200,255,.55)}
+
+/* Statistiques : grands chiffres en dégradé lumineux */
+.expertise-stat__value{background:linear-gradient(180deg,#fff 25%,#7fe0ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-shadow:none}
+.expertise-stat{transition:background .3s var(--e)}
+.expertise-stat:hover{background:rgba(255,255,255,.055)}
+
+/* Galerie */
+.g:hover{border-color:rgba(2,129,194,.55);box-shadow:0 20px 42px -18px rgba(2,129,194,.55)}
+
+/* Échelle globale (rendu 100 %) */
+html{zoom:1}
+
+/* Services : vraie icône dans la pastille numérotée */
+.page-services .service-row .svc-n{position:relative}
+.page-services .service-row .svc-n svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.page-services .service-row .svc-n i{position:absolute;top:-7px;right:-9px;padding:1px 4px;border:1px solid rgba(0,0,0,.08);border-radius:8px;background:linear-gradient(180deg,#ffd94d,#f5c518);color:#0a1a3d;font-family:'Archivo',sans-serif;font-size:8.5px;font-style:normal;font-weight:800;line-height:1.35;box-shadow:0 3px 8px rgba(245,197,24,.5)}
+
+/* À propos : vraie icône dans les pastilles 01/02/03 */
+.about-steps>li>span svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.about-steps>li>span i{position:absolute;top:-6px;right:-7px;padding:0 3px;border:1px solid rgba(0,0,0,.08);border-radius:7px;background:linear-gradient(180deg,#ffd94d,#f5c518);color:#0a1a3d;font-family:'Archivo',sans-serif;font-size:7.5px;font-style:normal;font-weight:800;line-height:1.4;box-shadow:0 2px 6px rgba(245,197,24,.5)}
+
+/* Matériaux : pastille d'icône dans chaque carte */
+.material-card__icon{display:grid;place-items:center;width:44px;height:44px;margin-bottom:13px;border:1px solid rgba(2,129,194,.22);border-radius:11px;background:linear-gradient(135deg,rgba(2,129,194,.13),rgba(2,129,194,.04));color:var(--azur-d)}
+.material-card__icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* Prestations : coche réelle au lieu du caractère ✓ */
+.service-features li{display:flex;align-items:flex-start;gap:6px}
+.service-features li::before{content:"";flex:none;width:13px;height:13px;margin-top:2px;margin-right:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230281c2' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E") no-repeat center/contain}
+
+/* Mise en avant "100+ chantiers" : icône incluse */
+.home-intro__badge{display:flex;align-items:center;gap:9px}
+.hb-ic{display:grid;place-items:center;width:30px;height:30px;flex:none;border:1px solid rgba(245,197,24,.4);border-radius:8px;background:rgba(245,197,24,.16);color:#f5c518}
+.hb-ic svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hb-t{display:grid;gap:0}
+
+/* Téléphone : icône réelle */
+.ct-tel svg{width:.58em;height:.58em;margin-right:.3em;vertical-align:-.04em;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+
+/* Retour en haut : flèche réelle */
+.ft-top{transform:none}
+.ft-top>span{transform:none}
+.ft-top>span svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* CTA footer : flèche réelle */
+.ft-compact-cta svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s var(--e)}
+.ft-compact-cta:hover svg{transform:translateX(3px)}
+
+/* Formulaire : focus lumineux */
+#devis input,#devis select,#devis textarea{transition:border-color .25s,box-shadow .25s}
+#devis input:focus,#devis select:focus,#devis textarea:focus{outline:none;border-color:var(--azur);box-shadow:0 0 0 4px rgba(2,129,194,.15),0 10px 30px -18px rgba(2,129,194,.8)}
+
+@media(prefers-reduced-motion:reduce){
+  .hd.st::after,.hero h1 s,.hero h1 u::after,.sdots a.on i,.hero-in .eyebrow b{animation:none!important}
+  .hero h1 u::after{transform:scaleX(1)}
+  .service-intro h2,.page-materials .sh h2,.page-contact .sh h2,.page-about .about-intro h2{background-image:none;color:var(--navy);-webkit-text-fill-color:currentColor;animation:none}
+  .page-services .service-row .svc-n i{animation:none}
+  .page-services .service-row:hover .service-row__image{transform:none}
+  .page-services .service-row:hover .svc-n svg{animation:none}
+  .page-advantages .approach-flow::after{display:none}
+  .page-advantages .approach-step{transition:none}
+  .page-advantages .approach-step.lit::before{width:0}
+  .page-about .about-steps::after{display:none}
+  .page-about .about-contact-strip::before{display:none}
+  .page-about .about-pillar{transform:none!important;will-change:auto}
+  .page-about .about-steps li.on>span{transform:none;box-shadow:none}
+  .page-about .about-steps li{transition:none}
+  .page-about .about-pillar__icon,.page-about .about-pillar__eyebrow,.page-about .about-pillar h3{transform:none}
+}
+
+/* ===== Bandeau « chiffres clés » (bleu nuit) : rendu premium ===== */
+.home-stats{position:relative;padding:30px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);background:radial-gradient(46% 130% at 50% -10%,rgba(56,160,215,.35),transparent 60%),radial-gradient(40% 110% at 88% 110%,rgba(245,197,24,.12),transparent 55%),linear-gradient(90deg,#07182e,#0a2441 50%,#07182e)}
+.home-stat{position:relative;min-height:74px;padding:11px 22px;border:0;transition:background .3s var(--e)}
+.home-stat:hover{background:linear-gradient(180deg,rgba(56,160,215,.12),rgba(56,160,215,0))}
+.home-stat:not(:last-child)::after{content:"";position:absolute;top:9px;bottom:9px;right:0;width:1px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.34),rgba(255,255,255,0))}
+.home-stat>span{width:42px;height:42px;border:1px solid transparent;background:linear-gradient(#0d2b4d,#0d2b4d) padding-box,linear-gradient(140deg,#3ac1f5,#f5c518) border-box;color:#9fe3ff;font-size:19px;box-shadow:0 8px 18px -10px rgba(0,0,0,.5),0 0 0 5px rgba(56,160,215,.07)}
+.home-stat svg{width:20px;height:20px}
+.home-stat b{font-size:17px;letter-spacing:.01em}
+.home-stat small{font-size:9.5px;letter-spacing:.02em}
+.home-stat:hover>span{transform:translateY(-3px) scale(1.1);background:linear-gradient(#123a63,#123a63) padding-box,linear-gradient(140deg,#f5c518,#3ac1f5) border-box;box-shadow:0 14px 26px -12px rgba(0,0,0,.6),0 0 30px rgba(57,200,255,.5)}
+
+/* ===== NOS MÉTIERS : édition « cahier des travaux » ===== */
+.page-services #services{padding-top:52px;background-color:#fbfaf6;background-image:repeating-linear-gradient(90deg,rgba(16,44,72,.03) 0 1px,transparent 1px calc(100%/3));background-size:100% 100%}
+.page-services #services::before{content:"";display:block;height:1px;margin-bottom:38px;background:linear-gradient(90deg,var(--azur) 0 64px,rgba(22,60,92,.22) 64px 100%)}
+.page-services #services .service-intro{position:relative}
+@media(min-width:1100px){
+  .service-intro{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto 1fr;column-gap:52px;max-width:none;margin-bottom:38px;align-items:start}
+  .service-intro .lb{grid-column:1;justify-self:start}
+  .service-intro h2{grid-column:1;max-width:660px;margin-top:18px;font-size:clamp(1.9rem,2.9vw,2.7rem);letter-spacing:-.045em}
+  .service-intro p{grid-column:2;grid-row:1 / span 2;align-self:center;max-width:330px;margin:0;padding-left:26px;border-left:1px solid #d9e2e8;color:#4d6072;font-size:12.5px;font-style:italic;line-height:1.8}
+  .service-intro::after{content:"Index 01 · 02 · 03";grid-column:1;grid-row:2;align-self:end;color:#8fa3b2;font-family:'Archivo',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.34em;text-transform:uppercase}
+}
+@media(max-width:1100px){.service-intro::after{display:none}}
+.page-services .service-list{gap:14px}
+.page-services .service-row{padding:26px 30px;border:1px solid #e2e8ed;border-top:2px solid #b7ccda;border-radius:2px;background:#fff;box-shadow:0 1px 2px rgba(16,44,72,.04);min-height:0}
+.page-services .service-row::after{content:"";position:absolute;left:0;top:0;width:0;height:2px;background:linear-gradient(90deg,var(--azur),#f5c518);transition:width .45s var(--e)}
+.page-services .service-row:hover{transform:translateY(-2px);border-top-color:#9fb8c8;box-shadow:0 10px 22px -20px rgba(16,44,72,.28)}
+.page-services .service-row:hover::after{width:100%}
+.page-services .service-row__image{border-radius:2px;filter:saturate(.8);transition:filter .4s var(--e)}
+.page-services .service-row:hover .service-row__image{filter:saturate(1.05)}
+.page-services .service-row .svc-n{width:40px;height:40px;border:1px solid #ccd9e0;border-radius:2px;background:transparent;box-shadow:none;transition:background .3s var(--e),border-color .3s var(--e),transform .3s var(--e)}
+.page-services .service-row .svc-n i{border-radius:2px}
+.page-services .service-row:hover .svc-n{transform:none;background:#edf4f7;border-color:var(--azur);color:var(--azur-d)}
+.page-services .service-row h3{letter-spacing:-.02em}
+.page-services .service-row h3 em{letter-spacing:.16em}
+.page-services .service-row>p{font-size:12.5px;line-height:1.75}
+.service-features{counter-reset:fty;margin-top:16px;gap:9px}
+.service-features li{counter-increment:fty;align-items:baseline;gap:9px}
+.service-features li::before{content:counter(fty,decimal-leading-zero)".";display:inline-block;width:auto;height:auto;flex:0 0 auto;margin:0;border-radius:0;background:none;color:var(--azur-d);font-family:'Archivo',sans-serif;font-size:9px;font-weight:800;line-height:1.6}
+.service-features li::after{content:"";flex:1;margin:0 2px 0 4px;border-bottom:1px dotted #d7e0e6;transform:translateY(-2px)}
+.page-services .service-row .svc-f{margin-top:20px;border-top:1px solid #e6ecf0}
+.page-services .service-row .svc-f>span{font-size:9px;letter-spacing:.2em;color:#7a8b99}
+.page-services .service-row .svc-f .svc-a{font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-decoration:underline;text-decoration-color:rgba(2,129,194,.35);text-underline-offset:5px}
+.page-services .service-row .svc-f .svc-a svg{transition:transform .3s var(--e)}
+.page-services .service-row:hover .svc-f .svc-a svg{transform:translate(3px,-3px)}
+.service-process{margin-top:30px;border-color:#e3e9ee}
+.service-process>div>span{display:grid;width:26px;height:26px;place-items:center;border:1px solid #cfdae1;color:var(--azur-d)}
+.service-process b{letter-spacing:.02em}
+.service-proof.content-cta{border-radius:2px}
+.service-proof.content-cta b{letter-spacing:.04em}
+.service-proof.content-cta strong{font-weight:500;font-style:italic}
+@media(max-width:720px){
+  .page-services .service-row__image{filter:none}
+  .page-services #services{padding-top:38px}
+}
+
+/* ===== NOS MÉTIERS : disposition en flex (cartes sur une ligne) ===== */
+.page-services .service-list{display:flex;flex-direction:row;align-items:stretch;gap:16px}
+.page-services .service-row{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:0}
+.page-services .service-row__image{order:0;flex:0 0 auto;width:100%;height:180px;min-height:0;align-self:auto}
+.page-services .service-row .service-row__body{order:1;flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:space-between}
+.page-services .service-row .service-row__body .svc-t{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.page-services .service-row .service-row__body h3{margin:0}
+.page-services .service-row .service-row__body>p{margin-top:12px}
+.page-services .service-row .service-row__body .service-features{margin-top:16px}
+.page-services .service-row .service-row__body .svc-f{margin-top:18px}
+@media(max-width:900px){
+  .page-services .service-list{flex-direction:column}
+  .page-services .service-row__image{height:210px}
+}
+
+/* ===== NOTRE MÉTHODE : flux animé (signal + allumage en cascade) ===== */
+.page-advantages .approach-flow::after{content:"";position:absolute;top:57px;left:8.5%;width:76px;height:3px;border-radius:2px;background:linear-gradient(90deg,rgba(58,193,245,0),#39c8ff);box-shadow:0 0 10px 1px rgba(58,193,245,.7),0 2px 16px rgba(58,193,245,.45);z-index:2;opacity:0;animation:flowComet 3s ease-in-out infinite}
+@keyframes flowComet{0%{left:8.5%;opacity:0}8%{opacity:1}90%{opacity:1}100%{left:90%;opacity:0}}
+.page-advantages .approach-flow::before{transition:background .3s var(--e)}
+.page-advantages .approach-step{transition:background-color .45s var(--e)}
+.page-advantages .approach-step::before{content:"";position:absolute;bottom:0;left:50%;width:0;height:2px;transform:translateX(-50%);background:linear-gradient(90deg,var(--azur),#39c8ff);transition:width .45s var(--e);box-shadow:0 0 8px rgba(58,193,245,.5)}
+.page-advantages .approach-step.lit::before{width:72%}
+.page-advantages .approach-step.lit{background:linear-gradient(180deg,rgba(2,129,194,.07),rgba(58,193,245,.04))}
+.page-advantages .approach-step.lit .approach-step__number{color:#06253d;border-color:transparent;background:linear-gradient(135deg,#7fd8ff,#39c8ff);box-shadow:0 0 0 5px rgba(58,193,245,.2),0 8px 18px -6px rgba(58,193,245,.7);transform:scale(1.1);transition:transform .45s var(--e),box-shadow .45s var(--e),background .45s var(--e)}
+.page-advantages .approach-step.lit .approach-step__icon{color:var(--azur);transform:translateY(-3px);transition:transform .45s var(--e),color .45s var(--e)}
+.page-advantages .approach-step.lit .approach-step__icon svg{filter:drop-shadow(0 3px 6px rgba(2,129,194,.35));transition:filter .45s var(--e)}
+.page-advantages .approach-step.lit b{color:var(--azur-d)}
+
+/* ===== NOS SAVOIR-FAIRE : plateau éditorial ===== */
+.page-advantages #expertise{position:relative;padding-top:48px;padding-bottom:36px;background-color:#fbfaf6;background-image:repeating-linear-gradient(90deg,rgba(16,44,72,.03) 0 1px,transparent 1px calc(100%/3))}
+.page-advantages #expertise::before{content:"";display:block;height:1px;margin-bottom:34px;background:linear-gradient(90deg,var(--azur) 0 64px,rgba(22,60,92,.22) 64px 100%)}
+.page-advantages #expertise .commitment-grid{counter-reset:sk;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.page-advantages #expertise .commitment-card{counter-increment:sk;position:relative;padding:26px 26px 24px;border:1px solid #e2e8ed;border-top:2px solid #b7ccda;border-radius:2px;background:#fff;box-shadow:0 1px 2px rgba(16,44,72,.04);transition:transform .35s var(--e),box-shadow .35s var(--e),border-color .35s var(--e)}
+.page-advantages #expertise .commitment-card::after{content:"";position:absolute;left:0;top:0;width:0;height:2px;background:linear-gradient(90deg,var(--azur),#39c8ff);transition:width .4s var(--e)}
+.page-advantages #expertise .commitment-card::before{content:"05." counter(sk,decimal-leading-zero);position:absolute;top:15px;right:18px;color:#93a7b5;font-family:'Archivo',sans-serif;font-size:9px;font-weight:700;letter-spacing:.22em;transition:color .3s var(--e)}
+.page-advantages #expertise .commitment-card:hover{transform:translateY(-3px);border-top-color:#9fb8c8;box-shadow:0 14px 26px -22px rgba(16,44,72,.32)}
+.page-advantages #expertise .commitment-card:hover::after{width:100%}
+.page-advantages #expertise .commitment-card:hover::before{color:var(--azur-d)}
+.page-advantages #expertise .commitment-card>span{display:grid;width:46px;height:46px;place-items:center;margin-bottom:17px;border:1px solid #cfdde6;border-radius:2px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#cfdde6,#e8f0f5) border-box;color:var(--azur-d);transition:box-shadow .3s var(--e),transform .3s var(--e)}
+.page-advantages #expertise .commitment-card>span svg{width:24px;height:24px;stroke-width:1.6;transition:transform .3s var(--e)}
+.page-advantages #expertise .commitment-card:hover>span{transform:translateY(-2px);box-shadow:0 0 0 4px rgba(2,129,194,.1),0 10px 18px -12px rgba(2,129,194,.45)}
+.page-advantages #expertise .commitment-card:hover>span svg{transform:rotate(-7deg) scale(1.06)}
+.page-advantages #expertise .commitment-card h3{position:relative;width:fit-content;font-size:15.5px;letter-spacing:-.01em;text-transform:none;color:var(--navy)}
+.page-advantages #expertise .commitment-card h3::after{content:"";position:absolute;left:0;bottom:-5px;height:2px;width:100%;background:linear-gradient(90deg,var(--azur),#39c8ff);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--e)}
+.page-advantages #expertise .commitment-card:hover h3::after{transform:scaleX(1)}
+.page-advantages #expertise .commitment-card p{margin:12px 0 0;color:#5b6d80;font-size:12.5px;line-height:1.7}
+.page-advantages #expertise .commitment-card ul{counter-reset:fl;display:grid;gap:8px;margin:18px 0 0;padding:15px 0 0;border-top:1px solid #e8eef2;list-style:none}
+.page-advantages #expertise .commitment-card li{counter-increment:fl;display:flex;align-items:baseline;gap:9px;color:#344d64;font-size:11.5px;line-height:1.5}
+.page-advantages #expertise .commitment-card li::before{content:counter(fl,decimal-leading-zero) ".";flex:none;color:var(--azur-d);font-family:'Archivo',sans-serif;font-size:9px;font-weight:800}
+.page-advantages #expertise .rv:nth-child(2){transition-delay:.08s}
+.page-advantages #expertise .rv:nth-child(3){transition-delay:.16s}
+@media(max-width:900px){
+  .page-advantages #expertise .commitment-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .page-advantages #expertise{padding-top:40px}
+  .page-advantages #expertise .commitment-grid{grid-template-columns:1fr}
+  .page-advantages #expertise .commitment-card{padding:22px 20px}
+}
+
+/* ===== À PROPOS : plateau éditorial + dynamique ===== */
+.page-about #apropos{position:relative;padding-top:48px;padding-bottom:42px;background-color:#fbfaf6;background-image:repeating-linear-gradient(90deg,rgba(16,44,72,.03) 0 1px,transparent 1px calc(100%/3))}
+.page-about #apropos::before{content:"";display:block;height:1px;margin-bottom:38px;background:linear-gradient(90deg,var(--azur) 0 64px,rgba(22,60,92,.22) 64px 100%)}
+.page-about .about-intro{position:relative;max-width:none;margin:0 0 34px;text-align:left;z-index:1}
+@media(min-width:1100px){
+  .page-about .about-intro{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto 1fr;column-gap:52px;align-items:start}
+  .page-about .about-intro .lb{grid-column:1;justify-self:start}
+  .page-about .about-intro h2{grid-column:1;max-width:680px;margin-top:18px}
+  .page-about .about-intro p{grid-column:2;grid-row:1 / span 2;align-self:center;max-width:330px;margin:0;padding-left:26px;border-left:1px solid #d9e2e8;color:#4d6072;font-size:12.5px;font-style:italic;line-height:1.8}
+  .page-about .about-intro::after{content:"Masthead 08 · Cannan-Minning · Est. 2021";grid-column:1;grid-row:2;align-self:end;color:#8fa3b2;font-family:'Archivo',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.34em;text-transform:uppercase}
+}
+@media(max-width:1100px){.page-about .about-intro::after{display:none}}
+.page-about .about-pillars{counter-reset:ap;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;perspective:900px}
+.page-about .about-pillar{counter-increment:ap;position:relative;min-height:210px;padding:24px 24px 22px;border:1px solid #e2e8ed;border-top:2px solid #b7ccda;border-radius:2px;background:radial-gradient(120% 90% at var(--gx,50%) var(--gy,50%),rgba(58,193,245,.08),transparent 55%),#fff;box-shadow:0 1px 2px rgba(16,44,72,.04);transform-style:preserve-3d;will-change:transform;transition:border-color .35s var(--e),box-shadow .35s var(--e),opacity .7s var(--e),transform .7s var(--e)}
+.page-about .about-pillar::before{content:"Fiche " counter(ap,decimal-leading-zero);position:absolute;top:14px;right:16px;color:#93a7b5;font-family:'Archivo',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:color .3s var(--e)}
+.page-about .about-pillar::after{content:"";position:absolute;left:0;top:0;width:0;height:2px;background:linear-gradient(90deg,var(--azur),#39c8ff);transition:width .4s var(--e)}
+.page-about .about-pillar:hover{border-top-color:#9fb8c8;box-shadow:0 16px 30px -26px rgba(16,44,72,.38)}
+.page-about .about-pillar:hover::after{width:100%}
+.page-about .about-pillar:hover::before{color:var(--azur-d)}
+.page-about .about-pillar__icon{display:grid;width:46px;height:46px;place-items:center;margin-bottom:16px;border:1px solid #cfdde6;border-radius:2px;background:#fff;color:var(--azur-d);transform:translateZ(28px);transition:box-shadow .35s var(--e),border-color .35s var(--e)}
+.page-about .about-pillar__icon svg{width:24px;height:24px;stroke-width:1.6;transition:transform .3s var(--e)}
+.page-about .about-pillar:hover .about-pillar__icon{border-color:#b9d6e8;box-shadow:0 10px 18px -12px rgba(2,129,194,.45)}
+.page-about .about-pillar:hover .about-pillar__icon svg{transform:rotate(-8deg) scale(1.08)}
+.page-about .about-pillar__eyebrow{display:flex;align-items:center;gap:8px;color:var(--azur-d);font-family:'Archivo',sans-serif;font-size:8.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;transform:translateZ(20px)}
+.page-about .about-pillar__eyebrow::before{content:"";width:6px;height:6px;transform:rotate(45deg);background:linear-gradient(135deg,var(--azur),#39c8ff)}
+.page-about .about-pillar h3{font-size:15.5px;line-height:1.25;letter-spacing:-.01em;transform:translateZ(16px)}
+.page-about .about-pillar p{margin-top:10px;color:#5b6d80;font-size:12.5px;line-height:1.7}
+.company-history__head.rv{transition-delay:.02s}
+.company-history .history-block.rv:nth-of-type(1){transition-delay:.05s}
+.company-history .history-block.rv:nth-of-type(2){transition-delay:.12s}
+.company-history .history-block.rv:nth-of-type(3){transition-delay:.19s}
+.company-history .history-block.rv:nth-of-type(4){transition-delay:.26s}
+.company-history .history-foot.rv{transition-delay:.34s}
+.page-about .about-detail{position:relative}
+.page-about .about-steps{position:relative}
+.page-about .about-steps::before{content:"";position:absolute;left:12px;top:10px;bottom:10px;width:1px;background:#dce8f0}
+.page-about .about-steps::after{content:"";position:absolute;left:7px;top:4%;width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,#39c8ff,var(--azur));box-shadow:0 0 10px 1px rgba(58,193,245,.65);z-index:1;animation:stepDrop 3.6s ease-in-out infinite alternate}
+@keyframes stepDrop{0%{top:4%}100%{top:90%}}
+.page-about .about-steps li{transition:background-color .4s var(--e),opacity .7s var(--e),transform .7s var(--e)}
+.page-about .about-steps li.rv:nth-of-type(2){transition-delay:.12s}
+.page-about .about-steps li.rv:nth-of-type(3){transition-delay:.24s}
+.page-about .about-steps li>span{transition:box-shadow .4s var(--e),background .4s var(--e),transform .4s var(--e),border-color .4s var(--e)}
+.page-about .about-steps li.on>span{border-color:transparent;background:linear-gradient(135deg,#7fd8ff,#39c8ff);color:#06253d;box-shadow:0 0 0 5px rgba(58,193,245,.18);transform:scale(1.12)}
+.page-about .about-steps li.on b{color:var(--azur-d)}
+.page-about .about-steps li:hover>span{transform:scale(1.06)}
+.page-about .about-contact-strip{position:relative;overflow:hidden;border-radius:2px;background:linear-gradient(112deg,#0d2b4d,#173a55 55%,#1c4a6b)}
+.page-about .about-contact-strip::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.13) 50%,transparent 60%);transform:translateX(-130%);animation:ctaSheen 4.5s ease-in-out infinite;pointer-events:none}
+@keyframes ctaSheen{0%,62%{transform:translateX(-130%)}100%{transform:translateX(145%)}}
+@media(max-width:900px){.page-about .about-pillars{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){
+  .page-about #apropos{padding-top:40px}
+  .page-about .about-pillars{grid-template-columns:1fr}
+  .page-about .about-pillar{min-height:0;padding:21px 20px}
+}
+
+/* ================= EFFETS DYNAMIQUES ================= */
+
+/* ===== NOTRE HISTOIRE : dossier éditorial ===== */
+.company-history{margin-top:40px;padding-top:34px;border-top:1px solid var(--line)}
+.company-history__head{max-width:760px}
+.company-history__head .k{display:inline-flex;align-items:center;gap:10px;color:var(--azur-d);font-family:'Archivo',sans-serif;font-size:9px;font-weight:700;letter-spacing:.32em;text-transform:uppercase}
+.company-history__head .k::before{content:"";width:34px;height:1px;background:var(--azur)}
+.company-history__head h2{margin-top:13px;color:var(--navy);font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.15;letter-spacing:-.04em}
+.company-history__head p{margin-top:10px;max-width:660px;color:var(--muted);font-size:13px;line-height:1.7}
+.history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}
+.history-block{padding:20px 22px;border:1px solid #e2e8ed;border-top:2px solid #b7ccda;border-radius:2px;background:#fff}
+.history-block--wide{grid-column:1 / -1}
+.history-block h3{display:flex;align-items:center;gap:10px;margin-bottom:13px;padding-bottom:10px;border-bottom:1px solid #e8eef2;color:var(--azur-d);font-family:'Archivo',sans-serif;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.history-block h3::after{content:"";flex:1;border-bottom:1px dotted #d7e0e6}
+.history-list{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+.history-list li{display:flex;gap:10px;align-items:flex-start;color:#3d5266;font-size:12px;line-height:1.58}
+.history-list li::before{content:"";flex:none;width:5px;height:5px;margin-top:7px;border-radius:50%;background:linear-gradient(135deg,var(--azur),#f5c518)}
+.history-list--marks li::before{width:7px;height:7px;margin-top:5px;border-radius:1px;transform:rotate(45deg)}
+.history-foot{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:14px 22px;flex-wrap:wrap;padding:15px 20px;border:1px solid #e2e8ed;border-radius:2px;background:#f1f6f8}
+.history-chip{font-family:'Archivo',sans-serif;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.history-id{display:flex;flex-wrap:wrap;gap:7px 20px;align-items:center}
+.history-id span{display:inline-flex;gap:7px;align-items:baseline;color:#51657a;font-size:10.5px}
+.history-id b{color:var(--navy);font-family:'Archivo',sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:720px){.history-grid{grid-template-columns:1fr}}
+#scrollbar{position:fixed;top:0;left:0;z-index:130;height:3px;width:0;background:linear-gradient(90deg,#0b3d63,#3ac1f5,#f5c518);box-shadow:0 0 12px rgba(58,193,245,.55);pointer-events:none}
+
+/* Numéros fantômes : légère translation au défilement */
+.sec[data-ghost]::after{transform:translateY(var(--gp,0px));transition:transform .3s linear}
+
+/* Fiches métiers : reflet qui suit la souris, zoom de l'image, icône vive */
+.page-services .service-row{overflow:hidden}
+.page-services .service-row::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .35s var(--e);background:radial-gradient(280px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.55),rgba(255,255,255,0) 62%);mix-blend-mode:soft-light}
+.page-services .service-row:hover::before{opacity:1}
+.page-services .service-row__image{transition:transform .7s var(--e)}
+.page-services .service-row:hover .service-row__image{transform:scale(1.06)}
+.page-services .service-row .svc-n svg{transition:transform .25s var(--e)}
+.page-services .service-row:hover .svc-n svg{animation:iconPop .5s var(--e)}
+
+/* Cascade d'arrivée des fiches métiers */
+.page-services .service-row.rv{transition:opacity .7s var(--e),transform .7s var(--e)}
+.page-services .service-row[data-i="02"].rv{transition-delay:.1s}
+.page-services .service-row[data-i="03"].rv{transition-delay:.2s}
+
+/* Titres : vague lumineuse balayante */
+@keyframes hShine{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.service-intro h2,.page-materials .sh h2,.page-contact .sh h2,.page-about .about-intro h2{background:linear-gradient(105deg,#0a1a3d 0%,#0a1a3d 42%,#0281c2 50%,#0a1a3d 58%,#0a1a3d 100%);background-size:240% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:hShine 7s linear infinite}
+
+/* Pastille dorée : impulsion douce */
+@keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(245,197,24,.5)}70%{box-shadow:0 0 0 9px rgba(245,197,24,0)}100%{box-shadow:0 0 0 0 rgba(245,197,24,0)}}
+@keyframes iconPop{0%{transform:scale(1) rotate(0)}45%{transform:scale(1.22) rotate(-7deg)}75%{transform:scale(.95)}100%{transform:scale(1)}}
+.page-services .service-row .svc-n i{animation:pulseRing 2.8s ease-out infinite}
+</style>
 
 <noscript><style>.rv,.rv-l,.rv-r,.rv-z,.rv-f,table tbody tr{opacity:1!important;transform:none!important;filter:none!important}.sprog{display:none}
 
@@ -190,7 +558,7 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
   <div class="w"><div class="hd-i">
 
-    <a href="index.html#top" class="br">
+    <a href="#top" class="br">
 
       <span class="br-m"><img src="img/logo-icon.png" alt="" width="44" height="44" decoding="async"></span>
 
@@ -199,17 +567,17 @@ if(navigationEntry&&navigationEntry.type==='reload'){
     </a>
 
     <nav>
-      <a href="index.html" data-page="home">Accueil</a>
-      <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
-      <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
-      <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-      <a href="about.html" data-page="about">&Agrave; propos</a>
-      <a href="contact.html" data-page="contact">Contact</a>
+      <a href="#top">Accueil</a>
+      <a href="#services">Nos m&eacute;tiers</a>
+      <a href="#dispositif">Notre expertise</a>
+      <a href="#materiaux">Mat&eacute;riaux</a>
+      <a href="#apropos">&Agrave; propos</a>
+      <a href="#contact">Contact</a>
     </nav>
 
     <div class="hd-r">
 
-      <a href="contact.html#devis" class="b b-b">Devis gratuit</a>
+      <a href="#devis" class="b b-b">Devis gratuit</a>
 
       <button class="bk" id="bk" aria-label="Menu"><i></i></button>
 
@@ -218,23 +586,26 @@ if(navigationEntry&&navigationEntry.type==='reload'){
   </div></div>
 
   <div class="mn" id="mn"><div class="w">
-    <a href="index.html" data-page="home">Accueil</a>
-    <a href="services.html" data-page="services">Nos m&eacute;tiers</a>
-    <a href="dispositif.html#dispositif" data-page="advantages">Notre expertise</a>
-    <a href="materials.html" data-page="materials">Mat&eacute;riaux</a>
-    <a href="about.html" data-page="about">&Agrave; propos</a>
-    <a href="contact.html" data-page="contact">Contact</a>
-    <a href="contact.html#devis" class="b b-b">Demander un devis</a>
+    <a href="#top">Accueil</a>
+    <a href="#services">Nos m&eacute;tiers</a>
+    <a href="#dispositif">Notre expertise</a>
+    <a href="#materiaux">Mat&eacute;riaux</a>
+    <a href="#apropos">&Agrave; propos</a>
+    <a href="#contact">Contact</a>
+    <a href="#devis" class="b b-b">Demander un devis</a>
   </div></div>
 
 </header>
 <main id="main-content">
+
+<!-- ============ HERO ============ -->
+
 <section class="hero has-video" id="top">
 
   <div class="hero-media" aria-hidden="true">
     <!-- Pexels: "Excavator Loading Dump Truck in Open-Pit Mine" (35650013), Pexels License -->
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="img/hero-truck-poster.jpg" tabindex="-1">
-      <source src="img/hero-truck-1080p.mp4" type="video/mp4">
+      <source src="img/hero-4k.mp4" type="video/mp4">
     </video>
 
     <span class="hero-video-shade"></span>
@@ -244,8 +615,6 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
     <div class="car-t" id="carT">
 
-
-
       <div class="car-s">
 
         <img fetchpriority="high" decoding="async" src="img/hero-3.jpg" alt="Vue aérienne d'une carrière de sable et gravier">
@@ -253,8 +622,6 @@ if(navigationEntry&&navigationEntry.type==='reload'){
         <span class="car-o"></span>
 
       </div>
-
-
 
       <div class="car-s">
 
@@ -264,8 +631,6 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
       </div>
 
-
-
       <div class="car-s">
 
         <img loading="lazy" decoding="async" src="img/hero-5.jpg" alt="Carrière de sable et matériel d'extraction">
@@ -274,15 +639,11 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
       </div>
 
-
-
     </div>
 
   </div>
 
   <span class="car-ov"></span>
-
-
 
   <div class="hero-in"><div class="w">
 
@@ -296,13 +657,13 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
       <div class="hero-a">
 
-        <a href="contact.html#devis" class="b b-b">Obtenir un devis
+        <a href="#devis" class="b b-b">Obtenir un devis
 
           <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 
         </a>
 
-        <a href="services.html" class="b b-o">Nos prestations
+        <a href="#services" class="b b-o">Nos prestations
           <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <button type="button" class="hero-play" id="heroPlay" aria-haspopup="dialog"><span class="hero-play__i" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span>Voir la vidéo</span></button>
@@ -313,11 +674,7 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
   </div></div>
 
-
-
   <div class="car-txt" id="carTxt"></div>
-
-
 
   <div class="car-ui">
 
@@ -338,8 +695,6 @@ if(navigationEntry&&navigationEntry.type==='reload'){
     </div>
 
   </div>
-
-
 
   <div class="band">
 
@@ -390,98 +745,25 @@ if(navigationEntry&&navigationEntry.type==='reload'){
   </div>
 
 </section>
+
+<!-- ============ INTRO ============ -->
+
 <section class="home-intro" aria-labelledby="home-intro-title">
   <div class="w home-intro__grid">
     <div class="home-intro__copy">
       <span class="lb"><span class="ix">01</span> Cannan-Minning</span>
       <h2 id="home-intro-title">Du terrain à la réalisation</h2>
       <p>Nous accompagnons vos chantiers avec des moyens adaptés et une organisation claire. Du dragage à l’approvisionnement, chaque intervention est préparée selon le terrain, les volumes et vos délais.</p>
-      <a class="b b-n" href="dispositif.html#dispositif">Découvrir notre expertise <span aria-hidden="true">→</span></a>
+      <a class="b b-n" href="#dispositif">Découvrir notre expertise <span aria-hidden="true">→</span></a>
     </div>
     <div class="home-intro__media">
       <video src="img/services-site-work.mp4" autoplay muted loop playsinline controls preload="metadata" poster="img/services-site-poster.jpg" aria-label="Engin de chantier en intervention sur le terrain"></video>
       <span class="home-intro__video-status" role="status" hidden>La lecture automatique est indisponible. Appuyez sur Lecture.</span>
-      <span class="home-intro__badge"><b>100+</b><span>chantiers accompagnés</span></span>
+      <span class="home-intro__badge"><span class="hb-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-5h6v5"/><path d="M15 11h.01M9 11h.01M12 11h.01"/></svg></span><span class="hb-t"><b>100+</b><span>chantiers accompagnés</span></span></span>
     </div>
   </div>
 </section>
-<section class="sec home-directory">
-  <div class="w">
-    <div class="sh">
-      <div>
-        <span class="lb"><span class="ix">02</span> Nos métiers</span>
-        <h2>Des solutions pour chaque étape du chantier</h2>
-      </div>
-      <p>Du dragage à l’approvisionnement, nous adaptons nos prestations aux contraintes du terrain et au calendrier des travaux.</p>
-    </div>
-    <div class="svcs home-links">
-      <article class="home-service">
-        <div class="home-service__carousel" data-home-carousel aria-roledescription="carrousel" aria-label="Photos de dragage">
-          <div class="home-service__slides">
-            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="1 sur 3"><img src="img/gal-1.jpg" alt="Installation d’extraction et de traitement de sable" loading="lazy" decoding="async"></div>
-            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 3" hidden><img src="img/gal-3.jpg" alt="Vue aérienne d’un site d’extraction" loading="lazy" decoding="async"></div>
-            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 3" hidden><img src="img/services-site-poster.jpg" alt="Engin en intervention sur un site de dragage" loading="lazy" decoding="async"></div>
-          </div>
-          <button class="home-service__arrow home-service__arrow--previous" type="button" aria-label="Photo précédente">‹</button>
-          <button class="home-service__arrow home-service__arrow--next" type="button" aria-label="Photo suivante">›</button>
-          <div class="home-service__pagination" aria-label="Choisir une photo">
-            <button type="button" aria-label="Afficher la photo 1" aria-current="true"></button>
-            <button type="button" aria-label="Afficher la photo 2" aria-current="false"></button>
-            <button type="button" aria-label="Afficher la photo 3" aria-current="false"></button>
-          </div>
-        </div>
-        <h3>Dragage</h3>
-        <p>Des interventions organisées selon les contraintes du site et les volumes à traiter.</p>
-        <a class="svc-a" href="services.html">En savoir plus <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="home-service">
-        <div class="home-service__carousel" data-home-carousel aria-roledescription="carrousel" aria-label="Photos de BTP et terrassement">
-          <div class="home-service__slides">
-            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="1 sur 3"><img src="img/gal-2.jpg" alt="Pelle mécanique préparant un terrain de chantier" loading="lazy" decoding="async"></div>
-            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 3" hidden><img src="img/hero-truck-poster.jpg" alt="Pelle mécanique et camion sur un chantier" loading="lazy" decoding="async"></div>
-            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 3" hidden><img src="img/services-excavation-poster.jpg" alt="Pelle mécanique chargeant des matériaux" loading="lazy" decoding="async"></div>
-          </div>
-          <button class="home-service__arrow home-service__arrow--previous" type="button" aria-label="Photo précédente">‹</button>
-          <button class="home-service__arrow home-service__arrow--next" type="button" aria-label="Photo suivante">›</button>
-          <div class="home-service__pagination" aria-label="Choisir une photo">
-            <button type="button" aria-label="Afficher la photo 1" aria-current="true"></button>
-            <button type="button" aria-label="Afficher la photo 2" aria-current="false"></button>
-            <button type="button" aria-label="Afficher la photo 3" aria-current="false"></button>
-          </div>
-        </div>
-        <h3>BTP &amp; terrassement</h3>
-        <p>Préparation de plateformes, nivellement et terrassement pour vos ouvrages.</p>
-        <a class="svc-a" href="services.html">En savoir plus <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="home-service">
-        <div class="home-service__carousel" data-home-carousel aria-roledescription="carrousel" aria-label="Photos de sable et agrégats">
-          <div class="home-service__slides">
-            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="1 sur 3"><img src="img/gal-3.jpg" alt="Stocks de sable et d’agrégats vus du ciel" loading="lazy" decoding="async"></div>
-            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 3" hidden><img src="img/hero-3.jpg" alt="Matériaux préparés dans une carrière" loading="lazy" decoding="async"></div>
-            <div class="home-service__slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 3" hidden><img src="img/gal-1.jpg" alt="Installation de traitement de matériaux" loading="lazy" decoding="async"></div>
-          </div>
-          <button class="home-service__arrow home-service__arrow--previous" type="button" aria-label="Photo précédente">‹</button>
-          <button class="home-service__arrow home-service__arrow--next" type="button" aria-label="Photo suivante">›</button>
-          <div class="home-service__pagination" aria-label="Choisir une photo">
-            <button type="button" aria-label="Afficher la photo 1" aria-current="true"></button>
-            <button type="button" aria-label="Afficher la photo 2" aria-current="false"></button>
-            <button type="button" aria-label="Afficher la photo 3" aria-current="false"></button>
-          </div>
-        </div>
-        <h3>Sable &amp; agrégats</h3>
-        <p>Fourniture et livraison de matériaux adaptés à la nature de vos travaux.</p>
-        <a class="svc-a" href="materials.html">En savoir plus <span aria-hidden="true">→</span></a>
-      </article>
-    </div>
-    <div class="home-contact-strip home-cta">
-      <div>
-        <span class="home-cta__eyebrow">Une équipe, des moyens, une même ambition.</span>
-        <b>Faisons avancer vos projets, ensemble.</b>
-      </div>
-      <a class="b b-ow" href="about.html">Découvrir notre approche <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
+
 <section class="home-stats" aria-label="Domaines d’intervention de Cannan-Minning">
   <div class="w">
     <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M5 17V9h6v8m2 0 3-9 5 2-4 7"/></svg></span><b>Dragage</b><small>Curage et extraction</small></div>
@@ -490,12 +772,657 @@ if(navigationEntry&&navigationEntry.type==='reload'){
     <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b>Suivi</b><small>Organisation des interventions</small></div>
   </div>
 </section>
+
+<!-- ============ NOS MÉTIERS ============ -->
+
+<div class="page-services">
+<section class="sec" id="services" data-ghost="02">
+
+  <div class="w">
+
+    <div class="service-intro rv">
+      <span class="lb"><span class="ix">02</span> Nos m&eacute;tiers</span>
+      <h2>Une réponse concrète, du terrain aux matériaux.</h2>
+      <p>Chaque chantier a ses contraintes. Nous clarifions votre besoin, mobilisons les moyens nécessaires et coordonnons l’intervention jusqu’à l’étape convenue.</p>
+    </div>
+
+    <div class="service-list">
+
+      <article class="service-row rv" data-i="01">
+
+        <img class="service-row__image" src="img/gal-1.jpg" alt="Opération de dragage et extraction de sable" loading="lazy" decoding="async">
+
+        <div class="service-row__body">
+
+        <div class="svc-t">
+
+          <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20"/><path d="M5 17V9h6v8"/><path d="M13 17l3-9 5 2-4 7"/><path d="M8 5.5c0-1 1.5-2.5 3-2.5s3 1.5 3 2.5"/></svg></span>
+
+          <span class="svc-n"><svg viewBox="0 0 24 24"><path d="M2 17h20"/><path d="M5 17V9h6v8"/><path d="M13 17l3-9 5 2-4 7"/><path d="M8 5.5c0-1 1.5-2.5 3-2.5s3 1.5 3 2.5"/></svg><i>01</i></span>
+
+        </div>
+
+        <h3>Dragage &amp; extraction<em>Curage · récupération · mise en dépôt</em></h3>
+
+        <p>Nous intervenons pour extraire et déplacer les matériaux, réaliser le curage de lits et de berges, et organiser leur dépôt ou leur chargement selon l’accès au site.</p>
+        <ul class="service-features"><li>Étude des accès et des volumes</li><li>Mobilisation de dragline ou pelle hydraulique</li><li>Extraction, curage et gestion des déblais</li></ul>
+
+        <div class="svc-f">
+
+          <span>Intervention adaptée au site</span>
+
+          <a href="#devis" class="svc-a">Demander un devis
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+
+          </a>
+
+        </div>
+
+        </div>
+
+      </article>
+
+      <article class="service-row rv" data-i="02">
+
+        <img class="service-row__image" src="img/gal-2.jpg" alt="Pelle mécanique préparant une plateforme de chantier" loading="lazy" decoding="async">
+
+        <div class="service-row__body">
+
+        <div class="svc-t">
+
+          <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20v-4h6v4"/><path d="M14 20V12h5v8"/><path d="M7.5 12l2-6h5l2 6"/></svg></span>
+
+          <span class="svc-n"><svg viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M5 20v-4h6v4"/><path d="M14 20V12h5v8"/><path d="M7.5 12l2-6h5l2 6"/></svg><i>02</i></span>
+
+        </div>
+
+        <h3>BTP &amp; terrassement<em>Préparation · nivellement · aménagement</em></h3>
+
+        <p>Nous préparons les terrains et plateformes pour vos ouvrages : lecture des contraintes du site, organisation des déblais et remblais, puis mise à niveau selon le besoin exprimé.</p>
+        <ul class="service-features"><li>Décapage et préparation du terrain</li><li>Déblais, remblais et nivellement</li><li>Plateformes, voies et aménagements</li></ul>
+
+        <div class="svc-f">
+
+          <span>Selon terrain et calendrier</span>
+
+          <a href="#devis" class="svc-a">Demander un devis
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+
+          </a>
+
+        </div>
+
+        </div>
+
+      </article>
+
+      <article class="service-row rv" data-i="03">
+
+        <img class="service-row__image" src="img/hero-3.jpg" alt="Matériaux de carrière disponibles pour les travaux" loading="lazy" decoding="async">
+
+        <div class="service-row__body">
+
+        <div class="svc-t">
+
+          <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-7 4 4 3-4 4 7z"/><path d="M4 21h16"/><path d="M9 11l2.5-3.5 3 2.5"/></svg></span>
+
+          <span class="svc-n"><svg viewBox="0 0 24 24"><path d="M4 18l5-7 4 4 3-4 4 7z"/><path d="M4 21h16"/><path d="M9 11l2.5-3.5 3 2.5"/></svg><i>03</i></span>
+
+        </div>
+
+        <h3>Sable &amp; agrégats<em>Sélection · chargement · livraison</em></h3>
+
+        <p>Nous vous aidons à choisir le matériau correspondant à son usage et à organiser l’approvisionnement au rythme du chantier, depuis le chargement jusqu’au point de livraison convenu.</p>
+        <ul class="service-features"><li>Sables de rivière, de carrière et de remblai</li><li>Granulats et petites roches, selon disponibilité</li><li>Calibres : 0/4, 0/20, 10/20 et 20/40</li></ul>
+
+        <div class="svc-f">
+
+          <span>Calibres à confirmer selon disponibilité</span>
+
+          <a href="#materiaux" class="svc-a">Voir les matériaux
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+
+          </a>
+
+        </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <div class="service-process">
+      <div><span>01</span><b>Vous décrivez le besoin</b><p>Type de travaux, localisation, volumes et délai souhaité.</p></div>
+      <div><span>02</span><b>Nous préparons l’intervention</b><p>Les accès, les moyens et le calendrier sont clarifiés avec vous.</p></div>
+      <div><span>03</span><b>Nous coordonnons le chantier</b><p>Un échange direct permet de suivre l’avancement et les livraisons.</p></div>
+    </div>
+
+    <div class="service-proof content-cta">
+      <div><b>Préparons votre chantier</b><strong>Parlons du terrain, des volumes et du calendrier.</strong><p>Transmettez-nous les premières informations pour cadrer la demande.</p></div>
+      <a class="b b-b" href="#devis">Nous contacter <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+  </div>
+
+</section>
+</div>
+
+<!-- ============ NOTRE EXPERTISE ============ -->
+
+<div class="page-advantages">
+
+<section class="sec" id="dispositif" data-ghost="03">
+
+  <div class="w">
+
+    <div class="sh rv">
+      <div>
+        <span class="lb"><span class="ix">03</span> Notre m&eacute;thode</span>
+        <h2>De l'analyse au suivi, une démarche claire.</h2>
+      </div>
+      <p>Chaque intervention suit le même d&eacute;roul&eacute; : comprendre le besoin, pr&eacute;parer les moyens, mobiliser les &eacute;quipes, r&eacute;aliser le chantier et en suivre l'avancement.</p>
+    </div>
+
+    <ol class="approach-flow">
+      <li class="approach-step rv"><span class="approach-step__number">01</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M8 10.8h5.6M10.8 8v5.6"/></svg></span><b>Analyser</b><p>Comprendre le besoin et les contraintes du chantier.</p></li>
+      <li class="approach-step rv"><span class="approach-step__number">02</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></span><b>Préparer</b><p>Définir les moyens et organiser le calendrier.</p></li>
+      <li class="approach-step rv"><span class="approach-step__number">03</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20v-1.5A5.5 5.5 0 0 1 8 13h1a5.5 5.5 0 0 1 5.5 5.5V20M15 14h1a4 4 0 0 1 4 4v2"/></svg></span><b>Mobiliser</b><p>Organiser l’équipe et les engins nécessaires.</p></li>
+      <li class="approach-step rv"><span class="approach-step__number">04</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m4 16 5-6 4 3 6-8"/><path d="M14 5h5v5"/></svg></span><b>Réaliser</b><p>Coordonner l’intervention sur le terrain.</p></li>
+      <li class="approach-step rv"><span class="approach-step__number">05</span><span class="approach-step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg></span><b>Suivre</b><p>Vérifier l’avancement et les livraisons.</p></li>
+    </ol>
+
+  </div>
+
+</section>
+
+<section class="sec" id="methode" data-ghost="04">
+  <div class="w commitment-panel">
+    <div class="sh rv">
+      <div>
+        <span class="lb"><span class="ix">04</span> Nos engagements</span>
+        <h2>Ce qui guide notre travail</h2>
+      </div>
+      <p>Une organisation de terrain qui privilégie la sécurité, la clarté des échanges et une exécution adaptée à votre projet.</p>
+    </div>
+    <div class="commitment-grid">
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4v5c0 5-3 8-8 9-5-1-8-4-8-9V7l8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><h3>Rigueur</h3><p>Des interventions préparées selon les contraintes du chantier.</p></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Réactivité</h3><p>Des échanges directs pour faire avancer vos travaux.</p></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3.5 7v5c0 4.5 3.5 7.5 8.5 9 5-1.5 8.5-4.5 8.5-9V7L12 3Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><h3>Professionnalisme</h3><p>Des équipes et des moyens adaptés à la mission.</p></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M7 7l-4 7h8L7 7Zm10 0-4 7h8l-4-7ZM7 21h10"/></svg></span><h3>Engagement</h3><p>La sécurité et le respect des délais convenus.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="expertise" data-ghost="05">
+  <div class="w">
+    <div class="sh rv">
+      <div>
+        <span class="lb"><span class="ix">05</span> Nos savoir-faire</span>
+        <h2>Des compétences concrètes, mobilisées selon votre chantier.</h2>
+      </div>
+      <p>Nous faisons le lien entre la préparation du site, les moyens à mobiliser et l’approvisionnement en matériaux pour garder une intervention lisible et coordonnée.</p>
+    </div>
+    <div class="commitment-grid">
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M7 18V5h10v13M10 9h4M10 12h4M10 15h4"/></svg></span><h3>Lecture du terrain</h3><p>Nous prenons en compte la nature du site, ses accès, les zones de travail et les contraintes de circulation avant de proposer les moyens à engager.</p><ul><li>Repérage des accès et des zones d’intervention</li><li>Prise en compte des volumes à déplacer</li><li>Préparation du déroulement des travaux</li></ul></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c1.5-3 3.5-4.5 6-4.5 3 0 5 2 7 5M7 8h.01M17 8h.01M12 6h.01"/></svg></span><h3>Moyens de chantier</h3><p>Selon la mission, nous organisons la mobilisation d’engins et d’équipes pour réaliser les opérations de dragage, de terrassement et de manutention.</p><ul><li>Dragline et pelle hydraulique selon le site</li><li>Organisation des rotations et du chargement</li><li>Coordination des interventions sur le terrain</li></ul></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h7V4h9v9h-7v7H4zM11 17h7"/></svg></span><h3>Approvisionnement &amp; suivi</h3><p>Nous coordonnons la fourniture de matériaux et gardons un échange clair sur le planning, les quantités et l’avancement de la prestation.</p><ul><li>Sable, granulats et petites roches selon disponibilité</li><li>Volumes et point de livraison définis en amont</li><li>Suivi des étapes et ajustements convenus</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="expertise-realisations" data-ghost="06">
+  <div class="w">
+    <section class="expertise-stats" data-statistics aria-labelledby="expertise-stats-title">
+      <div class="w">
+        <h2 class="sr-only" id="expertise-stats-title">Cannan-Minning en chiffres</h2>
+        <div class="expertise-stats__grid">
+          <article class="expertise-stat" aria-label="10 ans et plus d’expérience">
+            <p class="expertise-stat__value" aria-hidden="true"><span data-stat-count="10">0</span><span class="expertise-stat__plus">+</span></p>
+            <p class="expertise-stat__label">Années d’expérience</p>
+          </article>
+          <article class="expertise-stat" aria-label="250 chantiers et plus réalisés">
+            <p class="expertise-stat__value" aria-hidden="true"><span data-stat-count="250">0</span><span class="expertise-stat__plus">+</span></p>
+            <p class="expertise-stat__label">Chantiers réalisés</p>
+          </article>
+          <article class="expertise-stat" aria-label="150 clients et plus satisfaits">
+            <p class="expertise-stat__value" aria-hidden="true"><span data-stat-count="150">0</span><span class="expertise-stat__plus">+</span></p>
+            <p class="expertise-stat__label">Clients satisfaits</p>
+          </article>
+          <article class="expertise-stat" aria-label="50 000 tonnes et plus de matériaux livrés">
+            <p class="expertise-stat__value" aria-hidden="true"><span data-stat-count="50000">0</span><span class="expertise-stat__plus">+</span></p>
+            <p class="expertise-stat__label">Tonnes de matériaux livrés</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <div class="sh rv">
+      <div>
+        <span class="lb"><span class="ix">06</span> Nos réalisations</span>
+        <h2>Des interventions concrètes, adaptées à chaque terrain.</h2>
+      </div>
+      <p>Voici quelques exemples de travaux réalisés dans des contextes variés : dragage, terrassement, aménagement de plate-forme et fourniture d’agrégats.</p>
+    </div>
+
+    <div class="project-filters" role="group" aria-label="Filtrer les réalisations">
+      <button type="button" class="project-filter is-active" data-filter="all" aria-pressed="true">Tout</button>
+      <button type="button" class="project-filter" data-filter="dragage" aria-pressed="false">Dragage</button>
+      <button type="button" class="project-filter" data-filter="btp" aria-pressed="false">BTP</button>
+      <button type="button" class="project-filter" data-filter="terrassement" aria-pressed="false">Terrassement</button>
+      <button type="button" class="project-filter" data-filter="agregats" aria-pressed="false">Agrégats</button>
+    </div>
+
+    <div class="gal expertise-showcase">
+      <a href="#devis" class="g rv" data-category="dragage">
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/gal-1.jpg" alt="Carrière de sable et matériel d'extraction"></span>
+        <span class="g-b">
+          <span class="g-tag">Dragage</span>
+          <h3>Dragage et curage</h3>
+          <p>Extraction et déplacement des matériaux, organisés en fonction des accès et des volumes à traiter.</p>
+          <span class="g-l">Voir le détail
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a href="#devis" class="g rv" data-category="terrassement">
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/gal-2.jpg" alt="Pelle jaune hydraulique sur terrain de sable"></span>
+        <span class="g-b">
+          <span class="g-tag">Terrassement</span>
+          <h3>Préparation de plateforme</h3>
+          <p>Décapage, déblais et nivellement pour mettre le terrain en état avant les travaux.</p>
+          <span class="g-l">Voir le détail
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a href="#devis" class="g rv" data-category="btp">
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/gal-3.jpg" alt="Vue aérienne de carrière de sable et gravier"></span>
+        <span class="g-b">
+          <span class="g-tag">BTP</span>
+          <h3>Terrassement et accès</h3>
+          <p>Préparation des emprises et organisation du terrain selon les besoins du chantier.</p>
+          <span class="g-l">Voir le détail
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+
+      <a href="#devis" class="g rv" data-category="agregats">
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/services-excavation-poster.jpg" alt="Pelle mécanique chargeant des matériaux sur un chantier"></span>
+        <span class="g-b">
+          <span class="g-tag">Agrégats</span>
+          <h3>Fourniture d’agrégats</h3>
+          <p>Livraison régulière et contrôlée pour des projets BTP et de terrassement.</p>
+          <span class="g-l">Parler de mon chantier
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+    </div>
+
+    <div class="projects-action content-cta">
+      <div><b>Un projet similaire&nbsp;?</b><span>Nous pouvons vous proposer une organisation adaptée au terrain, au calendrier et au budget.</span></div>
+      <a class="b b-ow" href="#devis">Parler de mon chantier <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============ MATÉRIAUX ============ -->
+
+<div class="page-materials">
+<section class="sec sky" id="materiaux" data-ghost="07">
+
+  <div class="w">
+
+    <div class="sh rv">
+      <div>
+        <span class="lb"><span class="ix">07</span> Nos mat&eacute;riaux</span>
+        <h2>Sable, granulats et approvisionnement.</h2>
+      </div>
+      <p>Le bon matériau, au bon calibre, au bon endroit : des granulométries adaptées à vos ouvrages, avec des volumes et une livraison étudiés selon le site.</p>
+    </div>
+
+    <div class="material-cards">
+      <article class="material-card rv">
+        <img src="img/hero-3.jpg" alt="Sable disponible pour les travaux de construction" loading="lazy" decoding="async">
+        <div class="material-card__body">
+          <span class="material-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 19h18"/><path d="M5 19c1.5-4 3.5-5.5 7-5.5s5.5 1.5 7 5.5"/><circle cx="12" cy="5.5" r="1.6"/><circle cx="7.5" cy="8" r="1.1"/><circle cx="16.5" cy="8" r="1.1"/></svg></span>
+          <span class="material-card__index">01</span>
+          <h3>Sable</h3>
+          <ul class="material-card__features"><li>Construction</li><li>Aménagement</li><li>Remblai public</li></ul>
+          <a class="svc-a" href="#devis">En savoir plus <svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+
+      <article class="material-card rv">
+        <img src="img/gal-1.jpg" alt="Agrégats et granulats disponibles pour les chantiers" loading="lazy" decoding="async">
+        <div class="material-card__body">
+          <span class="material-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 18l4.5-6 3.5 6z"/><path d="M9.5 18l4.5-6.5 5.5 6.5z"/><path d="M4 21h16"/></svg></span>
+          <span class="material-card__index">02</span>
+          <h3>Agrégats</h3>
+          <ul class="material-card__features"><li>Granulats</li><li>Graviers</li><li>Matériaux calibrés</li></ul>
+          <a class="svc-a" href="#devis">En savoir plus <svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+
+      <article class="material-card rv">
+        <img src="img/services-excavation-poster.jpg" alt="Engin préparant des matériaux pour un chantier" loading="lazy" decoding="async">
+        <div class="material-card__body">
+          <span class="material-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h10v10H3z"/><path d="M13 8h4l3 4v4h-7z"/><circle cx="7" cy="18.5" r="2"/><circle cx="17" cy="18.5" r="2"/></svg></span>
+          <span class="material-card__index">03</span>
+          <h3>Approvisionnement</h3>
+          <ul class="material-card__features"><li>Offres maîtrisées</li><li>Livraison sur site</li><li>Suivi des volumes</li></ul>
+          <a class="svc-a" href="#devis">Demander un devis <svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="materials-action content-cta">
+      <div>
+        <span class="materials-action__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16h13V7H3zM16 10h3l2 3v3h-5z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
+        <div><b>Besoin d’un volume important&nbsp;?</b><span>Nous trouvons la meilleure solution d’approvisionnement pour votre chantier.</span></div>
+      </div>
+      <a class="b b-ow" href="#devis">Échanger sur mon chantier <span aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+
+</section>
+</div>
+
+<!-- ============ À PROPOS ============ -->
+
+<div class="page-about">
+<section class="sec" id="apropos" data-ghost="08">
+
+  <div class="w">
+
+    <div class="about-intro rv">
+      <span class="lb"><span class="ix">08</span> &Agrave; propos</span>
+      <h2>Un partenaire opérationnel pour vos travaux et vos matériaux.</h2>
+      <p>Cannan-Minning accompagne les chantiers de dragage, de terrassement et de fourniture d’agrégats. Notre rôle est de comprendre les contraintes du terrain, de préciser les moyens nécessaires et de coordonner les étapes avec vous, de la préparation à la livraison convenue.</p>
+    </div>
+
+    <div class="about-pillars">
+      <article class="about-pillar rv">
+        <span class="about-pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M8 20v-6h8v6"/><path d="M9 9h.01M15 9h.01"/></svg>
+        </span>
+        <span class="about-pillar__eyebrow">Ce que nous faisons</span>
+        <h3>Des métiers complémentaires</h3>
+        <p>Dragage, curage, extraction, préparation de plateformes, nivellement et approvisionnement en sable ou agrégats : les prestations s’organisent selon le besoin réel du chantier.</p>
+      </article>
+      <article class="about-pillar rv">
+        <span class="about-pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.4 8.2 8 10 4.6-1.8 8-5 8-10V6l-8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
+        </span>
+        <span class="about-pillar__eyebrow">Notre méthode</span>
+        <h3>Une intervention préparée</h3>
+        <p>Nous échangeons sur la localisation, les accès, les volumes, les matériaux et le calendrier afin de cadrer les travaux et les moyens à mobiliser avant le démarrage.</p>
+      </article>
+      <article class="about-pillar rv">
+        <span class="about-pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.2 7-10V5l-7-2-7 2v6c0 5.8 7 10 7 10Z"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+        <span class="about-pillar__eyebrow">Notre engagement</span>
+        <h3>Un échange direct</h3>
+        <p>Un interlocuteur suit votre demande, clarifie les étapes et vous tient informé des points importants liés à l’intervention et aux livraisons convenues.</p>
+      </article>
+    </div>
+
+    <div class="company-history rv">
+
+      <div class="company-history__head rv">
+        <span class="k">Notre histoire</span>
+        <h2>Une entreprise née en 2021, tournée vers des infrastructures durables.</h2>
+        <p>Créée en 2021, elle s’est donnée pour mission de concevoir, construire et rénover des infrastructures durables et modernes, en respectant les normes de qualité, de sécurité et d’environnement.</p>
+      </div>
+
+      <div class="history-grid">
+
+        <section class="history-block rv">
+          <h3>Objectifs</h3>
+          <ul class="history-list">
+            <li>Réaliser des projets BTP de haute qualité dans les délais impartis</li>
+            <li>Offrir des services innovants et adaptés aux besoins des clients</li>
+            <li>Promouvoir l’emploi local à travers le développement des compétences</li>
+            <li>Participer activement à la modernisation des infrastructures du pays</li>
+          </ul>
+        </section>
+
+        <section class="history-block rv">
+          <h3>Domaines d’intervention</h3>
+          <ul class="history-list">
+            <li>Construction de bâtiments (publics, privés, résidentiels, commerciaux)</li>
+            <li>Travaux de voirie et réseaux divers (VRD)</li>
+            <li>Génie civil et ouvrages d’art</li>
+            <li>Réhabilitation et rénovation</li>
+            <li>Aménagement urbain</li>
+            <li>Conseil, études techniques et maîtrise d’ouvrage</li>
+          </ul>
+        </section>
+
+        <section class="history-block rv">
+          <h3>Moyens humains &amp; techniques</h3>
+          <ul class="history-list">
+            <li>Une équipe d’ingénieurs, techniciens, architectes et ouvriers qualifiés</li>
+            <li>Un parc de matériels et d’engins modernes adaptés à tous types de chantiers</li>
+          </ul>
+        </section>
+
+        <section class="history-block history-block--wide rv">
+          <h3>Références &amp; réalisations</h3>
+          <ul class="history-list history-list--marks">
+            <li>Réalisation du complexe hôtelier Les Rives de Toho</li>
+            <li>Minage sur l’axe de passage du pipeline Bénin–Niger, avec Benin Construction Groupe</li>
+            <li>Fourniture de concassés avec le Groupement Séquence – Chantier Moderne Marocain</li>
+            <li>Construction de trois unités modernes de transformation du soja à Zogbodomey, Djidja et Dassa-Zoumè (financement Agence Française de Développement, PADÉFIP-SENS Bénin)</li>
+            <li>Travaux de sous-traitance d’aménagement et de bitumage de la route Djougou–Péhunco–Kérou–Banikoara, section Djougou–Péhunco PK183+980 «&nbsp;Lot 1&nbsp;», avec Synohydro Corporation Limited</li>
+            <li>Acquisition, construction et mise en service des pistes d’atterrissage en latérite sur les sites PS07 et PS08 du projet pipeline d’exportation de pétrole brut Niger–Bénin, avec West African Oil Pipeline (Benin) Company S.A (WAPCO) et Shandong Hi-Speed International Benin Branch (contrat du 17 novembre 2025)</li>
+          </ul>
+        </section>
+
+      </div>
+
+      <div class="history-foot rv">
+        <span class="history-chip">Exploitation minière · BTP · Location d’engins</span>
+        <div class="history-id">
+          <span><b>RCCM</b> RB/COT/21 B 31278</span>
+          <span><b>IFU</b> 3202113707694</span>
+          <span><b>Adresse</b> Vèdokôkô Ilot/1465</span>
+          <span><b>Tél</b> (00229) 01 97 98 86 88</span>
+          <span><b>Mail</b> cricriguidibi@gmail.com</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="about-detail rv">
+      <div class="about-detail__title">
+        <span class="lb"><span class="ix">09</span> Notre façon de travailler</span>
+        <h2>De la demande au chantier, chaque étape est clarifiée.</h2>
+      </div>
+      <ol class="about-steps">
+        <li class="rv"><span><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/><path d="M8 11h6M11 8v6"/></svg><i>01</i></span><div><b>Comprendre le besoin</b><p>Nature des travaux, localisation, accès, volumes et délais souhaités.</p></div></li>
+        <li class="rv"><span><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="11" height="5"/><path d="M13.5 12h5l1.5 3v6h-6.5z"/><circle cx="8" cy="18" r="1.8"/><circle cx="16" cy="18" r="1.8"/></svg><i>02</i></span><div><b>Définir les moyens</b><p>Prestation, engins, matériaux et organisation sont précisés ensemble.</p></div></li>
+        <li class="rv"><span><svg viewBox="0 0 24 24"><path d="M3 17l4-5 3 3 4-6 7 9"/><path d="M15 11h4.5"/><path d="m15 8 3 3-3 3"/></svg><i>03</i></span><div><b>Coordonner l’exécution</b><p>Le suivi porte sur le déroulement convenu et les points à ajuster sur le terrain.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="about-contact-strip content-cta">
+      <div>
+        <span class="about-contact-strip__eyebrow">Un projet de dragage, de terrassement ou d’approvisionnement&nbsp;?</span>
+        <b>Décrivons ensemble votre besoin.</b>
+      </div>
+      <a class="b b-b" href="#devis">Parler de votre projet <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+
+</section>
+</div>
+
+<!-- ============ CONTACT & DEVIS ============ -->
+
+<div class="page-contact">
+<section class="sec sky" id="contact" data-ghost="10">
+
+  <div class="w">
+
+    <div class="contact-intro rv">
+      <span class="lb"><span class="ix">10</span> Contact &amp; devis</span>
+      <h2>Décrivez votre projet, nous vous répondrons avec les prochaines étapes.</h2>
+      <p>Un premier échange permet de préciser le lieu, les accès, les volumes et le calendrier envisagé.</p>
+    </div>
+
+    <div class="cg">
+
+      <aside class="ct-c rv-l">
+
+        <div class="ct-ghost" aria-hidden="true">07</div>
+
+        <div class="ct-in">
+
+          <div class="ct-top"><i></i> Équipe à votre écoute</div>
+
+          <div class="ct-lb">Appelez-nous directement</div>
+          <a class="ct-tel" href="tel:+2290197988688"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>+229 01 97 98 86 88</a>
+          <p class="ct-sub">Pour parler de vos travaux, de vos volumes ou d’une livraison de matériaux.</p>
+
+          <a class="ct-mail" href="mailto:cricriguidibi@gmail.com">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2.5 6.5l9.5 7 9.5-7"/></svg>
+
+            cricriguidibi@gmail.com
+
+          </a>
+
+          <div class="ct-grid">
+
+            <div class="ct-i">
+
+              <span>Domaines d’intervention</span>
+              <b>Dragage, BTP &amp; agrégats</b>
+              <small>Précisez le lieu et le type de chantier dans votre demande.</small>
+
+            </div>
+
+            <div class="ct-i">
+
+              <span>Horaires</span>
+
+              <b>Lundi au samedi</b>
+
+              <small>07h00 – 18h00 · heure locale</small>
+
+            </div>
+
+          </div>
+
+          <div class="contact-zone">
+            <span class="contact-zone__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span><b>Où se trouve votre chantier&nbsp;?</b><small>Indiquez la commune ou la zone du projet pour nous aider à évaluer l’intervention.</small></span>
+          </div>
+
+          <div class="ct-foot">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+
+            Précisons ensemble les accès, les volumes et les délais.
+
+          </div>
+
+        </div>
+
+      </aside>
+
+      <form id="devis" class="ct-f rv-r" novalidate>
+
+        <div class="ct-fh">
+
+          <h3>Préparer votre demande de devis</h3>
+
+          <span>Les champs marqués * sont obligatoires</span>
+
+        </div>
+
+        <div class="fok" id="ok" role="status">Votre messagerie va s’ouvrir avec votre demande préremplie. Vérifiez le message puis envoyez-le pour nous le transmettre.</div>
+
+        <div class="fr">
+
+          <div class="fd"><label for="n">Nom et prénom <b>*</b></label><input id="n" name="name" type="text" placeholder="Votre nom" autocomplete="name" required></div>
+
+          <div class="fd"><label for="t">Téléphone <b>*</b></label><input id="t" name="telephone" type="tel" placeholder="+229 01 97 98 86 88" autocomplete="tel" required></div>
+
+        </div>
+
+        <div class="fr">
+
+          <div class="fd"><label for="e">E-mail <b>*</b></label><input id="e" name="email" type="email" placeholder="vous@exemple.com" autocomplete="email" required></div>
+          <div class="fd"><label for="l">Lieu du chantier <b>*</b></label><input id="l" name="location" type="text" placeholder="Commune, zone ou région" required></div>
+
+        </div>
+
+        <div class="fr">
+
+          <div class="fd"><label for="s">Prestation</label>
+
+            <select id="s" name="service"><option value="">Sélectionnez une prestation</option><option>Dragage et curage</option><option>BTP et terrassement</option><option>Fourniture de sable et agrégats</option><option>Plusieurs prestations</option></select>
+
+          </div>
+
+          <div class="fd"><label for="v">Volume estimé</label><input id="v" name="volume" type="text" placeholder="Ex. 300 m³"></div>
+
+        </div>
+
+        <div class="fd"><label for="m">Détails du chantier</label><textarea id="m" name="details" placeholder="Travaux prévus, état des accès, contraintes et délai souhaité"></textarea></div>
+
+        <div class="ct-send">
+
+          <button type="submit" class="b b-b">Préparer ma demande
+
+            <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+          </button>
+
+          <p class="fn">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+
+            Votre demande est préparée dans votre messagerie avant envoi.
+
+          </p>
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="contact-bottom-cta content-cta">
+      <div><b>Un projet en vue&nbsp;?</b><span>Nous sommes à votre écoute.</span></div>
+      <a class="b b-b" href="tel:+2290197988688">Obtenir un devis <span aria-hidden="true">→</span></a>
+      <a class="b b-ow" href="#services">Nos prestations <span aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+
+</section>
+</div>
+
 </main>
+
 <footer class="ft" id="site-footer">
   <div class="ft-main">
     <div class="w ft-compact">
       <section class="ft-compact-brand" aria-label="Cannan-Minning">
-        <a href="index.html#top" class="ft-brand__logo">
+        <a href="#top" class="ft-brand__logo">
           <span class="br-m"><img src="img/logo-icon.png" alt="" width="64" height="64" decoding="async"></span>
           <span><strong>CANNAN-MINING</strong><small>DRAGAGE <i>&middot;</i> BTP <i>&middot;</i> AGR&Eacute;GATS</small></span>
         </a>
@@ -504,29 +1431,67 @@ if(navigationEntry&&navigationEntry.type==='reload'){
       <nav class="ft-compact-nav" aria-label="Navigation de pied de page">
         <h3>Explorer</h3>
         <div class="ft-compact-links">
-          <a href="index.html">Accueil</a>
-          <a href="services.html">Nos m&eacute;tiers</a>
-          <a href="dispositif.html#dispositif">Notre expertise</a>
-          <a href="materials.html">Mat&eacute;riaux</a>
-          <a href="about.html">&Agrave; propos</a>
+          <a href="#top">Accueil</a>
+          <a href="#services">Nos m&eacute;tiers</a>
+          <a href="#dispositif">Notre expertise</a>
+          <a href="#materiaux">Mat&eacute;riaux</a>
+          <a href="#apropos">&Agrave; propos</a>
         </div>
       </nav>
       <section class="ft-compact-contact">
         <h3>Parlons de votre projet</h3>
         <a href="tel:+2290197988688">+229 01 97 98 86 88</a>
         <a href="mailto:cricriguidibi@gmail.com">cricriguidibi@gmail.com</a>
-        <a class="ft-compact-cta" href="contact.html#devis">Demander un devis <span aria-hidden="true">&rarr;</span></a>
+        <a class="ft-compact-cta" href="#devis">Demander un devis <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </section>
     </div>
   </div>
   <div class="ft-bottom"><div class="w ft-bottom__inner">
     <span>&copy; <span id="yr"></span> CANNAN-MINING. Tous droits r&eacute;serv&eacute;s.</span>
-    <a class="ft-top" href="#top"><span aria-hidden="true">&uarr;</span> Retour en haut</a>
+    <a class="ft-top" href="#top"><span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span> Retour en haut</a>
   </div></div>
 </footer>
-<a href="contact.html#devis" class="fab" id="fab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-5.1A8.4 8.4 0 0112 3.1a8.4 8.4 0 019 8.4z"/></svg><span>Devis gratuit</span></a>
+<nav class="sdots" id="sdots" aria-label="Progression dans la page">
+  <a href="#top" data-label="Accueil"><i></i></a>
+  <a href="#services" data-label="Nos m&eacute;tiers"><i></i></a>
+  <a href="#dispositif" data-label="Expertise"><i></i></a>
+  <a href="#materiaux" data-label="Mat&eacute;riaux"><i></i></a>
+  <a href="#apropos" data-label="&Agrave; propos"><i></i></a>
+  <a href="#contact" data-label="Contact"><i></i></a>
+</nav>
+<a href="#devis" class="fab" id="fab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-5.1A8.4 8.4 0 0112 3.1a8.4 8.4 0 019 8.4z"/></svg><span>Devis gratuit</span></a>
 <a class="wa" href="https://wa.me/2290197988688?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20vos%20services." target="_blank" rel="noopener noreferrer" aria-label="Discuter directement avec Cannan-Minning sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-.9-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-<script src="site.js?v=20261006-07"></script>
+<script src="site.js?v=20261007-1"></script>
+
+<!-- One-page : état actif de la navigation synchronisé avec la section affichée -->
+<script>
+(()=>{
+  const links=[...document.querySelectorAll('.hd nav a[href^="#"],.mn a[href^="#"]:not(.b)')];
+  const dots=[...document.querySelectorAll('.sdots a')];
+  const rail=document.getElementById('sdots');
+  if(!links.length&&!dots.length)return;
+  const sections=['top','services','dispositif','materiaux','apropos','contact']
+    .map(id=>document.getElementById(id)).filter(Boolean);
+  const apply=id=>{
+    links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));
+    dots.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));
+  };
+  let queued=false;
+  const update=()=>{
+    queued=false;
+    const line=(parseInt(getComputedStyle(document.documentElement).scrollPaddingTop,10)||140)+8;
+    let current=sections[0]?sections[0].id:'top';
+    for(const s of sections){if(s.getBoundingClientRect().top-line<=0)current=s.id;}
+    apply(current);
+    if(rail)rail.classList.toggle('show',scrollY>420);
+  };
+  const request=()=>{if(!queued){queued=true;requestAnimationFrame(update)}};
+  addEventListener('scroll',request,{passive:true});
+  addEventListener('resize',request);
+  update();
+})();
+</script>
+
 <dialog class="vid-dlg" id="vidDlg" aria-label="Vidéo de présentation">
   <button type="button" class="vid-dlg__x" id="vidX" aria-label="Fermer la vidéo">&times;</button>
   <video id="vidPlayer" controls playsinline preload="none" poster="img/hero-truck-poster.jpg"></video>
@@ -536,6 +1501,102 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 if(!b||!d||!d.showModal)return;
 b.onclick=()=>{if(!v.src)v.src='img/hero-truck-1080p.mp4';d.showModal();v.play().catch(()=>{})};
 const c=()=>{v.pause();d.close()};x.onclick=c;d.addEventListener('click',e=>{if(e.target===d)c()});d.addEventListener('close',()=>v.pause());})();
+</script>
+
+<!-- Effets dynamiques : progression, reflet souris, parallaxe -->
+<script>
+(()=>{
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+
+  /* Barre de progression de lecture */
+  const sb=document.createElement('div');
+  sb.id='scrollbar';
+  document.body.prepend(sb);
+  const progress=()=>{
+    const d=document.documentElement;
+    const max=d.scrollHeight-innerHeight;
+    sb.style.width=(max>0?((d.scrollTop||document.body.scrollTop)/max)*100:0)+'%';
+  };
+  addEventListener('scroll',progress,{passive:true});
+  progress();
+
+  /* Reflet qui suit la souris sur les fiches métiers */
+  document.querySelectorAll('.service-row').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=((e.clientX-r.left)/r.width)*100;
+      const y=((e.clientY-r.top)/r.height)*100;
+      card.style.setProperty('--gx',x+'%');
+      card.style.setProperty('--gy',y+'%');
+    });
+  });
+
+  /* Parallaxe légère des numéros fantômes */
+  const ghosts=Array.from(document.querySelectorAll('.sec[data-ghost]'));
+  if(ghosts.length){
+    let ticking=false;
+    const ghosty=()=>{
+      if(ticking)return;
+      ticking=true;
+      requestAnimationFrame(()=>{
+        ticking=false;
+        const h=innerHeight;
+        ghosts.forEach(el=>{
+          const r=el.getBoundingClientRect();
+          if(r.bottom<0||r.top>h)return;
+          const p=Math.min(Math.max((h*0.6-r.top)/h,0),1);
+          el.style.setProperty('--gp',(p*70-20)+'px');
+        });
+      });
+    };
+    addEventListener('scroll',ghosty,{passive:true});
+    ghosty();
+  }
+
+  /* Allumage en cascade des 5 étapes de la méthode */
+  const steps=Array.from(document.querySelectorAll('.page-advantages .approach-step'));
+  if(steps.length){
+    let cur=-1;
+    const run=()=>{
+      if(cur>=0)steps[cur].classList.remove('lit');
+      cur=(cur+1)%steps.length;
+      steps[cur].classList.add('lit');
+    };
+    run();
+    setInterval(run,900);
+  }
+
+  /* Inclinaison 3D + reflet sur les piliers « À propos » */
+  const tilts=Array.from(document.querySelectorAll('.page-about .about-pillar'));
+  tilts.forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const px=Math.min(Math.max((e.clientX-r.left)/r.width,0),1);
+      const py=Math.min(Math.max((e.clientY-r.top)/r.height,0),1);
+      card.style.transition='transform .06s linear';
+      card.style.transform='perspective(760px) rotateX('+((py-.5)*-8).toFixed(2)+'deg) rotateY('+((px-.5)*10).toFixed(2)+'deg) translateY(-3px)';
+      card.style.setProperty('--gx',(px*100).toFixed(1)+'%');
+      card.style.setProperty('--gy',(py*100).toFixed(1)+'%');
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transition='transform .5s cubic-bezier(.2,.75,.25,1.15)';
+      card.style.transform='';
+    });
+  });
+
+  /* Allumage séquentiel des étapes « façon de travailler » */
+  const wli=Array.from(document.querySelectorAll('.page-about .about-steps li'));
+  if(wli.length){
+    let wi=-1;
+    const lit=()=>{
+      if(wi>=0)wli[wi].classList.remove('on');
+      wi=(wi+1)%wli.length;
+      wli[wi].classList.add('on');
+    };
+    lit();
+    setInterval(lit,1200);
+  }
+})();
 </script>
 </body>
 </html>
