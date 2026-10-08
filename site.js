@@ -54,7 +54,57 @@ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(syncVars);
 
 const bk=document.getElementById('bk'),mn=document.getElementById('mn');
 
-if(bk&&mn){bk.onclick=()=>{bk.classList.toggle('x');mn.classList.toggle('on')};mn.querySelectorAll('a').forEach(a=>a.onclick=()=>{bk.classList.remove('x');mn.classList.remove('on')});}
+/* Menu mobile : carte déroulante blanche sous l'en-tête. */
+if(bk&&mn){
+  const hd=document.getElementById('hd')||document.querySelector('.hd');
+  const inner=mn.querySelector('.w')||mn;
+  const ico=d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+  const icons=[
+    [/top|index/,'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>'],
+    [/service/,'<path d="M2 17h20"/><path d="M5 17V9h6v8"/><path d="M13 17l3-9 5 2-4 7"/>'],
+    [/dispositif|expertise|advantage/,'<circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 8 5-3 5 3-1.5-8"/>'],
+    [/materi/,'<path d="M4 18l5-7 4 4 3-4 4 7z"/><path d="M4 21h16"/>'],
+    [/apropos|about/,'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/>'],
+    [/contact/,'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>']
+  ];
+  mn.classList.add('mp');
+  mn.setAttribute('aria-label','Menu principal');
+  inner.classList.add('mp-card');
+  inner.querySelectorAll('a:not(.b)').forEach((a,i)=>{
+    const h=a.getAttribute('href')||'';
+    const hit=icons.find(([re])=>re.test(h));
+    a.classList.add('mp-l');
+    a.innerHTML=`<span class="mp-i">${ico(hit?hit[1]:'<circle cx="12" cy="12" r="3"/>')}</span><span class="mp-t">${a.innerHTML}</span>${ico('<path d="M9 6l6 6-6 6"/>')}`;
+    a.style.setProperty('--d',(i*35+60)+'ms');
+  });
+  const cta=inner.querySelector('a.b');
+  if(cta){cta.classList.add('mp-cta');cta.insertAdjacentHTML('beforeend',ico('<path d="M5 12h14M13 6l6 6-6 6"/>'));}
+  inner.insertAdjacentHTML('beforeend',`<div class="mp-ft"><a href="tel:+2290197988688">${ico('<path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/>')}+229 01 97 98 86 88</a><span>${ico('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')}Lun – Sam · 7h – 18h</span></div>`);
+  mn.insertAdjacentHTML('afterbegin','<div class="mp-bd" data-close></div>');
+  document.body.appendChild(mn);
+  bk.setAttribute('aria-controls','mn');
+  bk.setAttribute('aria-expanded','false');
+  bk.setAttribute('aria-label','Ouvrir le menu');
+  let forcedSt=false;
+  const place=()=>{if(hd)mn.style.setProperty('--mp-top',Math.max(0,hd.getBoundingClientRect().bottom)+'px')};
+  const setOpen=open=>{
+    if(open&&hd&&!hd.classList.contains('st')){hd.classList.add('st');forcedSt=true}
+    if(open)place();
+    mn.classList.toggle('on',open);
+    bk.classList.toggle('x',open);
+    if(hd)hd.classList.toggle('mp-open',open);
+    bk.setAttribute('aria-expanded',String(open));
+    bk.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');
+    document.documentElement.classList.toggle('mp-lock',open);
+    if(!open&&forcedSt){hd.classList.remove('st');forcedSt=false;dispatchEvent(new Event('scroll'))}
+  };
+  bk.onclick=()=>setOpen(!mn.classList.contains('on'));
+  mn.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>setOpen(false)));
+  mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mn.classList.contains('on')){setOpen(false);bk.focus()}});
+  addEventListener('resize',()=>{if(mn.classList.contains('on'))place()});
+  matchMedia('(min-width:1200px)').addEventListener('change',e=>{if(e.matches&&mn.classList.contains('on'))setOpen(false)});
+}
 
 
 
@@ -635,16 +685,18 @@ go(0);play();
 }
 
 
-/* Video du hero : image de couverture seule si l'utilisateur limite les animations
-   ou les donnees ; sinon on relance la lecture si l'autoplay a ete retarde. */
+/* Video du hero : lecture garantie (muette, en boucle). Seul le mode
+   "economie de donnees" la remplace par l'image de couverture. */
 (()=>{
   const v=document.querySelector('.hero-video');
   if(!v)return;
   const c=navigator.connection||{};
-  const still=matchMedia('(prefers-reduced-motion: reduce)').matches||c.saveData||/(^|-)2g$/.test(c.effectiveType||'');
-  if(still){v.removeAttribute('autoplay');v.pause();v.preload='none';return;}
-  const go=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>{})};
+  if(c.saveData){v.removeAttribute('autoplay');v.pause();v.preload='none';return;}
+  v.muted=true;
+  const go=()=>{if(!v.paused)return;const p=v.play();if(p&&p.catch)p.catch(()=>{})};
   go();
-  v.addEventListener('canplay',go,{once:true});
+  ['loadeddata','canplay'].forEach(ev=>v.addEventListener(ev,go));
   document.addEventListener('visibilitychange',()=>{document.hidden?v.pause():go()});
+  addEventListener('pageshow',go);
+  ['pointerdown','touchstart','scroll','keydown'].forEach(ev=>addEventListener(ev,go,{once:true,passive:true}));
 })();
