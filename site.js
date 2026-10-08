@@ -620,6 +620,12 @@ document.querySelectorAll('a[href="#"]').forEach(a=>{
 
 
 
+/* Images du carrousel : chargées seulement si le héro n'affiche pas la vidéo. */
+document.querySelectorAll('.car-s img[data-src]').forEach(g=>{
+  const h=g.closest('.hero');
+  if(!h||!h.classList.contains('has-video'))g.src=g.dataset.src;
+});
+
 if(document.getElementById('carT')){
 const ct=document.getElementById('carT'),cs=[...ct.children],cd=document.getElementById('carD'),cn=document.getElementById('carN');
 
@@ -693,10 +699,20 @@ go(0);play();
   const c=navigator.connection||{};
   if(c.saveData){v.removeAttribute('autoplay');v.pause();v.preload='none';return;}
   v.muted=true;
-  const go=()=>{if(!v.paused)return;const p=v.play();if(p&&p.catch)p.catch(()=>{})};
-  go();
+  /* La vidéo (lourde) ne démarre qu'une fois la page chargée, pour ne pas
+     ralentir l'affichage des images et des polices. L'image de couverture
+     reste visible en attendant. */
+  let armed=false;
+  const go=()=>{if(!armed||!v.paused)return;const p=v.play();if(p&&p.catch)p.catch(()=>{})};
+  /* Petits écrans : version 720p plus légère. */
+  const src=v.querySelector('source[data-src-sm]');
+  if(src&&matchMedia('(max-width:900px)').matches){src.src=src.dataset.srcSm;v.load()}
+  const arm=()=>{if(armed)return;armed=true;v.preload='auto';go()};
+  if(document.readyState==='complete')setTimeout(arm,300);
+  else addEventListener('load',()=>setTimeout(arm,300),{once:true});
+  setTimeout(arm,4000);
   ['loadeddata','canplay'].forEach(ev=>v.addEventListener(ev,go));
   document.addEventListener('visibilitychange',()=>{document.hidden?v.pause():go()});
   addEventListener('pageshow',go);
-  ['pointerdown','touchstart','scroll','keydown'].forEach(ev=>addEventListener(ev,go,{once:true,passive:true}));
+  ['pointerdown','touchstart','keydown'].forEach(ev=>addEventListener(ev,go,{once:true,passive:true}));
 })();

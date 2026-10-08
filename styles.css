@@ -312,7 +312,7 @@ nav a:hover::after,nav a.on::after{transform:scaleX(1)}
 
 .hero.has-video .car{background:transparent}
 
-.hero.has-video .car-t{visibility:hidden}
+.hero.has-video .car-t{visibility:hidden;display:none}
 
 .car-t{position:absolute;inset:0;display:flex;transition:transform .55s var(--e);will-change:transform}
 
