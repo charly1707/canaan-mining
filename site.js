@@ -563,8 +563,8 @@ const checkField=el=>{
 
 /* ===== Formulaire dynamique : questions selon la prestation + lieu de livraison ===== */
 const dq=(()=>{
-  const sel=document.getElementById('s'),loc=document.getElementById('l'),vol=document.getElementById('v');
-  if(!sel||!loc)return null;
+  const sel=document.getElementById('s'),mail=document.getElementById('e'),vol=document.getElementById('v');
+  if(!sel||!mail)return null;
   const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const uid=(()=>{let i=0;return()=>'dq'+(++i)})();
   const chips=(name,label,opts,multi)=>`<fieldset class="dq-g" data-q="${esc(label)}"><legend>${esc(label)}${multi?' <small>(plusieurs choix possibles)</small>':''}</legend><div class="dq-chips">${opts.map(o=>{const id=uid();return `<input type="${multi?'checkbox':'radio'}" id="${id}" name="${name}" value="${esc(o)}"><label for="${id}"><i aria-hidden="true"></i><span>${esc(o)}</span></label>`}).join('')}</div></fieldset>`;
@@ -597,15 +597,8 @@ const dq=(()=>{
   const MAP={'Dragage et curage':['drag'],'BTP et terrassement':['btp'],'Fourniture de sable et agrégats':['sand'],'Dynamitage et minage':['mine']};
 
   /* Lieu de livraison (après le lieu du chantier) */
-  const locRow=loc.closest('.fr')||loc.closest('.fd');
-  locRow.insertAdjacentHTML('afterend',`<div class="fd dq-liv"><label for="liv">Lieu de livraison <b class="dq-req" hidden>*</b></label><span class="dq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.1 7-12a7 7 0 10-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><input id="liv" name="delivery" type="text" placeholder="Commune, quartier, repère précis" autocomplete="street-address"></span><label class="dq-same"><input type="checkbox" id="livSame" role="switch"><span class="dq-sw" aria-hidden="true"></span>Même lieu que le chantier</label></div>`);
-  const liv=document.getElementById('liv'),same=document.getElementById('livSame'),req=form.querySelector('.dq-req');
-  const syncSame=()=>{
-    if(same.checked){liv.value=loc.value.trim();liv.readOnly=true;liv.classList.add('is-same');setErr(liv,'')}
-    else{if(liv.classList.contains('is-same'))liv.value='';liv.readOnly=false;liv.classList.remove('is-same')}
-  };
-  same.addEventListener('change',syncSame);
-  loc.addEventListener('input',()=>{if(same.checked)liv.value=loc.value.trim()});
+  mail.closest('.fd').insertAdjacentHTML('afterend',`<div class="fd dq-liv"><label for="liv">Lieu de livraison <b>*</b></label><span class="dq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.1 7-12a7 7 0 10-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><input id="liv" name="delivery" type="text" placeholder="Commune, quartier, repère précis" autocomplete="street-address" required></span></div>`);
+  const liv=document.getElementById('liv');
 
   /* Zone dynamique (après la ligne prestation / volume) */
   const selRow=sel.closest('.fr')||sel.closest('.fd');
@@ -621,9 +614,6 @@ const dq=(()=>{
     box.classList.toggle('on',!!v);
     const one=keys.length===1?BLOCKS[keys[0]]:null;
     if(volLabel){volLabel.textContent=one?one.vol[0]:volDef;vol.placeholder=one?one.vol[1]:phDef}
-    const needLiv=keys.includes('sand');
-    liv.required=needLiv;req.hidden=!needLiv;
-    if(!needLiv)setErr(liv,'');
   };
   const pgN=box.querySelector('.dq-pg__n'),pgBar=box.querySelector('.dq-pg__bar em');
   const progress=()=>{
@@ -641,7 +631,7 @@ const dq=(()=>{
   progress();
   return{
     delivery(){return liv.value.trim()?[['Lieu de livraison',liv.value.trim()]]:[]},
-    reset(){same.checked=false;liv.readOnly=false;liv.classList.remove('is-same');setTimeout(()=>{update();progress()})},
+    reset(){setTimeout(()=>{update();progress()})},
     lines(){
       const out=[];
       const visible=[...box.querySelectorAll('.dq-multi:not([hidden]),.dq-b:not([hidden]),.dq-body>.dq-g')];
@@ -683,7 +673,7 @@ form.addEventListener('submit',e=>{
   const val=id=>{const el=document.getElementById(id);return el?el.value.trim():''};
 
   const volLbl=(document.querySelector('label[for="v"]')||{}).textContent||'Volume estimé';
-  const L=[['Nom et prénom',val('n')],['Téléphone',val('t')],['Email',val('e')],['Lieu du chantier',val('l')],...(dq?dq.delivery():[]),['Prestation',val('s')],[volLbl.trim(),val('v')],...(dq?dq.lines():[]),['Détails du chantier',val('m')]];
+  const L=[['Nom et prénom',val('n')],['Téléphone',val('t')],['Email',val('e')],...(dq?dq.delivery():[]),['Prestation',val('s')],[volLbl.trim(),val('v')],...(dq?dq.lines():[]),['Détails du chantier',val('m')]];
 
   const corps=L.filter(([,v])=>v).map(([k,v])=>k+' : '+v).join('\n');
 
