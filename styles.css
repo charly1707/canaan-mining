@@ -3521,9 +3521,15 @@ body>.mn.mp.on>.mp-card{opacity:1;transform:none}
 /* ===== 4 cartes (ajout minage) : savoir-faire et matériaux ===== */
 @media (min-width:1101px){
   body .page-advantages #expertise .commitment-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-  body .page-materials .material-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+  body .page-materials .material-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (min-width:721px) and (max-width:1100px){
   body .page-advantages #expertise .commitment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   body .page-materials .material-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* Filtre des réalisations : une carte masquée reste masquée sur mobile */
+.gal .g[hidden]{display:none!important}
+.fx-credit{display:block;margin-top:4px;color:#5f7389;font-size:11px}
+.fx-credit a{color:#8fa6bb;text-decoration:underline;text-underline-offset:2px}
+.fx-credit a:hover{color:#fff}
