@@ -521,6 +521,8 @@ const setErr=(el,msg)=>{
 
   const fd=el.closest('.fd');
 
+  if(!fd)return;
+
   let e=fd.querySelector('.ferr');
 
   if(msg){
@@ -543,6 +545,8 @@ const setErr=(el,msg)=>{
 
 const checkField=el=>{
 
+  if(el.type==='checkbox'||el.type==='radio')return true;
+
   const v=el.value.trim();
 
   if(el.hasAttribute('required')&&!v)return setErr(el,'Champ obligatoire');
@@ -556,6 +560,99 @@ const checkField=el=>{
   return true;
 
 };
+
+/* ===== Formulaire dynamique : questions selon la prestation + lieu de livraison ===== */
+const dq=(()=>{
+  const sel=document.getElementById('s'),loc=document.getElementById('l'),vol=document.getElementById('v');
+  if(!sel||!loc)return null;
+  const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const uid=(()=>{let i=0;return()=>'dq'+(++i)})();
+  const chips=(name,label,opts,multi)=>`<fieldset class="dq-g" data-q="${esc(label)}"><legend>${esc(label)}${multi?' <small>(plusieurs choix possibles)</small>':''}</legend><div class="dq-chips">${opts.map(o=>{const id=uid();return `<input type="${multi?'checkbox':'radio'}" id="${id}" name="${name}" value="${esc(o)}"><label for="${id}"><i aria-hidden="true"></i><span>${esc(o)}</span></label>`}).join('')}</div></fieldset>`;
+  const field=(name,label,ph,type='text')=>{const id=uid();return `<div class="fd dq-f" data-q="${esc(label)}"><label for="${id}">${esc(label)}</label><input id="${id}" name="${name}" type="${type}" placeholder="${esc(ph)}"></div>`};
+  const BLOCKS={
+    drag:{ic:'<path d="M2 17h20"/><path d="M5 17V9h6v8"/><path d="M13 17l3-9 5 2-4 7"/><path d="M2 21c2 0 2-1.5 4-1.5S8 21 10 21s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/>',title:'Dragage et curage',vol:['Volume à extraire','Ex. 500 m³'],html:
+      chips('dg_type','Type d’intervention',['Curage de lit / berges','Extraction de sable','Désensablement','Approfondissement','Autre'],true)+
+      chips('dg_site','Milieu concerné',['Rivière / fleuve','Lagune / lac','Canal / caniveau','Bassin / retenue']) +
+      chips('dg_acces','Accès des engins au site',['Facile (piste praticable)','Limité','Difficile / par l’eau','Je ne sais pas'])+
+      chips('dg_dest','Matériaux extraits à',['Évacuer','Stocker sur place','Récupérer / revendre'])},
+    btp:{ic:'<path d="M3 20h18"/><path d="M5 20v-4h6v4"/><path d="M14 20V12h5v8"/><path d="M7.5 12l2-6h5l2 6"/>',title:'BTP et terrassement',vol:['Volume de terre estimé','Ex. 1 200 m³'],html:
+      chips('bt_type','Travaux à réaliser',['Décapage','Déblai / remblai','Nivellement','Plateforme','Pistes / voirie','Fouilles / tranchées'],true)+
+      chips('bt_sol','Nature du terrain',['Sableux','Argileux','Latéritique','Rocheux','Je ne sais pas'])+
+      `<div class="fr">${field('bt_surf','Surface approximative','Ex. 2 000 m²')}${field('bt_ouv','Ouvrage prévu','Ex. bâtiment, entrepôt, route')}</div>`+
+      chips('bt_engins','Engins souhaités',['Pelle hydraulique','Bulldozer','Niveleuse','Compacteur','Camions benne','À conseiller'],true)},
+    sand:{ic:'<path d="M4 18l5-7 4 4 3-4 4 7z"/><path d="M4 21h16"/>',title:'Fourniture de sable et agrégats',vol:['Quantité souhaitée','Ex. 40 m³ ou 3 camions'],html:
+      chips('sa_mat','Matériaux souhaités',['Sable de rivière','Sable de carrière','Sable de remblai','Gravier / granulats','Latérite','Petites roches'],true)+
+      chips('sa_cal','Calibre',['0/4','0/20','10/20','20/40','À conseiller'],true)+
+      chips('sa_use','Usage prévu',['Béton','Maçonnerie / enduit','Remblai','Voirie / pistes','Autre'])+
+      chips('sa_freq','Livraison',['Livraison unique','Plusieurs livraisons','Approvisionnement régulier'])+
+      `<div class="fr">${field('sa_date','Date de livraison souhaitée','','date')}${field('sa_acces','Accès pour le camion','Ex. rue goudronnée, piste étroite')}</div>`},
+    mine:{ic:'<path d="M12 2v3M4.9 4.9l2.1 2.1M2 12h3M19.1 4.9 17 7M22 12h-3"/><path d="M7 21l2.5-7h5L17 21"/><path d="M9.5 14l2.5-4 2.5 4"/>',title:'Dynamitage et minage',vol:['Volume de roche à abattre','Ex. 300 m³'],html:
+      chips('mi_type','Nature des travaux',['Fouilles / tranchées en rocher','Déroctage d’emprise','Exploitation de carrière','Fondations en terrain rocheux','Autre'],true)+
+      chips('mi_roche','Type de roche',['Granite / gneiss','Calcaire','Latérite indurée','Je ne sais pas'])+
+      chips('mi_env','Environnement du site',['Zone isolée','Habitations à proximité','Routes, réseaux ou ouvrages proches'],true)+
+      chips('mi_auto','Autorisations administratives',['Déjà obtenues','En cours','À nous confier'])+
+      chips('mi_evac','Après le tir',['Évacuation des déblais rocheux','Concassage sur place','Laisser sur site'],true)+
+      `<div class="fr">${field('mi_prof','Profondeur / hauteur à abattre','Ex. 2 m sur 150 m linéaires')}${field('mi_date','Période souhaitée','Ex. avant fin novembre')}</div>`}
+  };
+  const MAP={'Dragage et curage':['drag'],'BTP et terrassement':['btp'],'Fourniture de sable et agrégats':['sand'],'Dynamitage et minage':['mine']};
+
+  /* Lieu de livraison (après le lieu du chantier) */
+  const locRow=loc.closest('.fr')||loc.closest('.fd');
+  locRow.insertAdjacentHTML('afterend',`<div class="fd dq-liv"><label for="liv">Lieu de livraison <b class="dq-req" hidden>*</b></label><span class="dq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.1 7-12a7 7 0 10-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><input id="liv" name="delivery" type="text" placeholder="Commune, quartier, repère précis" autocomplete="street-address"></span><label class="dq-same"><input type="checkbox" id="livSame" role="switch"><span class="dq-sw" aria-hidden="true"></span>Même lieu que le chantier</label></div>`);
+  const liv=document.getElementById('liv'),same=document.getElementById('livSame'),req=form.querySelector('.dq-req');
+  const syncSame=()=>{
+    if(same.checked){liv.value=loc.value.trim();liv.readOnly=true;liv.classList.add('is-same');setErr(liv,'')}
+    else{if(liv.classList.contains('is-same'))liv.value='';liv.readOnly=false;liv.classList.remove('is-same')}
+  };
+  same.addEventListener('change',syncSame);
+  loc.addEventListener('input',()=>{if(same.checked)liv.value=loc.value.trim()});
+
+  /* Zone dynamique (après la ligne prestation / volume) */
+  const selRow=sel.closest('.fr')||sel.closest('.fd');
+  selRow.insertAdjacentHTML('afterend',`<div class="dq" aria-live="polite"><div class="dq-in"><div class="dq-hd"><span class="dq-hd__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h9"/></svg></span><div class="dq-hd__t"><b>Affinez votre demande</b><small>Quelques précisions pour un devis rapide et juste</small></div><div class="dq-pg"><span class="dq-pg__n">0/0</span><span class="dq-pg__bar"><em></em></span></div></div><div class="dq-body"><div class="dq-multi" hidden>${chips('dq_multi','Quelles prestations ?',['Dragage et curage','BTP et terrassement','Fourniture de sable et agrégats','Dynamitage et minage'],true)}</div>${Object.entries(BLOCKS).map(([k,b])=>`<section class="dq-b" data-k="${k}" hidden><h4><span class="dq-b__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${b.ic}</svg></span>${esc(b.title)}</h4>${b.html}</section>`).join('')}${chips('dq_delai','Délai souhaité',['Urgent (sous 1 semaine)','Sous 1 mois','À planifier'])}</div></div></div>`);
+  const box=form.querySelector('.dq'),multi=box.querySelector('.dq-multi');
+  const volLabel=vol?form.querySelector(`label[for="${vol.id}"]`):null,volDef=volLabel?volLabel.textContent:'',phDef=vol?vol.placeholder:'';
+  const update=()=>{
+    const v=sel.value;
+    let keys=MAP[v]||[];
+    multi.hidden=v!=='Plusieurs prestations';
+    if(v==='Plusieurs prestations')keys=[...multi.querySelectorAll('input:checked')].map(i=>MAP[i.value][0]);
+    box.querySelectorAll('.dq-b').forEach(b=>{b.hidden=!keys.includes(b.dataset.k)});
+    box.classList.toggle('on',!!v);
+    const one=keys.length===1?BLOCKS[keys[0]]:null;
+    if(volLabel){volLabel.textContent=one?one.vol[0]:volDef;vol.placeholder=one?one.vol[1]:phDef}
+    const needLiv=keys.includes('sand');
+    liv.required=needLiv;req.hidden=!needLiv;
+    if(!needLiv)setErr(liv,'');
+  };
+  const pgN=box.querySelector('.dq-pg__n'),pgBar=box.querySelector('.dq-pg__bar em');
+  const progress=()=>{
+    const qs=[...box.querySelectorAll('.dq-multi:not([hidden]) [data-q],.dq-b:not([hidden]) [data-q],.dq-body>[data-q]')];
+    const done=qs.filter(q=>[...q.querySelectorAll('input')].some(i=>(i.type==='checkbox'||i.type==='radio')?i.checked:i.value.trim())).length;
+    pgN.textContent=done+'/'+qs.length;
+    pgBar.style.width=(qs.length?done/qs.length*100:0)+'%';
+    box.classList.toggle('is-done',qs.length>0&&done===qs.length);
+  };
+  sel.addEventListener('change',update);
+  multi.addEventListener('change',update);
+  ['change','input'].forEach(ev=>box.addEventListener(ev,()=>setTimeout(progress)));
+  sel.addEventListener('change',()=>setTimeout(progress));
+  update();
+  progress();
+  return{
+    delivery(){return liv.value.trim()?[['Lieu de livraison',liv.value.trim()]]:[]},
+    reset(){same.checked=false;liv.readOnly=false;liv.classList.remove('is-same');setTimeout(()=>{update();progress()})},
+    lines(){
+      const out=[];
+      const visible=[...box.querySelectorAll('.dq-multi:not([hidden]),.dq-b:not([hidden]),.dq-body>.dq-g')];
+      visible.forEach(scope=>(scope.matches('[data-q]')?[scope]:[...scope.querySelectorAll('[data-q]')]).forEach(q=>{
+        const vals=[...q.querySelectorAll('input')].filter(i=>(i.type==='checkbox'||i.type==='radio')?i.checked:i.value.trim()).map(i=>i.value.trim());
+        if(vals.length)out.push([q.dataset.q,vals.join(', ')]);
+      }));
+      return out;
+    }
+  };
+})();
 
 form.querySelectorAll('input,select,textarea').forEach(el=>{
 
@@ -585,7 +682,8 @@ form.addEventListener('submit',e=>{
 
   const val=id=>{const el=document.getElementById(id);return el?el.value.trim():''};
 
-  const L=[['Nom et prénom',val('n')],['Téléphone',val('t')],['Email',val('e')],['Lieu du chantier',val('l')],['Prestation',val('s')],['Volume estimé',val('v')],['Détails du chantier',val('m')]];
+  const volLbl=(document.querySelector('label[for="v"]')||{}).textContent||'Volume estimé';
+  const L=[['Nom et prénom',val('n')],['Téléphone',val('t')],['Email',val('e')],['Lieu du chantier',val('l')],...(dq?dq.delivery():[]),['Prestation',val('s')],[volLbl.trim(),val('v')],...(dq?dq.lines():[]),['Détails du chantier',val('m')]];
 
   const corps=L.filter(([,v])=>v).map(([k,v])=>k+' : '+v).join('\n');
 
@@ -598,6 +696,8 @@ form.addEventListener('submit',e=>{
   okBox.style.display='block';
 
   form.reset();
+
+  if(dq)dq.reset();
 
   fields.forEach(el=>setErr(el,''));
 

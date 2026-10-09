@@ -19,9 +19,9 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 }
 </script>
 
-<title>Cannan-Minning | Dragage, BTP et agr&eacute;gats</title>
+<title>Cannan-Minning | Dragage, BTP, dynamitage et agr&eacute;gats</title>
 
-<meta name="description" content="Dragage, terrassement BTP et fourniture de sable et agr&eacute;gats. D&eacute;couvrez en une seule page nos prestations, notre expertise, nos mat&eacute;riaux et demandez votre devis.">
+<meta name="description" content="Dragage, terrassement BTP, dynamitage et minage de roche, fourniture de sable et agr&eacute;gats. D&eacute;couvrez en une seule page nos prestations, notre expertise, nos mat&eacute;riaux et demandez votre devis.">
 
 <meta name="theme-color" content="#16306E">
 
@@ -31,9 +31,9 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
 <meta property="og:site_name" content="Cannan-Minning">
 
-<meta property="og:title" content="Cannan-Minning | Dragage, BTP et agr&eacute;gats">
+<meta property="og:title" content="Cannan-Minning | Dragage, BTP, dynamitage et agr&eacute;gats">
 
-<meta property="og:description" content="Dragage, terrassement BTP et fourniture de sable et agr&eacute;gats. Toutes nos prestations r&eacute;unies en une page.">
+<meta property="og:description" content="Dragage, terrassement BTP, dynamitage et fourniture de sable et agr&eacute;gats. Toutes nos prestations r&eacute;unies en une page.">
 
 <meta name="twitter:card" content="summary_large_image">
 
@@ -47,7 +47,7 @@ if(navigationEntry&&navigationEntry.type==='reload'){
 
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Jost:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=20261008-9">
+<link rel="stylesheet" href="styles.css?v=20261009-6">
 
 <style>
 /* One-page : état actif de la navigation visible à toutes les largeurs */
@@ -213,7 +213,7 @@ html{zoom:1}
   .service-intro .lb{grid-column:1;justify-self:start}
   .service-intro h2{grid-column:1;max-width:660px;margin-top:18px;font-size:clamp(1.9rem,2.9vw,2.7rem);letter-spacing:-.045em}
   .service-intro p{grid-column:2;grid-row:1 / span 2;align-self:center;max-width:330px;margin:0;padding-left:26px;border-left:1px solid #d9e2e8;color:#4d6072;font-size:12.5px;font-style:italic;line-height:1.8}
-  .service-intro::after{content:"Index 01 · 02 · 03";grid-column:1;grid-row:2;align-self:end;color:#8fa3b2;font-family:'Archivo',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.34em;text-transform:uppercase}
+  .service-intro::after{content:"Index 01 · 02 · 03 · 04";grid-column:1;grid-row:2;align-self:end;color:#8fa3b2;font-family:'Archivo',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.34em;text-transform:uppercase}
 }
 @media(max-width:1100px){.service-intro::after{display:none}}
 .page-services .service-list{gap:14px}
@@ -260,7 +260,12 @@ html{zoom:1}
 .page-services .service-row .service-row__body .service-features{margin-top:16px}
 .page-services .service-row .service-row__body .svc-f{margin-top:18px}
 @media(max-width:1100px) and (min-width:901px){
-  .page-services .service-row{padding:20px 20px}
+  .page-services .service-list{flex-wrap:wrap}
+  .page-services .service-row{flex:1 1 calc(50% - 8px);padding:20px 20px}
+  .page-services .service-row__image{height:160px}
+}
+@media(min-width:1101px){
+  .page-services .service-row{padding:22px 22px}
   .page-services .service-row__image{height:160px}
 }
 @media(max-width:900px){
@@ -417,6 +422,7 @@ html{zoom:1}
 .page-services .service-row.rv{transition:opacity .7s var(--e),transform .7s var(--e)}
 .page-services .service-row[data-i="02"].rv{transition-delay:.1s}
 .page-services .service-row[data-i="03"].rv{transition-delay:.2s}
+.page-services .service-row[data-i="04"].rv{transition-delay:.3s}
 
 /* Titres : vague lumineuse balayante */
 @keyframes hShine{0%{background-position:200% 0}100%{background-position:-200% 0}}
@@ -512,7 +518,7 @@ html{zoom:1}
       <span class="intro-loader__shine" aria-hidden="true"></span>
     </div>
 
-    <span class="intro-loader__caption">Dragage · BTP · Agrégats</span>
+    <span class="intro-loader__caption">Dragage · BTP · Minage · Agrégats</span>
 
     <span class="intro-loader__track" aria-hidden="true"><span></span></span>
 
@@ -581,7 +587,7 @@ html{zoom:1}
 
       <span class="br-m"><img src="img/logo-icon.png" alt="" width="44" height="44" decoding="async"></span>
 
-      <span><span class="br-n">CANNAN<i>-</i>MINING</span><span class="br-s">Dragage · BTP · Agrégats</span></span>
+      <span><span class="br-n">CANNAN<i>-</i>MINING</span><span class="br-s">Dragage · BTP · Minage · Agrégats</span></span>
 
     </a>
 
@@ -771,7 +777,7 @@ html{zoom:1}
     <div class="home-intro__copy">
       <span class="lb"><span class="ix">01</span> Cannan-Minning</span>
       <h2 id="home-intro-title">Du terrain à la réalisation</h2>
-      <p>Nous accompagnons vos chantiers avec des moyens adaptés et une organisation claire. Du dragage à l’approvisionnement, chaque intervention est préparée selon le terrain, les volumes et vos délais.</p>
+      <p>Nous accompagnons vos chantiers avec des moyens adaptés et une organisation claire. Du dragage au dynamitage de roche, jusqu’à l’approvisionnement, chaque intervention est préparée selon le terrain, les volumes et vos délais.</p>
       <a class="b b-n" href="#dispositif">Découvrir notre expertise <span aria-hidden="true">→</span></a>
     </div>
     <div class="home-intro__media">
@@ -787,7 +793,7 @@ html{zoom:1}
     <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M5 17V9h6v8m2 0 3-9 5 2-4 7"/></svg></span><b>Dragage</b><small>Curage et extraction</small></div>
     <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20v-1.5A5.5 5.5 0 0 1 8 13h1a5.5 5.5 0 0 1 5.5 5.5V20M15 14h1a4 4 0 0 1 4 4v2"/></svg></span><b>BTP</b><small>Terrassement et aménagement</small></div>
     <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9l8-5 8 5v10H4Z"/><path d="M8 19v-5h8v5"/></svg></span><b>Matériaux</b><small>Sable et agrégats</small></div>
-    <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b>Suivi</b><small>Organisation des interventions</small></div>
+    <div class="home-stat"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M4.9 4.9l2.1 2.1M2 12h3M19.1 4.9 17 7M22 12h-3"/><path d="M7 21l2.5-7h5L17 21"/><path d="M9.5 14l2.5-4 2.5 4"/></svg></span><b>Minage</b><small>Dynamitage et déroctage</small></div>
   </div>
 </section>
 
@@ -911,6 +917,41 @@ html{zoom:1}
 
       </article>
 
+      <article class="service-row rv" data-i="04">
+
+        <img class="service-row__image" src="img/hero-5.jpg" alt="Carrière et installation de traitement de la roche" loading="lazy" decoding="async">
+
+        <div class="service-row__body">
+
+        <div class="svc-t">
+
+          <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M4.9 4.9l2.1 2.1M2 12h3M19.1 4.9 17 7M22 12h-3"/><path d="M7 21l2.5-7h5L17 21"/><path d="M9.5 14l2.5-4 2.5 4"/></svg></span>
+
+          <span class="svc-n"><svg viewBox="0 0 24 24"><path d="M12 2v3M4.9 4.9l2.1 2.1M2 12h3M19.1 4.9 17 7M22 12h-3"/><path d="M7 21l2.5-7h5L17 21"/><path d="M9.5 14l2.5-4 2.5 4"/></svg><i>04</i></span>
+
+        </div>
+
+        <h3>Dynamitage &amp; minage<em>Forage · tir · déroctage</em></h3>
+
+        <p>Nous réalisons l’abattage de roche à l’explosif lorsque les engins ne suffisent plus : ouverture de fouilles et de tranchées en terrain rocheux, déroctage d’emprises et exploitation de carrière, dans le respect des règles de sécurité.</p>
+        <ul class="service-features"><li>Étude du massif et plan de tir</li><li>Forage, chargement et tir par boutefeux qualifiés</li><li>Périmètre de sécurité, contrôle des vibrations et purge</li></ul>
+
+        <div class="svc-f">
+
+          <span>Sur étude et autorisations</span>
+
+          <a href="#devis" class="svc-a">Demander un devis
+
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+
+          </a>
+
+        </div>
+
+        </div>
+
+      </article>
+
     </div>
 
     <div class="service-process">
@@ -986,7 +1027,7 @@ html{zoom:1}
     </div>
     <div class="commitment-grid">
       <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M7 18V5h10v13M10 9h4M10 12h4M10 15h4"/></svg></span><h3>Lecture du terrain</h3><p>Nous prenons en compte la nature du site, ses accès, les zones de travail et les contraintes de circulation avant de proposer les moyens à engager.</p><ul><li>Repérage des accès et des zones d’intervention</li><li>Prise en compte des volumes à déplacer</li><li>Préparation du déroulement des travaux</li></ul></article>
-      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c1.5-3 3.5-4.5 6-4.5 3 0 5 2 7 5M7 8h.01M17 8h.01M12 6h.01"/></svg></span><h3>Moyens de chantier</h3><p>Selon la mission, nous organisons la mobilisation d’engins et d’équipes pour réaliser les opérations de dragage, de terrassement et de manutention.</p><ul><li>Dragline et pelle hydraulique selon le site</li><li>Organisation des rotations et du chargement</li><li>Coordination des interventions sur le terrain</li></ul></article>
+      <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c1.5-3 3.5-4.5 6-4.5 3 0 5 2 7 5M7 8h.01M17 8h.01M12 6h.01"/></svg></span><h3>Moyens de chantier</h3><p>Selon la mission, nous organisons la mobilisation d’engins et d’équipes pour réaliser les opérations de dragage, de terrassement, de minage et de manutention.</p><ul><li>Dragline et pelle hydraulique selon le site</li><li>Foreuses et équipes de tir pour la roche</li><li>Organisation des rotations et du chargement</li><li>Coordination des interventions sur le terrain</li></ul></article>
       <article class="commitment-card rv"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h7V4h9v9h-7v7H4zM11 17h7"/></svg></span><h3>Approvisionnement &amp; suivi</h3><p>Nous coordonnons la fourniture de matériaux et gardons un échange clair sur le planning, les quantités et l’avancement de la prestation.</p><ul><li>Sable, granulats et petites roches selon disponibilité</li><li>Volumes et point de livraison définis en amont</li><li>Suivi des étapes et ajustements convenus</li></ul></article>
     </div>
   </div>
@@ -1022,7 +1063,7 @@ html{zoom:1}
         <span class="lb"><span class="ix">06</span> Nos réalisations</span>
         <h2>Des interventions concrètes, adaptées à chaque terrain.</h2>
       </div>
-      <p>Voici quelques exemples de travaux réalisés dans des contextes variés : dragage, terrassement, aménagement de plate-forme et fourniture d’agrégats.</p>
+      <p>Voici quelques exemples de travaux réalisés dans des contextes variés : dragage, terrassement, minage de roche, aménagement de plate-forme et fourniture d’agrégats.</p>
     </div>
 
     <div class="project-filters" role="group" aria-label="Filtrer les réalisations">
@@ -1031,6 +1072,7 @@ html{zoom:1}
       <button type="button" class="project-filter" data-filter="btp" aria-pressed="false">BTP</button>
       <button type="button" class="project-filter" data-filter="terrassement" aria-pressed="false">Terrassement</button>
       <button type="button" class="project-filter" data-filter="agregats" aria-pressed="false">Agrégats</button>
+      <button type="button" class="project-filter" data-filter="minage" aria-pressed="false">Minage</button>
     </div>
 
     <div class="gal expertise-showcase">
@@ -1078,6 +1120,17 @@ html{zoom:1}
           <p>Livraison régulière et contrôlée pour des projets BTP et de terrassement.</p>
           <span class="g-l">Parler de mon chantier
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </span>
+      </a>
+      <a href="#devis" class="g rv" data-category="minage">
+        <span class="g-img"><img loading="lazy" decoding="async" src="img/hero-5.jpg" alt="Carrière et installation de traitement de la roche"></span>
+        <span class="g-b">
+          <span class="g-tag">Minage</span>
+          <h3>Minage sur pipeline</h3>
+          <p>Minage de roche sur l’axe de passage du pipeline Bénin–Niger, avec Benin Construction Groupe.</p>
+          <span class="g-l">Parler de mon chantier
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
           </span>
         </span>
       </a>
@@ -1165,7 +1218,7 @@ html{zoom:1}
     <div class="about-intro rv">
       <span class="lb"><span class="ix">08</span> &Agrave; propos</span>
       <h2>Un partenaire opérationnel pour vos travaux et vos matériaux.</h2>
-      <p>Cannan-Minning accompagne les chantiers de dragage, de terrassement et de fourniture d’agrégats. Notre rôle est de comprendre les contraintes du terrain, de préciser les moyens nécessaires et de coordonner les étapes avec vous, de la préparation à la livraison convenue.</p>
+      <p>Cannan-Minning accompagne les chantiers de dragage, de terrassement, de dynamitage et de fourniture d’agrégats. Notre rôle est de comprendre les contraintes du terrain, de préciser les moyens nécessaires et de coordonner les étapes avec vous, de la préparation à la livraison convenue.</p>
     </div>
 
     <div class="about-pillars">
@@ -1175,7 +1228,7 @@ html{zoom:1}
         </span>
         <span class="about-pillar__eyebrow">Ce que nous faisons</span>
         <h3>Des métiers complémentaires</h3>
-        <p>Dragage, curage, extraction, préparation de plateformes, nivellement et approvisionnement en sable ou agrégats : les prestations s’organisent selon le besoin réel du chantier.</p>
+        <p>Dragage, curage, extraction, préparation de plateformes, nivellement, minage de roche et approvisionnement en sable ou agrégats : les prestations s’organisent selon le besoin réel du chantier.</p>
       </article>
       <article class="about-pillar rv">
         <span class="about-pillar__icon" aria-hidden="true">
@@ -1276,7 +1329,7 @@ html{zoom:1}
 
     <div class="about-contact-strip content-cta">
       <div>
-        <span class="about-contact-strip__eyebrow">Un projet de dragage, de terrassement ou d’approvisionnement&nbsp;?</span>
+        <span class="about-contact-strip__eyebrow">Un projet de dragage, de terrassement, de minage ou d’approvisionnement&nbsp;?</span>
         <b>Décrivons ensemble votre besoin.</b>
       </div>
       <a class="b b-b" href="#devis">Parler de votre projet <svg class="t" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -1326,7 +1379,7 @@ html{zoom:1}
             <div class="ct-i">
 
               <span>Domaines d’intervention</span>
-              <b>Dragage, BTP &amp; agrégats</b>
+              <b>Dragage, BTP, minage &amp; agrégats</b>
               <small>Précisez le lieu et le type de chantier dans votre demande.</small>
 
             </div>
@@ -1391,7 +1444,7 @@ html{zoom:1}
 
           <div class="fd"><label for="s">Prestation</label>
 
-            <select id="s" name="service"><option value="">Sélectionnez une prestation</option><option>Dragage et curage</option><option>BTP et terrassement</option><option>Fourniture de sable et agrégats</option><option>Plusieurs prestations</option></select>
+            <select id="s" name="service"><option value="">Sélectionnez une prestation</option><option>Dragage et curage</option><option>BTP et terrassement</option><option>Fourniture de sable et agrégats</option><option>Dynamitage et minage</option><option>Plusieurs prestations</option></select>
 
           </div>
 
@@ -1441,9 +1494,9 @@ html{zoom:1}
     <div class="fx-brand">
       <a href="#top" class="fx-logo">
         <img src="img/logo-icon.png" alt="" width="48" height="48" decoding="async">
-        <span><strong>CANNAN-MINING</strong><small>Dragage &middot; BTP &middot; Agr&eacute;gats</small></span>
+        <span><strong>CANNAN-MINING</strong><small>Dragage &middot; BTP &middot; Minage &middot; Agr&eacute;gats</small></span>
       </a>
-      <p>Des solutions adapt&eacute;es &agrave; vos chantiers de dragage, de terrassement et d'approvisionnement en sable et agr&eacute;gats.</p>
+      <p>Des solutions adapt&eacute;es &agrave; vos chantiers de dragage, de terrassement, de dynamitage et d'approvisionnement en sable et agr&eacute;gats.</p>
       <div class="fx-actions">
         <a class="fx-btn" href="#devis">Demander un devis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="fx-wa" href="https://wa.me/2290197988688?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20vos%20services." target="_blank" rel="noopener noreferrer" aria-label="Nous écrire sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
@@ -1465,6 +1518,7 @@ html{zoom:1}
       <ul>
         <li><a href="#services">Dragage &amp; extraction</a></li>
         <li><a href="#services">BTP &amp; terrassement</a></li>
+        <li><a href="#services">Dynamitage &amp; minage</a></li>
         <li><a href="#materiaux">Sable &amp; agr&eacute;gats</a></li>
         <li><a href="#materiaux">Livraison sur chantier</a></li>
       </ul>
@@ -1494,7 +1548,7 @@ html{zoom:1}
 </nav>
 <a href="#devis" class="fab" id="fab"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-5.1A8.4 8.4 0 0112 3.1a8.4 8.4 0 019 8.4z"/></svg><span>Devis gratuit</span></a>
 <a class="wa" href="https://wa.me/2290197988688?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20vos%20services." target="_blank" rel="noopener noreferrer" aria-label="Discuter directement avec Cannan-Minning sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.9-4.4-4.1-.1-.2-1-1.4-.9-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.2z"/></svg></a>
-<script src="site.js?v=20261008-9"></script>
+<script src="site.js?v=20261009-5"></script>
 
 <!-- One-page : état actif de la navigation synchronisé avec la section affichée -->
 <script>
