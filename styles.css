@@ -3458,7 +3458,8 @@ body>.mn.mp.on>.mp-card{opacity:1;transform:none}
 .dq.is-done .dq-hd__ic{border-color:transparent;background:#f5c518;color:#0b1f3d}
 
 .dq-body{counter-reset:dqn;padding:20px 20px 6px;background:linear-gradient(180deg,#f6fafc 0,#fff 140px)}
-.dq-b[hidden],.dq-multi[hidden]{display:none}
+.dq-b[hidden],.dq-multi[hidden],.dq-vol[hidden]{display:none}
+.fr:has(>.dq-vol[hidden])>.fd{grid-column:1/-1}
 .dq-b{animation:dqIn .45s var(--e)}
 @keyframes dqIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 .dq-b h4{display:flex;align-items:center;gap:10px;margin:0 0 16px;padding:0 0 12px;border-bottom:1px solid #e6eef4;color:#0b1f3d;font-family:'Archivo',sans-serif;font-size:14px;font-weight:800;letter-spacing:-.005em}
